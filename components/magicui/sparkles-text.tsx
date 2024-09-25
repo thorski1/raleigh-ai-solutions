@@ -62,7 +62,7 @@ interface SparklesTextProps {
 
 const SparklesText: React.FC<SparklesTextProps> = ({
   text,
-  colors = { first: '#9E7AFF', second: '#FE8BBB' },
+  colors = { first: 'hsl(199 89% 48%)', second: 'hsl(172 66% 50%)' },
   className,
   sparklesCount = 10,
   ...props
@@ -136,7 +136,7 @@ const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
         scale: [0, scale, 0],
         rotate: [75, 120, 150],
       }}
-      transition={{ duration: 0.8, repeat: Infinity, delay }}
+      transition={{ duration: 2, repeat: Infinity, delay }}
       width="21"
       height="21"
       viewBox="0 0 21 21"
