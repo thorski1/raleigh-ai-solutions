@@ -11,7 +11,7 @@
 - [x] Configure Magic UI for micro-animations (Pending: Resolve @magicui/react import issue)
 - [x] Set up tRPC for API routes
 - [x] Initialize Supabase client
-- [ ] Set up Storybook with Next.js 14 support
+- [x] Set up Storybook with Next.js 14 support
   - [x] Install Storybook and initialize with Next.js framework
   - [x] Configure Storybook for Next.js App Router
   - [x] Set up Storybook with experimental Vite builder
@@ -34,10 +34,10 @@
   - [x] Add a prominent call-to-action button using ShinyButton component
   - [x] Implement background with AI-themed graphics using FlickeringGrid component
   - [x] Add a typing animation effect using TypingAnimation component for subheadline
-- [ ] Create service overview section
-  - [ ] Design service cards with icons and brief descriptions using MagicCard component
-  - [ ] Implement grid layout for service cards
-  - [ ] Add hover effects and animations to cards using Shine Border component
+- [x] Create service overview section
+  - [x] Design service cards with icons and brief descriptions using MagicCard component
+  - [x] Implement grid layout for service cards
+  - [x] Add hover effects and animations to cards using Shine Border component
 - [ ] Develop "Why Choose Us" comparison section
   - [ ] Create a table or side-by-side comparison layout
   - [ ] Add icons or graphics to illustrate key points
