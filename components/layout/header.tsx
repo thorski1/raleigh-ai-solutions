@@ -17,9 +17,9 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-foreground shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-foreground/50 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
+        {!isMenuOpen && (<div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/" className="flex items-center">
               <Image src="/logo.png" alt="RaleighAI Logo" width={75} height={75} />
@@ -28,8 +28,8 @@ const Header = () => {
           <div className="-mr-2 -my-2 md:hidden">
             <button
               type="button"
-              className="bg-background rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="bg-background/50 rounded-md p-2 inline-flex items-center justify-center text-foreground hover:text-primary hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              onClick={toggleMenu}
             >
               <span className="sr-only">Open menu</span>
               {isMenuOpen ? (
@@ -40,32 +40,32 @@ const Header = () => {
             </button>
           </div>
           <nav className="hidden md:flex space-x-10">
-            <Link href="/about" className="text-base font-medium text-gray-300 hover:text-white">
+            <Link href="/about" className="text-base font-medium text-background hover:text-primary">
               About
             </Link>
             <Link
               href="/services"
-              className="text-base font-medium text-gray-300 hover:text-white"
+              className="text-base font-medium text-background hover:text-primary"
             >
               Services
             </Link>
             <Link
               href="/contact"
-              className="text-base font-medium text-gray-300 hover:text-white"
+              className="text-base font-medium text-background hover:text-primary"
             >
               Contact
             </Link>
           </nav>
-        </div>
+        </div>)}
       </div>
 
       {/* Mobile menu */}
       <div
         className={`${
           isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-        } fixed top-0 right-0 bottom-0 w-full md:hidden bg-gray-900 z-50 transition-all duration-300 ease-in-out`}
+        } fixed top-0 right-0 bottom-0 w-full md:hidden bg-foreground/50 backdrop-blur-md z-50 transition-all duration-300 ease-in-out`}
       >
-        <div className="pt-5 pb-6 px-5">
+        <div className="pt-5 pb-6 px-5 bg-foreground/70 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <div>
               <Image src="/logo.png" alt="RaleighAI Logo" width={75} height={75} />
