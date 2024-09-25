@@ -36,7 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 # pnpm
-pnpm-lock.yaml
 .pnpm-store/
 
 *storybook.log
