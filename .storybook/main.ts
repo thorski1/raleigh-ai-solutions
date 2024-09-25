@@ -1,34 +1,24 @@
-import { StorybookConfig } from '@storybook/experimental-nextjs-vite';
-import { mergeConfig } from 'vite';
+import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
-  framework: '@storybook/experimental-nextjs-vite',
-  stories: ['../stories/*.mdx', '../stories/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-onboarding",
+    "@storybook/addon-interactions",
+    "@storybook/addon-docs",
   ],
-  // Add Vite-specific configurations here if needed
-  viteFinal: async (config) => {
-    return mergeConfig(config, {
-      plugins: [
-        {
-          name: 'storybook-vitest-plugin',
-          config: () => ({
-            test: {
-              globals: true,
-              environment: 'jsdom',
-              include: ['**/*.stories.@(js|jsx|ts|tsx)'],
-            },
-          }),
-        },
-      ],
-    });
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
   },
   docs: {
-    autodocs: 'tag',
+    autodocs: "tag",
+  },
+  staticDirs: ["../public"],
+  features: {
+    experimentalRSC: true,
   },
 };
 

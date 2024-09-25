@@ -19,7 +19,7 @@
   - [x] Set up Storybook test runner
   - [x] Configure Storybook addons (a11y, interactions, coverage)
   - [x] Set up Chromatic for visual regression testing
-  - [ ] Create initial stories for key components
+  - [x] Create initial stories for key components
   - [ ] Implement Storybook docs for component documentation
 
 ## Frontend Development
