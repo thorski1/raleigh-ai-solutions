@@ -14,11 +14,11 @@
 - [ ] Set up Storybook with Next.js 14 support
   - [x] Install Storybook and initialize with Next.js framework
   - [x] Configure Storybook for Next.js App Router
-  - [ ] Set up Storybook with experimental Vite builder
-  - [ ] Install and configure Vitest plugin for Storybook
-  - [ ] Set up Storybook test runner
-  - [ ] Configure Storybook addons (a11y, interactions, coverage)
-  - [ ] Set up Chromatic for visual regression testing
+  - [x] Set up Storybook with experimental Vite builder
+  - [x] Install and configure Vitest plugin for Storybook
+  - [x] Set up Storybook test runner
+  - [x] Configure Storybook addons (a11y, interactions, coverage)
+  - [x] Set up Chromatic for visual regression testing
   - [ ] Create initial stories for key components
   - [ ] Implement Storybook docs for component documentation
 
