@@ -38,15 +38,17 @@
   - [x] Design service cards with icons and brief descriptions using MagicCard component
   - [x] Implement grid layout for service cards
   - [x] Add hover effects and animations to cards using Shine Border component
-- [ ] Develop "Why Choose Us" comparison section
-  - [ ] Create a table or side-by-side comparison layout
-  - [ ] Add icons or graphics to illustrate key points
-  - [ ] Implement responsive design for mobile viewing
-  - [ ] Use NumberTicker component to display impressive statistics
-- [ ] Build case studies and success stories section
-  - [ ] Design individual case study cards using NeonGradientCard component
-  - [ ] Implement a carousel or grid for multiple case studies
-  - [ ] Add "Read More" functionality for each case study using PulsatingButton component
+- [x] Develop "Why Choose Us" comparison section
+  - [x] Create a table or side-by-side comparison layout
+  - [x] Add icons or graphics to illustrate key points
+  - [x] Implement responsive design for mobile viewing
+  - [x] Use NumberTicker component to display impressive statistics
+  - [x] Create Storybook story for WhyChooseUs component
+- [x] Build case studies and success stories section
+  - [x] Design individual case study cards using NeonGradientCard component
+  - [x] Implement a carousel for multiple case studies
+  - [x] Add "Read More" functionality for each case study using PulsatingButton component
+  - [x] Create Storybook story for CaseStudies component
 - [ ] Implement CTA sections
   - [ ] Design primary CTA with compelling copy using RainbowButton component
   - [ ] Create secondary CTAs throughout the page using ShimmerButton component
@@ -178,7 +180,7 @@
 ## Testing
 
 - [ ] Set up Vitest for unit testing
-- [ ] Configure Storybook interactions for component testing
+- [x] Configure Storybook interactions for component testing
 - [ ] Implement visual regression testing with Chromatic
 - [ ] Write unit tests for components and business logic using Vitest
 - [ ] Create interaction tests for components using Storybook
