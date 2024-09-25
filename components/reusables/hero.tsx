@@ -31,10 +31,11 @@ export default function Hero() {
           <SparklesText
             text="Revolutionize Your Business with AI"
             className="text-4xl md:text-7xl font-extrabold text-white"
+            sparklesCount={4}
           />
         </h1>
 
-        <div className="h-20">
+        <div>
           <TypingAnimation text="Boost Productivity" className="text-xl md:text-2xl text-indigo-200" />
           <TypingAnimation text="Enhance Decision Making" className="text-xl md:text-2xl text-indigo-200" />
         </div>
@@ -48,11 +49,11 @@ export default function Hero() {
           ref={ctaRef}
           className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
         >
-          <ShinyButton variant="primary">
-            <p className="text-secondary-foreground">Get Started</p>
+          <ShinyButton variant="primary" className="w-full sm:w-auto">
+            <p className="text-secondary-foreground font-semibold">Get Started</p>
           </ShinyButton>
-          <ShinyButton variant="secondary">
-            <p className="text-secondary-foreground">Learn More</p>
+          <ShinyButton variant="secondary" className="w-full sm:w-auto">
+            <p className="text-secondary-foreground font-semibold">Learn More</p>
           </ShinyButton>
         </div>
       </div>

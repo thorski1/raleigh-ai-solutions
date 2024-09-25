@@ -6,6 +6,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   parameters: {
     layout: 'fullscreen',
+    tags: ['autodocs'],
     nextjs: {
       appDirectory: true,
     },
