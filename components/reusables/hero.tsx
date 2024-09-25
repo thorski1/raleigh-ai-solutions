@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <div
       ref={containerRef}
-      className="relative py-8 md:py-16 lg:py-24 flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary"
+      className="relative py-8 md:py-16 lg:py-24 pt-32 md:pt-32 lg:pt-40 flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary"
     >
       <FlickeringGrid className="absolute inset-0 z-0 opacity-30" />
       <BorderBeam className="absolute inset-0 z-10" />
@@ -30,7 +30,7 @@ export default function Hero() {
         <h1 ref={headlineRef} className="mb-6">
           <SparklesText
             text="Revolutionize Your Business with AI"
-            className="text-5xl md:text-7xl font-extrabold text-white"
+            className="text-4xl md:text-7xl font-extrabold text-white"
           />
         </h1>
 
