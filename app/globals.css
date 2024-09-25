@@ -1,27 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Accent colors for various UI elements */
+    --color-1: 0 100% 63%;    /* Bright red */
+    --color-2: 270 100% 63%;  /* Vibrant purple */
+    --color-3: 210 100% 63%;  /* Sky blue */
+    --color-4: 195 100% 63%;  /* Cyan */
+    --color-5: 90 100% 63%;   /* Lime green */
+
+    /* Main theme colors */
+    --background: 210 40% 98%;  /* Very light blue-gray */
+    --foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+
+    --card: 0 0% 100%;  /* White */
+    --card-foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+
+    --popover: 0 0% 100%;  /* White */
+    --popover-foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+
+    --primary: 199 89% 48%;  /* Bright blue */
+    --primary-foreground: 210 40% 98%;  /* Very light blue-gray */
+
+    --secondary: 172 66% 50%;  /* Teal */
+    --secondary-foreground: 222.2 47.4% 11.2%;  /* Dark blue-gray */
+
+    --muted: 210 40% 96.1%;  /* Very light blue-gray */
+    --muted-foreground: 215.4 16.3% 46.9%;  /* Medium gray */
+
+    --accent: 306 90% 60%;  /* Bright pink */
+    --accent-foreground: 222.2 47.4% 11.2%;  /* Dark blue-gray */
+
+    --destructive: 0 84.2% 60.2%;  /* Bright red */
+    --destructive-foreground: 210 40% 98%;  /* Very light blue-gray */
+
+    --border: 214.3 31.8% 91.4%;  /* Light gray */
+    --input: 214.3 31.8% 91.4%;  /* Light gray */
+    --ring: 199 89% 48%;  /* Bright blue */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 172 66% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 306 90% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
+    --duration: 2s;
+    --speed: 2s;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Custom styles for RaleighAI Solutions */
+.ai-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)),
+    hsl(var(--secondary)),
+    hsl(var(--accent))
+  );
+}
+
+.ai-text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+}
+
+.ai-button {
+  @apply px-4 py-2 rounded-md font-semibold text-white bg-primary hover:bg-primary/90 transition-colors duration-300;
+}
+
+.ai-card {
+  @apply bg-card text-card-foreground rounded-lg shadow-md p-6;
 }
