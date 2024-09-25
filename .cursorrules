@@ -1,0 +1,68 @@
+# Project-Specific Cursor Rules for AI
+
+You are an expert in TypeScript, Next.js 14 (with App Router), Shadcn UI, Tailwind CSS, Magic UI, tRPC, Supabase, and Vercel.
+
+## General Code Structure:
+- Always use **kebab-case** for file and folder names (e.g., `api-routes`, `user-profile.tsx`).
+- Use **TypeScript** for all files. Ensure full type safety with strict TypeScript rules (e.g., `strictNullChecks`, `noImplicitAny`).
+- Leverage **ESLint** with Airbnb or a similar configuration for code quality checks.
+- Apply **Prettier** for consistent formatting, ensuring readability and clean code.
+
+## Next.js 14 with App Router:
+- **Server Actions**: Use **Server Actions** whenever possible for server-side logic like form submissions and data handling. This will reduce client-side code and improve performance.
+  - Example: For form submissions, write `POST` logic in a server action to avoid excessive client-side API calls.
+- **File Structure**: Organize components within the `app` directory, following **kebab-case** conventions.
+  - Group related components and pages into nested folders under the `app` directory (e.g., `/app/user-profile/page.tsx`).
+- Use **dynamic routing** when handling multiple resources with a common structure (e.g., `/app/products/[productId]/page.tsx`).
+
+## tRPC and API Routes:
+- Use **tRPC** to handle all API logic via `api-routes`. Prefer **React Query** on the client side for data fetching and caching.
+- **Validation**: Apply **Zod** schema validation to all tRPC endpoints for type-safe input validation.
+  - Example: In `/app/api/trpc/[trpc]/route.ts`, ensure `Zod` schemas are applied for request validation.
+- **Server-Side Caching**: Use **React Query**’s `stale-while-revalidate` for client-side caching and performance optimization when making API requests via tRPC.
+
+## UI and Styling with Shadcn UI, Magic UI, and Tailwind CSS:
+- **Shadcn UI**: Use pre-built **Shadcn components** for UI consistency and modularity. Prioritize customizability to fit the branding and design needs of the project.
+- **Tailwind CSS**: For layout and styling, use Tailwind CSS. Stick to the utility-first classes.
+  - Tailwind Config: Ensure the config includes custom colors and themes that fit the project’s style.
+  - Example: Use Tailwind for responsive designs and apply `@media` queries when needed.
+- **Magic UI**: For micro-animations and interactive elements, apply **Magic UI** to enhance user experience, but use it sparingly to maintain performance.
+  - Example: Add subtle animations on button hover or form submissions using Magic UI components.
+
+## Database and Backend with Supabase:
+- Use **Supabase** as the primary database (PostgreSQL). All database queries and logic should be handled in **server actions** or through tRPC API routes.
+- Prefer **Supabase Auth** for authentication and role-based access control (RBAC).
+- For database interaction, use **Supabase client libraries** with full TypeScript support.
+  - Example: When fetching data, prefer the `supabase.from('table')` syntax, ensuring all queries are optimized for performance.
+
+## Vercel Hosting and Deployment:
+- All deployments will be handled through **Vercel**.
+  - Ensure the project is optimized for **Edge Functions** (serverless).
+  - Use **Vercel Analytics** for monitoring performance and user interactions.
+
+## State Management with React Query:
+- For global state, prefer **React Query** over Redux or Context API.
+- Apply React Query’s `invalidateQueries` pattern after any data mutation (e.g., updates, deletes) to keep client data fresh.
+
+## Performance Optimization:
+- **Lazy Loading**: Lazy load non-essential components like modals or third-party widgets using `React.lazy` and **Next.js dynamic imports**.
+- **Code Splitting**: Use **Next.js 14’s App Router** to enable automatic code splitting. Break up larger components into smaller, reusable parts to optimize load times.
+- Minimize the use of `use client`. Prefer **Server Components** for rendering UI whenever possible for performance.
+
+## Error Handling:
+- Use **Error Boundaries** to catch client-side errors gracefully.
+- Leverage **tRPC error handling** to provide meaningful error messages for both the client and server. Validate errors using **Zod** schemas, and return type-safe error responses.
+
+## Security:
+- Ensure all **Supabase API keys** are stored in environment variables and never hardcoded into the project.
+- Use **HTTPS** and enforce **secure headers** for all API requests (via tRPC or server actions).
+- Implement **role-based access control (RBAC)** with Supabase for sensitive data.
+
+## Tests:
+- Apply **unit tests** for all business logic and **integration tests** for key components.
+  - Use **Jest** or **Vitest** for unit testing components and logic.
+  - For integration testing with tRPC, ensure you cover API routes and database interactions.
+
+## Logging and Monitoring:
+- Use **Vercel Logs** and **Supabase logs** for monitoring server-side operations.
+- Implement structured logging using libraries like **Winston** or **Pino** for both server and client-side logs.
