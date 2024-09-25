@@ -10,7 +10,7 @@ const meta: Meta<typeof ServiceCard> = {
     icon: { control: 'object' },
     title: { control: 'text' },
     description: { control: 'text' },
-  },
+    },
 };
 
 export default meta;

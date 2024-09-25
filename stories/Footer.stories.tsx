@@ -6,6 +6,7 @@ const meta: Meta<typeof Footer> = {
   component: Footer,
   parameters: {
     layout: 'fullscreen',
+    tags: ['autodocs'],
     nextjs: {
       appDirectory: true,
     },
