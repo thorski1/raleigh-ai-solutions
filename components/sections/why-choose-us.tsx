@@ -48,7 +48,7 @@ const comparisonData = [
 export function WhyChooseUs() {
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
-          <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4">
         <SectionHeadline text="Why Choose RaleighAI Solutions?" color="white" />
         <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[20rem] gap-6">
           {comparisonData.map((item, index) => (

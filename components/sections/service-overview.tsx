@@ -32,10 +32,10 @@ export function ServiceOverview() {
   ];
 
   return (
-    <section className="py-8 md:py-12 lg:py-16 bg-secondary/10">
-          <div className="container mx-auto px-4 md:px-0">
+    <section className="py-8 md:py-12 lg:py-16 bg-secondary/10 overflow-hidden">
+      <div className="container mx-auto px-4">
         <SectionHeadline text="Our AI and Automation Services" color="secondary" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}

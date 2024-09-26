@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className)}>
+      <body className={cn(inter.className, 'overflow-x-hidden')}>
         <Header />
-        <main>
+        <main className="overflow-x-hidden">
           {children}
         </main>
         <Footer />
