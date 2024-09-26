@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -19,44 +19,49 @@ const Header = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-foreground/50 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {!isMenuOpen && (<div className="flex justify-between items-center md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo.png" alt="RaleighAI Logo" width={75} height={75} />
-            </Link>
+        {!isMenuOpen && (
+          <div className="flex justify-between items-center md:justify-start md:space-x-10">
+            <div className="flex justify-start lg:w-0 lg:flex-1">
+              <Link href="/" className="flex items-center">
+                <Image src="/logo.png" alt="Raleigh AI Logo" width={75} height={75} />
+              </Link>
+            </div>
+            <div className="-mr-2 -my-2 md:hidden">
+              <button
+                type="button"
+                className="bg-background/50 rounded-md p-2 inline-flex items-center justify-center text-foreground hover:text-primary hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                onClick={toggleMenu}
+              >
+                <span className="sr-only">Open menu</span>
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-6 w-6" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+            <nav className="hidden md:flex space-x-10">
+              <Link
+                href="/about-us"
+                className="text-base font-medium text-background hover:text-primary"
+              >
+                About
+              </Link>
+              <Link
+                href="/services"
+                className="text-base font-medium text-background hover:text-primary"
+              >
+                Services
+              </Link>
+              <Link
+                href="/contact"
+                className="text-base font-medium text-background hover:text-primary"
+              >
+                Contact
+              </Link>
+            </nav>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
-            <button
-              type="button"
-              className="bg-background/50 rounded-md p-2 inline-flex items-center justify-center text-foreground hover:text-primary hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-              onClick={toggleMenu}
-            >
-              <span className="sr-only">Open menu</span>
-              {isMenuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
-          <nav className="hidden md:flex space-x-10">
-            <Link href="/about" className="text-base font-medium text-background hover:text-primary">
-              About
-            </Link>
-            <Link
-              href="/services"
-              className="text-base font-medium text-background hover:text-primary"
-            >
-              Services
-            </Link>
-            <Link
-              href="/contact"
-              className="text-base font-medium text-background hover:text-primary"
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>)}
+        )}
       </div>
 
       {/* Mobile menu */}
@@ -68,7 +73,7 @@ const Header = () => {
         <div className="pt-5 pb-6 px-5 bg-foreground/95 backdrop-blur-md">
           <div className="flex items-center justify-between">
             <div>
-              <Image src="/logo.png" alt="RaleighAI Logo" width={150} height={150} />
+              <Image src="/logo.png" alt="Raleigh AI Logo" width={150} height={150} />
             </div>
             <div className="-mr-2 self-start">
               <button
@@ -83,10 +88,7 @@ const Header = () => {
           </div>
           <div className="mt-6">
             <nav className="grid gap-y-8">
-              <Link
-                href="/about"
-                className="text-base font-medium text-gray-300 hover:text-white"
-              >
+              <Link href="/about-us" className="text-base font-medium text-gray-300 hover:text-white">
                 About
               </Link>
               <Link

@@ -7,40 +7,40 @@
 @layer base {
   :root {
     /* Accent colors for various UI elements */
-    --color-1: 0 100% 63%;    /* Bright red */
-    --color-2: 270 100% 63%;  /* Vibrant purple */
-    --color-3: 210 100% 63%;  /* Sky blue */
-    --color-4: 195 100% 63%;  /* Cyan */
-    --color-5: 90 100% 63%;   /* Lime green */
+    --color-1: 0 100% 63%; /* Bright red */
+    --color-2: 270 100% 63%; /* Vibrant purple */
+    --color-3: 210 100% 63%; /* Sky blue */
+    --color-4: 195 100% 63%; /* Cyan */
+    --color-5: 90 100% 63%; /* Lime green */
 
     /* Main theme colors */
-    --background: 210 40% 98%;  /* Very light blue-gray */
-    --foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+    --background: 210 40% 98%; /* Very light blue-gray */
+    --foreground: 222.2 84% 4.9%; /* Very dark blue-gray */
 
-    --card: 0 0% 100%;  /* White */
-    --card-foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%; /* Very dark blue-gray */
 
-    --popover: 0 0% 100%;  /* White */
-    --popover-foreground: 222.2 84% 4.9%;  /* Very dark blue-gray */
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222.2 84% 4.9%; /* Very dark blue-gray */
 
-    --primary: 199 89% 48%;  /* Bright blue */
-    --primary-foreground: 210 40% 98%;  /* Very light blue-gray */
+    --primary: 199 89% 48%; /* Bright blue */
+    --primary-foreground: 210 40% 98%; /* Very light blue-gray */
 
-    --secondary: 172 66% 50%;  /* Teal */
-    --secondary-foreground: 222.2 47.4% 11.2%;  /* Dark blue-gray */
+    --secondary: 172 66% 50%; /* Teal */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Dark blue-gray */
 
-    --muted: 210 40% 96.1%;  /* Very light blue-gray */
-    --muted-foreground: 215.4 16.3% 46.9%;  /* Medium gray */
+    --muted: 210 40% 96.1%; /* Very light blue-gray */
+    --muted-foreground: 215.4 16.3% 46.9%; /* Medium gray */
 
-    --accent: 306 90% 60%;  /* Bright pink */
-    --accent-foreground: 222.2 47.4% 11.2%;  /* Dark blue-gray */
+    --accent: 306 90% 60%; /* Bright pink */
+    --accent-foreground: 222.2 47.4% 11.2%; /* Dark blue-gray */
 
-    --destructive: 0 84.2% 60.2%;  /* Bright red */
-    --destructive-foreground: 210 40% 98%;  /* Very light blue-gray */
+    --destructive: 0 84.2% 60.2%; /* Bright red */
+    --destructive-foreground: 210 40% 98%; /* Very light blue-gray */
 
-    --border: 214.3 31.8% 91.4%;  /* Light gray */
-    --input: 214.3 31.8% 91.4%;  /* Light gray */
-    --ring: 199 89% 48%;  /* Bright blue */
+    --border: 214.3 31.8% 91.4%; /* Light gray */
+    --input: 214.3 31.8% 91.4%; /* Light gray */
+    --ring: 199 89% 48%; /* Bright blue */
 
     --radius: 0.5rem;
   }
@@ -104,7 +104,7 @@
   }
 }
 
-/* Custom styles for RaleighAI Solutions */
+/* Custom styles for Raleigh AI Solutions */
 .ai-gradient-bg {
   background: linear-gradient(
     135deg,

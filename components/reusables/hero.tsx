@@ -25,7 +25,7 @@ export default function Hero() {
       <BorderBeam className="absolute inset-0 z-10" />
 
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <FadeText className="text-indigo-200 text-xl" text="Welcome to RaleighAI Solutions" />
+        <FadeText className="text-indigo-200 text-xl" text="Welcome to Raleigh AI Solutions" />
 
         <h1 ref={headlineRef} className="mb-6">
           <SparklesText
