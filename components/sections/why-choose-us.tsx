@@ -8,6 +8,7 @@ import { BentoGrid, BentoCard } from '@/components/magicui/bento-grid';
 import { FadeText } from '@/components/magicui/fade-text';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import NumberTicker from '../magicui/number-ticker';
+import SectionHeadline from '../reusables/section-headline';
 
 const comparisonData = [
   {
@@ -46,11 +47,9 @@ const comparisonData = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          <FadeText className="text-white" text="Why Choose RaleighAI Solutions?" />
-        </h2>
+    <section className="py-8 md:py-12 lg:py-16 bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+          <div className="container mx-auto px-4">
+        <SectionHeadline text="Why Choose RaleighAI Solutions?" color="white" />
         <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[20rem] gap-6">
           {comparisonData.map((item, index) => (
             <BentoCard

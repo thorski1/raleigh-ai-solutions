@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { NeonGradientCard } from '@/components/magicui/neon-gradient-card';
 import PulsatingButton from '@/components/magicui/pulsating-button';
 import Marquee from '@/components/magicui/marquee';
+import SectionHeadline from '../reusables/section-headline';
 
 interface CaseStudy {
   title: string;
@@ -39,18 +41,26 @@ const caseStudies: CaseStudy[] = [
 
 export function CaseStudies() {
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden">
-      <h2 className="text-3xl font-bold text-center mb-8">Case Studies & Success Stories</h2>
-      <Marquee className="py-16 overflow-visible" pauseOnHover={true} speed={100}>
+    <section className="py-8 md:py-12 lg:py-16 bg-gray-100 overflow-hidden">
+      <SectionHeadline text="Case Studies & Success Stories" color="secondary" />
+      <Marquee className="py-8 overflow-visible" pauseOnHover={true} speed={100}>
         {caseStudies.map((study, index) => (
-          <div key={index} className="mx-4 w-80 group">
-            <NeonGradientCard className="h-full transition-transform duration-300 group-hover:scale-105">
-              <div className="flex flex-col h-full">
+          <div key={index} className="mx-2 w-80 h-[300px] group">
+            <div 
+              className="relative p-[2px] rounded-xl h-full transition-all duration-300 ease-in-out group-hover:scale-105"
+              style={{
+                '--neon-first-color': '#ff00aa',
+                '--neon-second-color': '#00FFF1',
+                '--card-width': '320px',
+                '--card-height': '300px',
+              } as React.CSSProperties}
+            >
+              <div className="bg-white rounded-[10px] p-6 h-full flex flex-col relative z-10">
                 <div className="flex-grow">
-                  <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{study.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">Industry: {study.industry}</p>
-                  <p className="mb-4">{study.description}</p>
-                  <p className="font-bold mb-4">{study.result}</p>
+                  <p className="mb-4 text-gray-700">{study.description}</p>
+                  <p className="font-bold mb-4 text-gray-800">{study.result}</p>
                 </div>
                 <div className="mt-auto">
                   <PulsatingButton className="w-full">
@@ -58,10 +68,31 @@ export function CaseStudies() {
                   </PulsatingButton>
                 </div>
               </div>
-            </NeonGradientCard>
+              <div 
+                className="absolute inset-0 rounded-xl bg-gradient-to-r from-[var(--neon-first-color)] to-[var(--neon-second-color)] opacity-75 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  backgroundSize: '200% 200%',
+                  animation: 'gradientShift 5s ease infinite',
+                }}
+              />
+              <div 
+                className="absolute inset-0 rounded-xl bg-gradient-to-r from-[var(--neon-first-color)] to-[var(--neon-second-color)] opacity-0 group-hover:opacity-20"
+                style={{
+                  backgroundSize: '200% 200%',
+                  animation: 'gradientShift 5s ease infinite',
+                }}
+              />
+            </div>
           </div>
         ))}
       </Marquee>
+      <style jsx>{`
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
     </section>
   );
 }
