@@ -23,7 +23,7 @@ export function CTASections() {
           <p className="text-lg mb-6 text-indigo-100">
             Take the first step towards operational efficiency and business growth with RaleighAI Solutions—the expert AI consultants in Raleigh NC.
           </p>
-          <RainbowButton onClick={() => console.log('Primary CTA clicked')}>
+          <RainbowButton onClick={() => console.log('Primary CTA clicked')} >
             <p className="text-primary font-semibold">Get a Free Consultation</p>
           </RainbowButton>
         </div>
