@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RaleighAI Solutions',
+  title: 'Raleigh AI Solutions',
   description: 'AI-powered digital marketing solutions',
   icons: {
     icon: '/logo.svg',
@@ -21,9 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={cn(inter.className, 'overflow-x-hidden')}>
         <Header />
-        <main className="overflow-x-hidden">
-          {children}
-        </main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,4 +1,4 @@
-# RaleighAI Solutions App Development Tasks
+# Raleigh AI Solutions App Development Tasks
 
 ## Setup and Configuration
 
@@ -59,28 +59,28 @@
   - [x] Implement responsive column layout
   - [x] Add a Marquee component to display client logos or testimonials
 - [ ] Create About Us page
-  - [ ] Design layout for About Us page
-    - [ ] Create responsive grid layout for team members and company information
+  - [x] Design layout for About Us page
+    - [x] Create responsive grid layout for team members and company information
     - [ ] Implement custom scrolling effects for different sections
-  - [ ] Develop team member showcase section
-    - [ ] Create MagicCard component for each team member
-    - [ ] Add hover effects to reveal more information about each team member
+  - [x] Develop team member showcase section
+    - [x] Create MagicCard component for each team member
+    - [x] Add hover effects to reveal more information about each team member
     - [ ] Implement lazy loading for team member images
   - [ ] Add company history timeline
     - [ ] Design interactive timeline component using TextRevealByWord
     - [ ] Implement scroll-triggered animations for timeline events
     - [ ] Add microinteractions for timeline item selection
-  - [ ] Implement values or mission statement section
-    - [ ] Create WordFadeIn component for dynamic text reveal
-    - [ ] Design visually appealing icons or graphics for each value/mission point
+  - [x] Implement values or mission statement section
+    - [x] Create WordFadeIn component for dynamic text reveal
+    - [x] Design visually appealing icons or graphics for each value/mission point
     - [ ] Add parallax scrolling effect for background elements
   - [ ] Integrate customer testimonials section
     - [ ] Implement carousel or grid layout for testimonials
     - [ ] Add rating visualization using custom star or number components
     - [ ] Create smooth transition effects between testimonials
-  - [ ] Add call-to-action section
-    - [ ] Design compelling CTA using ShinyButton component
-    - [ ] Implement scroll-triggered animation for CTA reveal
+  - [x] Add call-to-action section
+    - [x] Design compelling CTA using ShinyButton component
+    - [x] Implement scroll-triggered animation for CTA reveal
   - [ ] Optimize page for SEO
     - [ ] Add appropriate meta tags and structured data
     - [ ] Implement proper heading hierarchy and semantic HTML
