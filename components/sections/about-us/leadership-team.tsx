@@ -15,7 +15,10 @@ const LeadershipTeam = () => {
       <div className="container mx-auto px-4 relative">
         <BlurFade>
           <div>
-            <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center text-background mb-8">
+            <AnimatedShinyText
+              as="h2"
+              className="text-2xl md:text-3xl text-center text-background mb-8"
+            >
               Leadership Team
             </AnimatedShinyText>
             <div className="flex justify-center mt-4">
@@ -23,7 +26,9 @@ const LeadershipTeam = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <div className="bg-primary/40 backdrop-blur-sm rounded-lg p-6 shadow-2xl">
-                <AnimatedShinyText as="h3" className="text-xl font-semibold text-background">Meghan Barnes</AnimatedShinyText>
+                <AnimatedShinyText as="h3" className="text-xl font-semibold text-background">
+                  Meghan Barnes
+                </AnimatedShinyText>
                 <p className="mt-2 text-background">
                   Founder & AI Integration Specialist. A federally recognized Microsoft Subject
                   Matter Expert (SME) with extensive experience in AI-driven workflow optimization,
@@ -31,7 +36,9 @@ const LeadershipTeam = () => {
                 </p>
               </div>
               <div className="bg-primary/40 backdrop-blur-sm rounded-lg p-6 shadow-2xl">
-                <AnimatedShinyText as="h3" className="text-xl font-semibold text-background">Sam Thoyre</AnimatedShinyText>
+                <AnimatedShinyText as="h3" className="text-xl font-semibold text-background">
+                  Sam Thoyre
+                </AnimatedShinyText>
                 <p className="mt-2 text-background">
                   Co-Founder & Operations Lead. Expert in operations management, project oversight,
                   and AI consulting ensuring smooth execution of AI solutions for businesses.
