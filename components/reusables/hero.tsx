@@ -36,8 +36,14 @@ export default function Hero() {
         </h1>
 
         <div>
-          <TypingAnimation text="Boost Productivity" className="text-xl md:text-2xl text-indigo-200" />
-          <TypingAnimation text="Enhance Decision Making" className="text-xl md:text-2xl text-indigo-200" />
+          <TypingAnimation
+            text="Boost Productivity"
+            className="text-xl md:text-2xl text-indigo-200"
+          />
+          <TypingAnimation
+            text="Enhance Decision Making"
+            className="text-xl md:text-2xl text-indigo-200"
+          />
         </div>
 
         <p className="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto">

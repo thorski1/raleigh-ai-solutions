@@ -13,7 +13,7 @@ export function CTASections() {
       <FlickeringGrid className="absolute inset-0 z-0 opacity-30" />
       <BorderBeam className="absolute inset-0 z-10" />
       
-      <div className="relative z-20 space-y-24 mx-4 md:mx-8 lg:mx-12">
+      <div className="relative z-20 space-y-12 md:space-y-24 mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
         {/* Primary CTA */}
         <div className="text-center">
           <FadeText
