@@ -7,6 +7,8 @@ import PartnersCertifications from '@/components/sections/about-us/partners-cert
 import WhyChooseUs from '@/components/sections/about-us/why-choose-us';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const AboutUsPage = () => {
   return (
@@ -17,9 +19,9 @@ const AboutUsPage = () => {
         <div className="container mx-auto px-4 relative z-20">
           {/* Hero Section */}
           <div className="text-center mb-8 md:mb-12">
-            <AnimatedShinyText className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
-              About Raleigh AI Solutions
-            </AnimatedShinyText>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
+              <AnimatedShinyText>About Raleigh AI Solutions</AnimatedShinyText>
+            </h1>
             <p className="mt-2 md:mt-4 text-lg text-white/80">
               Empowering Businesses Through Scalable AI Solutions
             </p>
@@ -41,7 +43,24 @@ const AboutUsPage = () => {
 export default AboutUsPage;
 
 export const metadata: Metadata = {
-  title: 'About Us - Raleigh AI Solutions',
-  description:
-    'Learn more about Raleigh AI Solutions, our mission, vision, values, leadership team, and why you should choose us for your AI and automation needs.',
+  title: 'About Raleigh AI Solutions | Leading AI Consulting Firm',
+  description: 'Learn about Raleigh AI Solutions, a premier AI consulting firm providing AI integration, cloud infrastructure, and automation tools for businesses. Discover our mission, vision, leadership team, and why we\'re the right choice for your AI needs.',
+  openGraph: {
+    title: 'About Raleigh AI Solutions | Leading AI Consulting Firm',
+    description: 'Discover how Raleigh AI Solutions empowers businesses with cutting-edge AI integration, cloud infrastructure, and automation tools. Learn about our mission, vision, and expert team.',
+    images: [
+      {
+        url: '/images/raleigh-ai-solutions-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Raleigh AI Solutions Team',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Raleigh AI Solutions | Leading AI Consulting Firm',
+    description: 'Discover how Raleigh AI Solutions empowers businesses with cutting-edge AI integration, cloud infrastructure, and automation tools.',
+    images: ['/images/raleigh-ai-solutions-twitter.jpg'],
+  },
 };

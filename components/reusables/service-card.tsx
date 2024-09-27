@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
-    <MagicCard className="relative overflow-hidden">
+    <MagicCard className="relative overflow-hidden bg-secondary-foreground">
       <BorderBeam
         className="absolute inset-0 pointer-events-none"
         duration={20}
@@ -18,9 +18,9 @@ export function ServiceCard({ icon, title, description }: ServiceCardProps) {
         colorTo="hsl(var(--secondary))"
       />
       <div className="p-6 flex flex-col items-center text-center">
-        <div className="text-4xl mb-4 text-primary">{icon}</div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p>{description}</p>
+        <div className="text-4xl mb-4 text-white">{icon}</div>
+        <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+        <p className="text-white/80">{description}</p>
       </div>
     </MagicCard>
   );

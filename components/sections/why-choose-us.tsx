@@ -48,11 +48,9 @@ const comparisonData = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-8 md:py-12 lg:py-16 bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
-          <div className="container mx-auto px-4">
-              <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center text-background mb-12">
-                  Why Choose Raleigh AI Solutions?
-              </AnimatedShinyText>
+    <section className="py-8 md:py-12 lg:py-16 bg-secondary/10">
+      <div className="container mx-auto px-4">
+        <SectionHeadline text="Why Choose Raleigh AI Solutions?" color="secondary" />
         <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[20rem] gap-6">
           {comparisonData.map((item, index) => (
             <BentoCard
@@ -60,22 +58,18 @@ export function WhyChooseUs() {
               name={item.aiPowered}
               className={cn(
                 item.className,
-                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 text-primary',
+                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-secondary-foreground dark:bg-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300 text-background',
               )}
               background={<BorderBeam duration={20} colorFrom="#4F46E5" colorTo="#9333EA" />}
               Icon={item.Icon}
               description={
                 <div className="space-y-3">
-                  {/* <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Traditional</p>
-                  <p className="font-semibold text-gray-700 dark:text-gray-300">{item.traditional}</p>
-                  <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">AI-Powered</p>
-                  <p className="font-semibold text-indigo-700 dark:text-indigo-300">{item.aiPowered}</p> */}
-                  <div className="mt-4 bg-indigo-100 dark:bg-indigo-900/50 p-3 rounded-lg inline-block">
+                  <div className="mt-4 bg-primary/20 dark:bg-primary/20 p-3 rounded-lg inline-block">
                     <NumberTicker
-                      className="text-3xl font-bold text-indigo-600 dark:text-indigo-400"
+                      className="text-3xl font-bold text-background dark:text-background"
                       value={item.stat}
                     />
-                    <span className="text-sm font-medium text-indigo-800 dark:text-indigo-200">
+                    <span className="text-sm font-medium text-background/80 dark:text-background/80">
                       % {item.statLabel}
                     </span>
                   </div>
