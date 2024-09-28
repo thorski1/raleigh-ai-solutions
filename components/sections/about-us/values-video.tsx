@@ -8,27 +8,28 @@ import { cn } from '@/lib/utils';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import SectionHeadline from '@/components/reusables/section-headline';
+import { MagicCard } from '@/components/magicui/magic-card';
 
 const values = [
   {
     title: 'Innovation',
     description: 'Embracing cutting-edge artificial intelligence solutions.',
-    color: 'bg-blue-700',
+    color: 'bg-gradient-to-r from-blue-200 to-blue-400 text-secondary-foreground',
   },
   {
     title: 'Integrity',
     description: 'Upholding the highest ethical standards in AI consulting and automation.',
-    color: 'bg-green-700',
+    color: 'bg-gradient-to-r from-green-200 to-green-400 text-secondary-foreground',
   },
   {
     title: 'Excellence',
     description: 'Delivering outstanding results through AI integration services.',
-    color: 'bg-purple-700',
+    color: 'bg-gradient-to-r from-purple-200 to-purple-400 text-secondary-foreground',
   },
   {
     title: 'Collaboration',
     description: 'Working closely with clients to design customized AI solutions.',
-    color: 'bg-yellow-700',
+    color: 'bg-gradient-to-r from-yellow-200 to-yellow-400 text-secondary-foreground',
   },
 ];
 
@@ -37,21 +38,22 @@ const ValuesVideo = () => {
     <section className="relative py-16 overflow-hidden">
       <BorderBeam className="absolute inset-0 z-10" />
       <div className="container mx-auto px-4 relative z-20">
-        <SectionHeadline text="Our Values" color="text-foreground" />
+        <SectionHeadline text="Our Values" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {values.map((value, index) => (
-                <Card key={index} className="bg-background/80 backdrop-blur-sm shadow-xl">
+                <MagicCard key={index} className="bg-secondary-foreground backdrop-blur-sm shadow-xl">
+                  <BorderBeam className="absolute inset-0 z-10" />
                   <CardHeader className="pb-2">
                     <CardTitle className="flex items-center gap-2">
                       <Badge className={cn('text-background', value.color)}>{value.title}</Badge>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-foreground">{value.description}</p>
+                    <p className="text-sm text-background">{value.description}</p>
                   </CardContent>
-                </Card>
+                </MagicCard>
               ))}
             </div>
           </div>

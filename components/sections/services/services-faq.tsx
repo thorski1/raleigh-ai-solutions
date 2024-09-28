@@ -50,7 +50,7 @@ const ServicesFAQ: React.FC<ServicesFAQProps> = ({ faqs = defaultFaqs }) => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <SectionHeadline text="Frequently Asked Questions" color="secondary" />
+        <SectionHeadline text="Frequently Asked Questions" />
         <Accordion type="single" collapsible className="w-full mt-8">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`}>

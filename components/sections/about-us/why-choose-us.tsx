@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4 relative z-20">
         <BlurFade>
           <div className="text-center">
-            <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center text-background pb-6">
+            <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center pb-6">
               Why Choose Raleigh AI Solutions
             </AnimatedShinyText>
             <div className="bg-primary/40 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto shadow-2xl">
@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
             </div>
             <div className="mt-8">
               <RainbowButton onClick={() => console.log('Explore AI Solutions clicked')}>
-                <span className="text-primary font-semibold">Explore Our AI Solutions</span>
+                <span className="text-primary-dark font-semibold">Explore Our AI Solutions</span>
               </RainbowButton>
             </div>
           </div>

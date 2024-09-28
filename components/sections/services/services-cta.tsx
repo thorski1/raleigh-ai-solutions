@@ -23,14 +23,14 @@ const ServicesCTA: React.FC<ServicesCTAProps> = ({
       <BorderBeam className="absolute inset-0 z-10" />
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center">
-          <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center text-background mb-6">
+          <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center mb-6">
             {headline}
           </AnimatedShinyText>
-          <p className="text-lg mb-8 text-indigo-100">
+          <p className="text-lg mb-8 text-primary-light">
             {description}
           </p>
           <RainbowButton onClick={() => console.log('Get Started clicked')}>
-            <span className="text-primary font-semibold">{buttonText}</span>
+            <span className="text-primary-dark font-semibold">{buttonText}</span>
           </RainbowButton>
         </div>
       </div>

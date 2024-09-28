@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <div
       ref={containerRef}
-      className="relative py-8 md:py-16 lg:py-24 pt-32 md:pt-32 lg:pt-40 flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary"
+      className="relative  py-8 md:py-16 lg:py-20 pt-20 md:pt-24 lg:pt-28 flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary"
     >
       <FlickeringGrid className="absolute inset-0 z-0 opacity-30" />
       <BorderBeam className="absolute inset-0 z-10" />

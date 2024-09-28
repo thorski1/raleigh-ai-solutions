@@ -24,9 +24,13 @@
     --popover-foreground: 222.2 84% 4.9%; /* Very dark blue-gray */
 
     --primary: 199 89% 48%; /* Bright blue */
+    --primary-light: 199 89% 90%; /* Bright blue */
+    --primary-dark: 199 89% 15%; /* Bright blue */
     --primary-foreground: 210 40% 98%; /* Very light blue-gray */
 
     --secondary: 172 66% 50%; /* Teal */
+    --secondary-light: 172 66% 85%; /* Teal */
+    --secondary-dark: 172 66% 25%; /* Teal */
     --secondary-foreground: 222.2 47.4% 11.2%; /* Dark blue-gray */
 
     --muted: 210 40% 96.1%; /* Very light blue-gray */

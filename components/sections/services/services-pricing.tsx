@@ -46,7 +46,7 @@ const ServicesPricing = () => {
   return (
     <section className="py-16 bg-secondary/10">
       <div className="container mx-auto px-4">
-        <SectionHeadline text="Pricing Plans" color="secondary" />
+        <SectionHeadline text="Pricing Plans" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {pricingPlans.map((plan, index) => (
             <Card key={index} className="flex flex-col">
