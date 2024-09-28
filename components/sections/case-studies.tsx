@@ -42,7 +42,7 @@ const caseStudies: CaseStudy[] = [
 export function CaseStudies() {
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-gray-100 overflow-hidden">
-      <SectionHeadline text="Case Studies & Success Stories" color="secondary" />
+      <SectionHeadline text="Case Studies & Success Stories" />
       <Marquee className="py-8 overflow-visible" pauseOnHover={true} speed={100}>
         {caseStudies.map((study, index) => (
           <div key={index} className="mx-2 w-80 h-[300px] group">

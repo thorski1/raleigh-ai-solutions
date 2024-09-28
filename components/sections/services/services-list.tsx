@@ -6,58 +6,50 @@ import SectionHeadline from '@/components/reusables/section-headline';
 import { BentoGrid, BentoCard } from '@/components/magicui/bento-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { cn } from '@/lib/utils';
+import { getAllServices } from '@/lib/services';
+import { useEffect, useState } from 'react';
+import { Service } from '@/lib/services';
 
-const services = [
-  {
-    icon: FaRobot,
-    title: 'AI Integration & Automation',
-    description: 'Enhance business processes with custom AI models and workflow automation tools.',
-    className: 'md:col-span-2 md:row-span-1',
-  },
-  {
-    icon: FaCloud,
-    title: 'Cloud Infrastructure Setup',
-    description: 'Secure scalable cloud infrastructure solutions for SMEs.',
-    className: 'md:col-span-1 md:row-span-1',
-  },
-  {
-    icon: FaChartBar,
-    title: 'Data Analytics & Business Intelligence',
-    description: 'Leverage AI-powered data analytics for data-driven decision-making.',
-    className: 'md:col-span-1 md:row-span-1',
-  },
-  {
-    icon: FaGraduationCap,
-    title: 'Technical Training & AI Education',
-    description: 'Empower your team with AI training programs and technical training services.',
-    className: 'md:col-span-1 md:row-span-1',
-  },
-  {
-    icon: FaUniversalAccess,
-    title: '508 Compliance Consulting',
-    description: 'Ensure your AI systems meet government accessibility standards.',
-    className: 'md:col-span-1 md:row-span-1',
-  },
-];
+const iconMap = {
+  'ai-integration-automation': FaRobot,
+  'cloud-infrastructure-setup': FaCloud,
+  'data-analytics-business-intelligence': FaChartBar,
+  'technical-training-ai-education': FaGraduationCap,
+  '508-compliance-consulting': FaUniversalAccess,
+};
+
+const classMap = {
+  'ai-integration-automation': 'md:col-span-2 md:row-span-1',
+  'cloud-infrastructure-setup': 'md:col-span-1 md:row-span-1',
+  'data-analytics-business-intelligence': 'md:col-span-1 md:row-span-1',
+  'technical-training-ai-education': 'md:col-span-1 md:row-span-1',
+  '508-compliance-consulting': 'md:col-span-1 md:row-span-1',
+};
 
 const ServicesList = () => {
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    getAllServices().then(setServices);
+  }, []);
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <SectionHeadline text="Our Services" color="secondary" />
+        <SectionHeadline text="Our Services" />
         <BentoGrid className="grid-cols-1 md:grid-cols-3 auto-rows-[20rem] gap-6 mt-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <BentoCard
-              key={index}
+              key={service.slug}
               name={service.title}
-              description={service.description}
+              description={service.hoverDescription}
               className={cn(
-                service.className,
+                classMap[service.slug as keyof typeof classMap],
                 'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-secondary-foreground dark:bg-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300 text-primary',
               )}
               background={<BorderBeam duration={20} colorFrom="#4F46E5" colorTo="#9333EA" />}
-              Icon={service.icon}
-              href="#"
+              Icon={iconMap[service.slug as keyof typeof iconMap]}
+              href={`/services/${service.slug}`}
               cta="Learn More"
             />
           ))}
