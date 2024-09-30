@@ -35,7 +35,7 @@ const PartnersCertifications = () => {
         </div>
         <BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <MagicCard className="bg-secondary-foreground backdrop-blur-sm shadow-xl relative overflow-hidden">
+            <MagicCard className="bg-primary-dark backdrop-blur-sm shadow-xl relative overflow-hidden">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-background">
                   Strategic Partnerships
@@ -54,7 +54,7 @@ const PartnersCertifications = () => {
                 </div>
               </CardContent>
             </MagicCard>
-            <MagicCard className="bg-secondary-foreground backdrop-blur-sm shadow-xl relative overflow-hidden">
+            <MagicCard className="bg-primary-dark backdrop-blur-sm shadow-xl relative overflow-hidden">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-background">
                   Certifications

@@ -58,7 +58,7 @@ export function WhyChooseUs() {
               name={item.aiPowered}
               className={cn(
                 item.className,
-                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-secondary-foreground dark:bg-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300 text-background',
+                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-primary-dark shadow-lg hover:shadow-xl transition-all duration-300 text-background',
               )}
               background={<BorderBeam duration={20} colorFrom="#4F46E5" colorTo="#9333EA" />}
               Icon={item.Icon}
