@@ -45,7 +45,7 @@ const ServicesList = () => {
               description={service.hoverDescription}
               className={cn(
                 classMap[service.slug as keyof typeof classMap],
-                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-secondary-foreground dark:bg-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300 text-primary',
+                'group relative overflow-hidden rounded-2xl border border-transparent dark:border-white/[0.2] bg-primary-dark shadow-lg hover:shadow-xl transition-all duration-300 text-primary',
               )}
               background={<BorderBeam duration={20} colorFrom="#4F46E5" colorTo="#9333EA" />}
               Icon={iconMap[service.slug as keyof typeof iconMap]}

@@ -8,9 +8,9 @@ import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import AnimatedShinyText from '../magicui/animated-shiny-text';
 
-export function CTASections() {
+export function CTASections({gradientBackground = true}) {
   return (
-    <section className="relative py-8 md:py-12 lg:py-16 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+    <section className={`relative py-8 md:py-12 lg:py-16 overflow-hidden ${gradientBackground ? 'bg-gradient-to-br from-secondary via-secondary-foreground to-primary' : ''}`}>
       <FlickeringGrid className="absolute inset-0 z-0 opacity-30" />
       <BorderBeam className="absolute inset-0 z-10" />
 
@@ -43,7 +43,8 @@ export function CTASections() {
               borderRadius="12px"
               background="hsl(var(--primary))"
               className="text-center w-full md:w-2/3 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2"
-              onClick={() => console.log('Services CTA clicked')}
+              as="a"
+              href="/services"
             >
               View Services
             </ShimmerButton>

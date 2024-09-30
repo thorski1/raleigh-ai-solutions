@@ -16,7 +16,7 @@ interface LeaderCardProps {
 }
 
 const LeaderCard: React.FC<LeaderCardProps> = ({ imageSrc, name, title, description }) => (
-  <MagicCard className="p-6 bg-secondary-foreground shadow-lg rounded-lg flex flex-col items-center">
+  <MagicCard className="p-6 bg-primary-dark shadow-lg rounded-lg flex flex-col items-center">
     <div className="w-32 h-32 mb-4 relative rounded-full overflow-hidden mx-auto">
       <Image src={imageSrc} alt={name} layout="fill" objectFit="cover" />
     </div>

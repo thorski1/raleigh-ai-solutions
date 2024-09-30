@@ -57,12 +57,12 @@ export function CaseStudies() {
                 } as React.CSSProperties
               }
             >
-              <div className="bg-white rounded-[10px] p-6 h-full flex flex-col relative z-10">
+              <div className="bg-primary-dark rounded-[10px] p-6 h-full flex flex-col relative z-10">
                 <div className="flex-grow">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{study.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">Industry: {study.industry}</p>
-                  <p className="mb-4 text-gray-700">{study.description}</p>
-                  <p className="font-bold mb-4 text-gray-800">{study.result}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-secondary">{study.title}</h3>
+                  <p className="text-sm text-primary-light mb-4">Industry: {study.industry}</p>
+                  <p className="mb-4 text-primary-light">{study.description}</p>
+                  <p className="font-bold mb-4 text-primary-light">{study.result}</p>
                 </div>
                 <div className="mt-auto">
                   <PulsatingButton className="w-full">

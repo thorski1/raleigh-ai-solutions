@@ -43,7 +43,7 @@ const ValuesVideo = () => {
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {values.map((value, index) => (
-                <MagicCard key={index} className="bg-secondary-foreground backdrop-blur-sm shadow-xl">
+                <MagicCard key={index} className="bg-primary-dark backdrop-blur-sm shadow-xl">
                   <BorderBeam className="absolute inset-0 z-10" />
                   <CardHeader className="pb-2">
                     <CardTitle className="flex items-center gap-2">

@@ -32,16 +32,16 @@ const BentoCard = ({
   <div
     className={cn(
       'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl',
-      'bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
-      'transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]',
+      '[box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
+      'transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] bg-primary-dark',
       className,
     )}
   >
     <div>{background}</div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-hover:scale-75" />
-      <h3 className="text-xl font-semibold text-white dark:text-white">{name}</h3>
-      {typeof description === 'string' ? <p className="max-w-lg text-white/80 dark:text-white/80">{description}</p> : description}
+      <Icon className="h-12 w-12 origin-left transform-gpu text-secondary transition-all duration-300 ease-in-out group-hover:scale-75" />
+      <h3 className="text-xl font-semibold text-secondary">{name}</h3>
+      {typeof description === 'string' ? <p className="max-w-lg text-primary-light">{description}</p> : description}
     </div>
 
     <div
@@ -51,7 +51,7 @@ const BentoCard = ({
     >
       {href && cta && (
         <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-          <a href={href}>
+          <a className="text-secondary" href={href}>
             {cta}
             <ArrowRightIcon className="ml-2 h-4 w-4" />
           </a>

@@ -53,6 +53,9 @@ const Header = () => {
               >
                 Services
               </Link>
+              <Link href="/solutions" className="text-base font-medium text-background hover:text-primary">
+                Solutions
+              </Link>
               <Link
                 href="/contact"
                 className="text-base font-medium text-background hover:text-primary"
@@ -96,6 +99,12 @@ const Header = () => {
                 className="text-base font-medium text-gray-300 hover:text-white"
               >
                 Services
+              </Link>
+              <Link
+                href="/solutions"
+                className="text-base font-medium text-gray-300 hover:text-white"
+              >
+                Solutions
               </Link>
               <Link
                 href="/contact"

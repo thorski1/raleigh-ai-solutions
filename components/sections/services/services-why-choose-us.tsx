@@ -38,9 +38,9 @@ const ServicesWhyChooseUs: React.FC = () => {
             business, ensuring seamless integration into your operations.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {reasons.map((reason, index) => (
-            <ServiceCard key={index} {...reason} />
+            <ServiceCard key={index} {...reason} slug={reason.title} />
           ))}
         </div>
       </div>

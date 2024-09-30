@@ -30,13 +30,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm hover:text-gray-300">
-                  Blog
+                <Link href="/solutions" className="text-sm hover:text-gray-300">
+                  Our Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm hover:text-gray-300">
-                  Contact Us
+                <Link href="/blog" className="text-sm hover:text-gray-300">
+                  Blog
                 </Link>
               </li>
             </ul>
