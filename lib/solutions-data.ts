@@ -69,4 +69,8 @@ export const solutionsData: Record<string, Solution> = {
   },
 };
 
+export function getSolutionSlugs(): string[] {
+  return Object.keys(solutionsData);
+}
+
 export type SolutionSlug = keyof typeof solutionsData;
