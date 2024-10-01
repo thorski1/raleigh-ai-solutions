@@ -13,7 +13,7 @@ interface ServiceHeroProps {
 
 export default function ServiceHero({ service }: ServiceHeroProps) {
   return (
-    <section className="relative w-full py-8 md:py-16 lg:py-20 pt-20 md:pt-24 lg:pt-28 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+    <section className="relative w-full py-8 md:py-16 lg:py-20 pt-28 md:pt-32 lg:pt-36 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
       <BorderBeam className="absolute inset-0" />
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">

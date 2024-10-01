@@ -8,7 +8,7 @@ import { RainbowButton } from '@/components/magicui/rainbow-button';
 
 const ServicesHero = () => {
   return (
-    <section className="relative  py-8 md:py-16 lg:py-20 pt-20 md:pt-24 lg:pt-28 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+    <section className="relative  py-8 md:py-16 lg:py-20 pt-28 md:pt-32 lg:pt-36 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
       <FlickeringGrid className="absolute inset-0 z-0 opacity-30" />
       <BorderBeam className="absolute inset-0 z-10" />
       <div className="container mx-auto px-4 relative z-20">

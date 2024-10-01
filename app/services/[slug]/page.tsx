@@ -55,7 +55,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className="flex flex-col items-center justify-center min-h-screen w-full max-w-full">
       <ServiceHero service={service} />
       <div className="w-full max-w-7xl py-4">
         <Breadcrumb className="container mx-auto px-4">
