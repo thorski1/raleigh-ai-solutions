@@ -50,11 +50,21 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700">
           <Marquee className="text-sm" pauseOnHover={true}>
-            <span className="mx-4">AI Integration & Automation</span>
-            <span className="mx-4">Cloud Infrastructure Setup</span>
-            <span className="mx-4">Data Analytics & Business Intelligence</span>
-            <span className="mx-4">Technical Training & AI Education</span>
-            <span className="mx-4">508 Compliance Consulting</span>
+            <Link  href="/services/ai-integration-automation" className="mx-4">
+              AI Integration & Automation
+            </Link>
+            <Link href="/services/cloud-infrastructure-setup" className="mx-4">
+              Cloud Infrastructure Setup
+            </Link>
+            <Link href="/services/data-analytics-business-intelligence" className="mx-4">
+              Data Analytics & Business Intelligence
+            </Link>
+            <Link href="/services/technical-training-ai-education" className="mx-4">
+              Technical Training & AI Education
+            </Link>
+            <Link href="/services/508-compliance-consulting" className="mx-4">
+              508 Compliance Consulting
+            </Link>
           </Marquee>
         </div>
         <div className="mt-4 text-center text-sm">
