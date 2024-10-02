@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ShinyButton from '../magicui/shiny-button';
 import Marquee from '../magicui/marquee';
+import { Button } from '../ui/button';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,18 +35,17 @@ const Footer = () => {
                   Our Solutions
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/blog" className="text-sm hover:text-gray-300">
                   Blog
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-sm">123 Innovation Drive, Raleigh, NC 27601</p>
-            <p className="text-sm">Email: info@Raleigh AIsolutions.com</p>
-            <p className="text-sm">Phone: (919) 555-1234</p>
+          <div className="flex flex-col space-y-2">
+            <h4 className="text-lg font-semibold">Contact</h4>
+            <p className="text-sm">Email: <a href="mailto:info@raleighai.solutions">info@raleighai.solutions</a></p>
+            <Button variant="outline" className="bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"><Link href="/contact">Contact Us</Link></Button>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700">
