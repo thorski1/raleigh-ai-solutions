@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        input: `0px 2px 3px -1px var(--color-2), 0px 1px 0px 0px var(--color-3), 0px 0px 0px 1px var(--color-4)`,
+      },
       animation: {
         marquee: 'marquee var(--duration) linear infinite',
         'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
@@ -176,6 +179,7 @@ const config: Config = {
         'color-3': 'hsl(var(--color-3))',
         'color-4': 'hsl(var(--color-4))',
         'color-5': 'hsl(var(--color-5))',
+        action: 'hsl(var(--action))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
