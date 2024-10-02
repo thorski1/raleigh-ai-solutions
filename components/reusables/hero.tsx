@@ -75,7 +75,7 @@ export default function Hero({
         >
             {cta1 && (
               <Modal>
-                <ModalTrigger>
+                <ModalTrigger className="w-full sm:w-auto px-0">
                   <ShinyButton variant="primary" className="w-full sm:w-auto">
                     <p className="text-secondary-foreground font-semibold">{cta1}</p>
                   </ShinyButton>
@@ -86,7 +86,7 @@ export default function Hero({
               </Modal>
             )}
             {cta2 && (
-              <Link href={'/about-us'}>
+              <Link href={'/about-us'} className="w-full sm:w-auto">
             <ShinyButton variant="secondary" className="w-full sm:w-auto">
                 <p className="text-secondary-foreground font-semibold">{cta2}</p>
             </ShinyButton>

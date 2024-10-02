@@ -57,7 +57,7 @@ const SolutionsOverview = () => {
                     </div>
                   </CardContent>
                     <CardFooter>
-                        <RainbowButton>
+                        <RainbowButton className="w-full sm:w-auto">
                         <p className="text-secondary-dark font-semibold">Learn More</p>
                         </RainbowButton>
                     </CardFooter>

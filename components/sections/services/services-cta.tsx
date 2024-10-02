@@ -29,7 +29,7 @@ const ServicesCTA: React.FC<ServicesCTAProps> = ({
           <p className="text-lg mb-8 text-primary-light">
             {description}
           </p>
-          <RainbowButton onClick={() => console.log('Get Started clicked')}>
+          <RainbowButton className="w-full md:w-auto">
             <span className="text-primary-dark font-semibold">{buttonText}</span>
           </RainbowButton>
         </div>

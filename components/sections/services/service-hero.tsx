@@ -22,7 +22,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-background/80"
           />
           <p className="text-xl mb-8 text-background/80">{service.description}</p>
-          <Button size="lg">Learn More</Button>
+          {/* <Button size="lg">Learn More</Button> */}
         </div>
       </div>
     </section>

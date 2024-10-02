@@ -6,7 +6,7 @@ interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'primary' | 'secondary';
 }
 
-export function RainbowButton({ children, ...props }: RainbowButtonProps) {
+export function RainbowButton({ children, className, ...props }: RainbowButtonProps) {
   return (
     <button
       className={cn(
@@ -20,6 +20,7 @@ export function RainbowButton({ children, ...props }: RainbowButtonProps) {
         
         // dark mode colors
         'dark:bg-[linear-gradient(#121213,#121213),linear-gradient(#121213_50%,rgba(18,18,19,0.6)_80%,rgba(18,18,19,0)),linear-gradient(90deg,hsl(var(--color-1)),hsl(var(--color-5)),hsl(var(--color-3)),hsl(var(--color-4)),hsl(var(--color-2)))]',
+        className
       )}
       {...props}
     >
