@@ -67,11 +67,16 @@ export default function SolutionPage({ params }: SolutionPageProps) {
         </div>
       </LampContainer>
 
-      <div className="w-full max-w-7xl py-8 ml-4 md:ml-12">
+      <div className="container md:max-w-4xl lg:max-w-6xl mx-auto py-8">
         <Breadcrumb className="container mx-auto px-4">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink className="text-secondary-dark hover:text-secondary" href="/solutions">Solutions</BreadcrumbLink>
+              <BreadcrumbLink
+                className="text-secondary-dark hover:text-secondary"
+                href="/solutions"
+              >
+                Solutions
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -81,7 +86,7 @@ export default function SolutionPage({ params }: SolutionPageProps) {
         </Breadcrumb>
       </div>
 
-      <div className="container px-8 md:px-16 mx-auto relative z-20">
+      <div className="container md:max-w-4xl lg:max-w-6xl mx-auto relative z-20 px-4">
         {solution.content.map((item, i) => (
           <p className="text-primary-dark mb-4" key={i}>
             {item}

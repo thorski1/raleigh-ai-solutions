@@ -1,5 +1,6 @@
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface ServiceCTAProps {
   service: {
@@ -18,7 +19,9 @@ export default function ServiceCTA({ service }: ServiceCTAProps) {
             <p className="text-xl mb-6">
               Take your business to the next level with our expert services.
             </p>
-            <Button size="lg">Contact Us</Button>
+            <Link href="/contact">
+              <Button size="lg">Contact Us</Button>
+            </Link>
           </div>
           <div className="w-full md:w-1/2">
             <HeroVideoDialog
