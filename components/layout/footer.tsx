@@ -2,6 +2,8 @@ import Link from 'next/link';
 import ShinyButton from '../magicui/shiny-button';
 import Marquee from '../magicui/marquee';
 import { Button } from '../ui/button';
+import { Modal, ModalTrigger, ModalBody } from '../ui/animated-modal';
+import CalendarModal from '../reusables/calendar-modal';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +17,14 @@ const Footer = () => {
             <p className="text-sm mb-4">
               AI-powered digital marketing solutions for your business growth.
             </p>
-            <ShinyButton className="w-full md:w-auto">Get a Free Consultation</ShinyButton>
+            <Modal>
+              <ModalTrigger>
+                <ShinyButton className="w-full md:w-auto">Get a Free Consultation</ShinyButton>
+              </ModalTrigger>
+              <ModalBody>
+                <CalendarModal />
+              </ModalBody>
+            </Modal>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>

@@ -5,6 +5,8 @@ import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
+import CalendarModal from '@/components/reusables/calendar-modal';
+import { Modal, ModalBody, ModalTrigger } from '@/components/ui/animated-modal';
 
 const ServicesHero = () => {
   return (
@@ -21,9 +23,16 @@ const ServicesHero = () => {
           </p>
         </div>
         <div className="mt-8 text-center">
-          <RainbowButton onClick={() => console.log('Get Started clicked')}>
-            <span className="text-primary-dark font-semibold">Get Started</span>
-          </RainbowButton>
+          <Modal>
+            <ModalTrigger>
+              <RainbowButton onClick={() => console.log('Get Started clicked')}>
+                <span className="text-primary-dark font-semibold">Get Started</span>
+              </RainbowButton>
+            </ModalTrigger>
+            <ModalBody>
+              <CalendarModal />
+            </ModalBody>
+          </Modal>
         </div>
       </div>
     </section>

@@ -7,6 +7,8 @@ import { FadeText } from '@/components/magicui/fade-text';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import AnimatedShinyText from '../magicui/animated-shiny-text';
+import { Modal, ModalBody, ModalTrigger } from '../ui/animated-modal';
+import CalendarModal from '../reusables/calendar-modal';
 
 export function CTASections({gradientBackground = true}) {
   return (
@@ -24,9 +26,16 @@ export function CTASections({gradientBackground = true}) {
             Take the first step towards operational efficiency and business growth with Raleigh AI
             Solutions—the expert AI consultants in Raleigh NC.
           </p>
-          <RainbowButton onClick={() => console.log('Primary CTA clicked')}>
-            <p className="text-primary font-semibold">Get a Free Consultation</p>
-          </RainbowButton>
+          <Modal>
+            <ModalTrigger>
+              <RainbowButton onClick={() => console.log('Primary CTA clicked')}>
+                <p className="text-primary font-semibold">Get a Free Consultation</p>
+              </RainbowButton>
+            </ModalTrigger>
+            <ModalBody>
+              <CalendarModal />
+            </ModalBody>
+          </Modal>
         </div>
 
         {/* Secondary CTAs */}

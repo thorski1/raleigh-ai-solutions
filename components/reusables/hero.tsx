@@ -8,6 +8,10 @@ import FlickeringGrid from '../magicui/flickering-grid';
 import SparklesText from '../magicui/sparkles-text';
 import TypingAnimation from '../magicui/typing-animation';
 import ShinyButton from '../magicui/shiny-button';
+import { ModalBody, ModalTrigger } from '../ui/animated-modal';
+import { Modal } from '../ui/animated-modal';
+import CalendarModal from './calendar-modal';
+import Link from 'next/link';
 
 export default function Hero({
   eyebrow,
@@ -69,15 +73,24 @@ export default function Hero({
             ref={ctaRef}
             className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
         >
-          {cta1 && (
-            <ShinyButton variant="primary" className="w-full sm:w-auto">
-              <p className="text-secondary-foreground font-semibold">{cta1}</p>
-            </ShinyButton>
-          )}
-          {cta2 && (
+            {cta1 && (
+              <Modal>
+                <ModalTrigger>
+                  <ShinyButton variant="primary" className="w-full sm:w-auto">
+                    <p className="text-secondary-foreground font-semibold">{cta1}</p>
+                  </ShinyButton>
+                </ModalTrigger>
+                <ModalBody>
+                  <CalendarModal />
+                </ModalBody>
+              </Modal>
+            )}
+            {cta2 && (
+              <Link href={'/about-us'}>
             <ShinyButton variant="secondary" className="w-full sm:w-auto">
-              <p className="text-secondary-foreground font-semibold">{cta2}</p>
+                <p className="text-secondary-foreground font-semibold">{cta2}</p>
             </ShinyButton>
+              </Link>
           )}
           </div>
         ) : null}

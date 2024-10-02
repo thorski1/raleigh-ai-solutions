@@ -6,6 +6,7 @@ import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
 import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
+import Link from 'next/link';
 
 const WhyChooseUs = () => {
   return (
@@ -27,9 +28,11 @@ const WhyChooseUs = () => {
               </p>
             </div>
             <div className="mt-8">
-              <RainbowButton onClick={() => console.log('Explore AI Solutions clicked')}>
-                <span className="text-primary-dark font-semibold">Explore Our AI Solutions</span>
-              </RainbowButton>
+              <Link href={'/solutions'}>
+                <RainbowButton onClick={() => console.log('Explore AI Solutions clicked')}>
+                  <span className="text-primary-dark font-semibold">Explore Our AI Solutions</span>
+                </RainbowButton>
+              </Link>
             </div>
           </div>
         </BlurFade>
