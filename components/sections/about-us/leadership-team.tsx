@@ -52,7 +52,7 @@ const LeadershipTeam = () => {
             <div className="flex justify-center mt-4">
               <AvatarCircles avatarUrls={['/images/meghan.jpg', '/images/sam.jpg']} numPeople={2} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {leaders.map((leader, index) => (
                 <LeaderCard key={index} {...leader} />
               ))}

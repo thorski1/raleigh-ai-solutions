@@ -12,6 +12,7 @@ import { ModalBody, ModalTrigger } from '../ui/animated-modal';
 import { Modal } from '../ui/animated-modal';
 import CalendarModal from './calendar-modal';
 import Link from 'next/link';
+import { TextGenerateEffect } from '../ui/text-generate-effect';
 
 export default function Hero({
   eyebrow,
@@ -56,10 +57,10 @@ export default function Hero({
         {subheadline || subheadline2 ? (
           <div>
             {subheadline && (
-              <TypingAnimation text={subheadline} className="text-xl md:text-2xl text-indigo-200" />
+              <TextGenerateEffect words={subheadline} className="text-xl md:text-2xl text-primary-light" />
             )}
             {subheadline2 && (
-              <TypingAnimation text={subheadline2} className="text-xl md:text-2xl text-indigo-200" />
+              <TextGenerateEffect words={subheadline2} className="text-xl md:text-2xl text-primary-light" />
             )}
           </div>
         ) : null}
