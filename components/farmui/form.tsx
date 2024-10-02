@@ -97,7 +97,7 @@ export default function ContactForm() {
                               <Input
                                 placeholder="Your name"
                                 {...field}
-                                className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-primary-light to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
+                                className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-white to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
                               />
                             </FormControl>
                             <FormMessage className="text-destructive" />
@@ -116,7 +116,7 @@ export default function ContactForm() {
                               <Input
                                 placeholder="Your email"
                                 {...field}
-                                className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-primary-light to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
+                                className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-white to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
                               />
                             </FormControl>
                             <FormMessage className="text-destructive" />
@@ -136,7 +136,7 @@ export default function ContactForm() {
                             <Textarea
                               placeholder="Your message"
                               {...field}
-                              className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-primary-light to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
+                              className="bg-background active:bg-primary-light focus:bg-gradient-to-r from-white to-secondary-light shadow-md shadow-primary-light focus:shadow-xl focus:shadow-primary-light"
                             />
                           </FormControl>
                           <FormMessage className="text-destructive" />

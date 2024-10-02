@@ -22,8 +22,8 @@ export function ServiceCard({ icon, title, description, slug }: ServiceCardProps
           colorTo="hsl(var(--secondary))"
         />
         <div className="p-6 flex flex-col items-center text-center h-full justify-between">
-          <div className="text-4xl mb-4 text-white">{icon}</div>
-          <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+          <div className="text-4xl mb-4 text-primary">{icon}</div>
+          <h3 className="text-xl font-semibold mb-2 text-secondary">{title}</h3>
           <p className="text-white/80 text-sm">{description}</p>
         </div>
       </div>
