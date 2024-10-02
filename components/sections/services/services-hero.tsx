@@ -24,8 +24,8 @@ const ServicesHero = () => {
         </div>
         <div className="mt-8 text-center">
           <Modal>
-            <ModalTrigger>
-              <RainbowButton onClick={() => console.log('Get Started clicked')}>
+            <ModalTrigger className="w-full sm:w-auto px-0">
+              <RainbowButton className="w-full sm:w-auto">
                 <span className="text-primary-dark font-semibold">Get Started</span>
               </RainbowButton>
             </ModalTrigger>

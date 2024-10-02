@@ -18,8 +18,8 @@ const Footer = () => {
               AI-powered digital marketing solutions for your business growth.
             </p>
             <Modal>
-              <ModalTrigger>
-                <ShinyButton className="w-full md:w-auto">Get a Free Consultation</ShinyButton>
+              <ModalTrigger className="w-full sm:w-auto px-0">
+                <ShinyButton className="w-full">Get a Free Consultation</ShinyButton>
               </ModalTrigger>
               <ModalBody>
                 <CalendarModal />
@@ -51,10 +51,10 @@ const Footer = () => {
               </li> */}
             </ul>
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-4">
             <h4 className="text-lg font-semibold">Contact</h4>
             <p className="text-sm">Email: <a href="mailto:info@raleighai.solutions">info@raleighai.solutions</a></p>
-            <Button variant="outline" className="bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"><Link href="/contact">Contact Us</Link></Button>
+         <div className="w-full sm:w-auto"><Button variant="outline" className="w-full sm:w-auto bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"><Link href="/contact">Contact Us</Link></Button></div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700">

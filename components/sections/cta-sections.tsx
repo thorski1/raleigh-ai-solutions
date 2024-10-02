@@ -27,8 +27,8 @@ export function CTASections({gradientBackground = true}) {
             Solutions—the expert AI consultants in Raleigh NC.
           </p>
           <Modal>
-            <ModalTrigger>
-              <RainbowButton onClick={() => console.log('Primary CTA clicked')}>
+            <ModalTrigger className="w-full sm:w-auto px-0">
+              <RainbowButton className="w-full sm:w-auto">
                 <p className="text-primary font-semibold">Get a Free Consultation</p>
               </RainbowButton>
             </ModalTrigger>
@@ -51,7 +51,7 @@ export function CTASections({gradientBackground = true}) {
             <ShimmerButton
               borderRadius="12px"
               background="hsl(var(--primary))"
-              className="text-center w-full md:w-2/3 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2"
+              className="text-center w-full sm:w-2/3 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2"
               as="a"
               href="/services"
             >
@@ -67,8 +67,8 @@ export function CTASections({gradientBackground = true}) {
             </p>
             <ShimmerButton
               borderRadius="12px"
-              background="hsl(var(--secondary))"
-              className="text-center w-full md:w-2/3 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2"
+              background="hsl(var(--action))"
+              className="text-center w-full sm:w-2/3 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2"
               onClick={() => console.log('Calculator CTA clicked')}
             >
               Start Calculation

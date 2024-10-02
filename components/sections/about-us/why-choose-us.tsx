@@ -28,8 +28,8 @@ const WhyChooseUs = () => {
               </p>
             </div>
             <div className="mt-8">
-              <Link href={'/solutions'}>
-                <RainbowButton onClick={() => console.log('Explore AI Solutions clicked')}>
+              <Link href={'/solutions'} className="w-full sm:w-2/3 md:w-auto px-0">
+                <RainbowButton className="w-full sm:w-auto">
                   <span className="text-primary-dark font-semibold">Explore Our AI Solutions</span>
                 </RainbowButton>
               </Link>
