@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   title: 'AI Solutions | Raleigh AI Solutions',
   description:
     'Explore our AI-powered solutions tailored to optimize workflows, enhance decision-making, and help your business grow.',
+  openGraph: {
+    title: 'AI Solutions | Raleigh AI Solutions',
+    description:
+      'Explore our AI-powered solutions tailored to optimize workflows, enhance decision-making, and help your business grow.',
+    images: [{ url: '/thumbnail-4.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Solutions | Raleigh AI Solutions',
+    description:
+      'Explore our AI-powered solutions tailored to optimize workflows, enhance decision-making, and help your business grow.',
+    images: ['/thumbnail-4.png'],
+  },
 };
 
 export default function SolutionsPage() {

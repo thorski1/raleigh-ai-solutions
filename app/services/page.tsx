@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Discover how our AI solutions can transform your business operations, drive data-driven decision-making, and automate workflows.',
     images: [
       {
-        url: '/images/raleigh-ai-services-og.jpg',
+        url: '/thumbnail-2.png',
         width: 1200,
         height: 630,
         alt: 'Raleigh AI Solutions Services',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AI Solutions and Services | Raleigh AI Solutions',
     description: 'Explore our AI-powered data analytics, process automation, cloud infrastructure, and AI integration services.',
-    images: ['/images/raleigh-ai-services-twitter.jpg'],
+    images: ['/thumbnail-2.png'],
   },
 };
 

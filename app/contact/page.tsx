@@ -2,6 +2,7 @@ import ContactForm from '@/components/farmui/form';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import SparklesText from '@/components/magicui/sparkles-text';
 import { Button } from '@/components/ui/button';
+import { Metadata } from 'next';
 
 export default function ContactPage() {
   return (
@@ -53,3 +54,27 @@ export default function ContactPage() {
     </>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Contact Raleigh AI Solutions | Get in Touch with Our AI Experts',
+  description: 'Contact Raleigh AI Solutions for expert AI consulting and support. Our team is ready to help you with your AI needs.',
+  openGraph: {
+    title: 'Contact Raleigh AI Solutions | Get in Touch with Our AI Experts',
+    description: 'Contact Raleigh AI Solutions for expert AI consulting and support. Our team is ready to help you with your AI needs.',
+    images: [
+      {
+        url: '/thumbnail-3.png',
+        width: 1200,
+        height: 630,
+        alt: 'Raleigh AI Solutions Team',
+      },
+    ],
+  },
+  twitter: {
+
+    card: 'summary_large_image',
+    title: 'Contact Raleigh AI Solutions | Get in Touch with Our AI Experts',
+    description: 'Contact Raleigh AI Solutions for expert AI consulting and support. Our team is ready to help you with your AI needs.',
+    images: ['/thumbnail-3.png'],
+  },
+};
