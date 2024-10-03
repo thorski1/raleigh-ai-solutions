@@ -44,6 +44,17 @@ export async function generateMetadata({ params }: SolutionPageProps): Promise<M
   return {
     title: `${solution.title} | Raleigh AI Solutions`,
     description: solution.shortDescription,
+    openGraph: {
+      title: `${solution.title} | Raleigh AI Solutions`,
+      description: solution.shortDescription,
+      images: [{ url: '/thumbnail-3.png' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${solution.title} | Raleigh AI Solutions`,
+      description: solution.shortDescription,
+      images: ['/thumbnail-3.png'],
+    },
   };
 }
 

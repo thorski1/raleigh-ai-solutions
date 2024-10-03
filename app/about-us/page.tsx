@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description: 'Discover how Raleigh AI Solutions empowers businesses with cutting-edge AI integration, cloud infrastructure, and automation tools. Learn about our mission, vision, and expert team.',
     images: [
       {
-        url: '/images/raleigh-ai-solutions-og.jpg',
+        url: '/thumbnail-4.png',
         width: 1200,
         height: 630,
         alt: 'Raleigh AI Solutions Team',
@@ -61,6 +61,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Raleigh AI Solutions | Leading AI Consulting Firm',
     description: 'Discover how Raleigh AI Solutions empowers businesses with cutting-edge AI integration, cloud infrastructure, and automation tools.',
-    images: ['/images/raleigh-ai-solutions-twitter.jpg'],
+    images: ['/thumbnail-4.png'],
   },
 };

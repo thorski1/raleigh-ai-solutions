@@ -45,9 +45,9 @@ export function MagicCard({
   }, [mouseX, mouseY, gradientSize]);
 
   return (
-    <div className="group">
+    <div className="group h-full">
       <div
-        className="relative p-[2px] rounded-xl transition-all duration-300 ease-in-out group-hover:scale-105"
+        className="relative p-[2px] rounded-xl transition-all duration-300 ease-in-out group-hover:scale-105 h-full"
         style={
           {
             '--neon-first-color': neonFirstColor,
@@ -59,12 +59,12 @@ export function MagicCard({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            'relative z-10 flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white',
+            'relative z-10 flex size-full h-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white',
             className,
           )}
           {...props}
         >
-          <div className="relative z-10">{children}</div>
+          <div className="relative z-10 h-full">{children}</div>
           <motion.div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{

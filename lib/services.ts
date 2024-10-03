@@ -55,7 +55,7 @@ const services: Service[] = [
       'Expanded audience reach',
     ],
     videoSrc: 'https://www.youtube.com/embed/your-508-compliance-video',
-    thumbnailSrc: '/images/508-compliance-thumbnail.jpg',
+    thumbnailSrc: '/thumbnail-1.png',
     hoverDescription: 'Ensure your AI systems meet government accessibility standards.',
   },
   {
@@ -88,7 +88,7 @@ const services: Service[] = [
       'Scalable solutions that grow with your business',
     ],
     videoSrc: 'https://www.youtube.com/embed/your-ai-integration-video',
-    thumbnailSrc: '/images/ai-integration-thumbnail.jpg',
+    thumbnailSrc: '/thumbnail-2.png',
     hoverDescription: 'Enhance business processes with custom AI models and workflow automation tools.',
   },
   {
@@ -121,7 +121,7 @@ const services: Service[] = [
       'Reliable disaster recovery solutions',
     ],
     videoSrc: 'https://www.youtube.com/embed/your-cloud-infrastructure-video',
-    thumbnailSrc: '/images/cloud-infrastructure-thumbnail.jpg',
+    thumbnailSrc: '/thumbnail-3.png',
     hoverDescription: 'Secure scalable cloud infrastructure solutions for SMEs.',
   },
   {
@@ -154,7 +154,7 @@ const services: Service[] = [
       'Competitive advantage through data utilization',
     ],
     videoSrc: 'https://www.youtube.com/embed/your-data-analytics-video',
-    thumbnailSrc: '/images/data-analytics-thumbnail.jpg',
+    thumbnailSrc: '/thumbnail-4.png',
     hoverDescription: 'Leverage AI-powered data analytics for data-driven decision-making.',
   },
   {
@@ -187,7 +187,7 @@ const services: Service[] = [
       'Competitive advantage through a highly skilled workforce',
     ],
     videoSrc: 'https://www.youtube.com/embed/your-technical-training-video',
-    thumbnailSrc: '/images/technical-training-thumbnail.jpg',
+    thumbnailSrc: '/thumbnail-1.png',
     hoverDescription: 'Empower your team with AI training programs and technical training services.',
   },
 ];
