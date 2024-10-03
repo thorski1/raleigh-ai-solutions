@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link';
 import ShinyButton from '../magicui/shiny-button';
 import Marquee from '../magicui/marquee';
@@ -18,8 +20,8 @@ const Footer = () => {
               AI-powered digital marketing solutions for your business growth.
             </p>
             <Modal>
-              <ModalTrigger className="w-full sm:w-auto px-0">
-                <ShinyButton className="w-full">Get a Free Consultation</ShinyButton>
+              <ModalTrigger className="px-0">
+                <ShinyButton as="div" className="w-full">Get a Free Consultation</ShinyButton>
               </ModalTrigger>
               <ModalBody>
                 <CalendarModal />

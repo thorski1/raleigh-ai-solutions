@@ -29,13 +29,13 @@ const LeaderCard: React.FC<LeaderCardProps> = ({ imageSrc, name, title, descript
 const LeadershipTeam = () => {
   const leaders = [
     {
-      imageSrc: '/logo.png',
-      name: 'Meghan Barnes',
+      imageSrc: '/elizabeth-barnes.png',
+      name: 'Elizabeth Barnes',
       title: 'Founder & AI Integration Specialist',
       description: 'A federally recognized Microsoft Subject Matter Expert (SME) with extensive experience in AI-driven workflow optimization, machine learning integration, and 508 compliance consulting.',
     },
     {
-      imageSrc: '/logo.png',
+      imageSrc: '/sam-thoyre.jpg',
       name: 'Sam Thoyre',
       title: 'Co-Founder & Operations Lead',
       description: 'Expert in operations management, project oversight, and AI consulting ensuring smooth execution of AI solutions for businesses.',
@@ -50,9 +50,9 @@ const LeadershipTeam = () => {
           <div>
             <SectionHeadline text="Leadership Team" className="mb-2 md:mb-2 lg:mb-4" />
             <div className="flex justify-center mt-4">
-              <AvatarCircles avatarUrls={['/images/meghan.jpg', '/images/sam.jpg']} numPeople={2} />
+              <AvatarCircles avatarUrls={['/elizabeth-barnes.png', '/sam-thoyre.jpg']} numPeople={2} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-8 mt-8">
               {leaders.map((leader, index) => (
                 <LeaderCard key={index} {...leader} />
               ))}
