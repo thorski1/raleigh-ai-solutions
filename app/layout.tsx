@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   title: 'Raleigh AI Solutions',
   description: 'AI-powered digital marketing solutions',
   icons: {
-    icon: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/logo.png" />
         <GoogleTagManager gtmId="GTM-MGXD95K8" />
       </head>
       <body className={cn(inter.className, 'overflow-x-hidden max-w-full')}>
