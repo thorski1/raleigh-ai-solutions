@@ -77,6 +77,7 @@ export const appRouter = createTRPCRouter({
         title,
         description,
         teaserContent,
+        "assetFile": assetFile.asset->url,
         "slug": slug.current
       }`,
       { slug: input.slug },

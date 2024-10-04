@@ -34,7 +34,6 @@ export default async function GatedAssetPage({ params }: { params: { slug: strin
       {/* Content */}
       <div className="container mx-auto py-12 grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
         <div className="col-span-1">
-          <h2 className="text-2xl font-bold mb-4 text-primary-dark">About this Asset</h2>
           <div className="prose text-primary-dark/80">
             <PortableText
               value={asset.teaserContent}
