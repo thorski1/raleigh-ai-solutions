@@ -118,6 +118,45 @@ const category: SchemaTypeDefinition = {
   ],
 }
 
+const gatedAsset: SchemaTypeDefinition = {
+  name: 'gatedAsset',
+  title: 'Gated Asset',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 2,
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'teaserContent',
+      title: 'Teaser Content',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'assetFile',
+      title: 'Asset File',
+      type: 'file',
+    },
+  ],
+}
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category],
+  types: [post, author, category, gatedAsset],
 }
