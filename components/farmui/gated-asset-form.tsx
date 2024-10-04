@@ -95,8 +95,8 @@ export default function GatedAssetForm({ assetSlug }: { assetSlug: string }) {
                 borderRadius="12px"
                 background="hsl(var(--action))"
                 as="a"
-                href={asset.assetFile}
                 target="_blank"
+                href={asset.assetFile}
                 rel="noopener noreferrer"
                 className="text-center w-full md:w-1/2 font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 py-2 inline-flex items-center justify-center"
               >
