@@ -12,6 +12,7 @@ export interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButto
   as?: React.ElementType;
   children?: React.ReactNode;
   href?: string;
+  target?: string;
 }
 
 const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
@@ -26,6 +27,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
       as: Component = 'button',
       children,
       href,
+      target,
       ...props
     },
     ref,
@@ -50,6 +52,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
         ref={ref}
         {...props}
         href={href}
+        target={target}
       >
         {/* spark container */}
         <div
