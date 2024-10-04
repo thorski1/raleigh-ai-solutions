@@ -1,9 +1,9 @@
 import { Toaster } from '@/components/ui/toaster';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import Header from '../components/layout/header';
-import Footer from '../components/layout/footer';
+import '../globals.css';
+import Header from '../../components/layout/header';
+import Footer from '../../components/layout/footer';
 import { cn } from '@/lib/utils';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { TRPCProvider } from '@/trpc/client';
