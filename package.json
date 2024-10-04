@@ -11,7 +11,6 @@
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
     "chromatic": "chromatic --exit-zero-on-changes",
-    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
     "sanity": "cd app/studio && sanity start"
   },
   "dependencies": {
