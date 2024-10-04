@@ -20,11 +20,18 @@ import * as z from 'zod';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import ShimmerButton from "@/components/magicui/shimmer-button";
-import { ChevronRight, Loader2 } from "lucide-react";
+import ShimmerButton from '@/components/magicui/shimmer-button';
+import { ChevronRight, Loader2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MagicCard } from '@/components/magicui/magic-card';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 
 const newsletterFormSchema = z.object({
   email: z.string().email({
@@ -36,7 +43,9 @@ const CoolDivider = () => (
   <div className="flex items-center justify-center my-12">
     <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
     <div className="mx-4">
-      <AnimatedShinyText as="span" className="text-2xl">•</AnimatedShinyText>
+      <AnimatedShinyText as="span" className="text-2xl">
+        •
+      </AnimatedShinyText>
     </div>
     <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
   </div>
@@ -119,12 +128,12 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading
-            ? Array(6).fill(0).map((_, index) => (
-                <SkeletonCard key={index} />
-              ))
+            ? Array(6)
+                .fill(0)
+                .map((_, index) => <SkeletonCard key={index} />)
             : posts?.map((post: any) => (
                 <Link href={`/blog/${post.slug.current}`} key={post._id} className="block h-full">
-                  <MagicCard 
+                  <MagicCard
                     className="h-full"
                     gradientColor="hsl(var(--primary) / 0.5)"
                     neonFirstColor="hsl(var(--secondary))"
@@ -141,7 +150,9 @@ export default function BlogPage() {
                         />
                       )}
                       <CardHeader className="backdrop-blur-sm">
-                        <CardTitle className="text-xl font-semibold text-foreground">{post.title}</CardTitle>
+                        <CardTitle className="text-xl font-semibold text-foreground">
+                          {post.title}
+                        </CardTitle>
                         <CardDescription className="text-muted-foreground">
                           {post.excerpt.slice(0, 100)}...
                         </CardDescription>
@@ -149,7 +160,10 @@ export default function BlogPage() {
                       <CardContent className="backdrop-blur-sm flex-grow">
                         <div className="flex flex-wrap gap-2">
                           {post.categories.map((category: any) => (
-                            <span key={category} className="bg-secondary/20 group-hover:bg-secondary/40 text-secondary-foreground px-2 py-1 rounded-full text-xs">
+                            <span
+                              key={category}
+                              className="bg-secondary/20 group-hover:bg-secondary/40 text-secondary-foreground px-2 py-1 rounded-full text-xs"
+                            >
                               {category}
                             </span>
                           ))}
@@ -179,8 +193,7 @@ export default function BlogPage() {
           <p className="text-lg mb-8 text-primary-light max-w-2xl mx-auto">
             At Raleigh AI Solutions, we are dedicated to empowering businesses in Raleigh with
             cutting-edge AI technologies. Our blog shares expert insights, industry trends, and
-            practical guides to help you navigate the evolving landscape of artificial
-            intelligence.
+            practical guides to help you navigate the evolving landscape of artificial intelligence.
           </p>
           <Modal>
             <ModalTrigger className="w-full sm:w-auto px-0">
@@ -201,14 +214,20 @@ export default function BlogPage() {
       <section className="relative py-16 overflow-hidden bg-secondary/10">
         <BorderBeam className="absolute inset-0 z-10" />
         <div className="relative text-center">
-          <AnimatedShinyText as="h2" className="text-2xl md:text-3xl text-center mb-6 text-primary-dark/80">
+          <AnimatedShinyText
+            as="h2"
+            className="text-2xl md:text-3xl text-center mb-6 text-primary-dark/80"
+          >
             Subscribe to Our Newsletter
           </AnimatedShinyText>
           <p className="text-lg mb-8 text-primary-dark/70 max-w-xl mx-auto">
             Stay updated with the latest AI trends, insights, and news. Join our community today!
           </p>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="z-10 max-w-2xl mx-auto flex items-center gap-2">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="z-10 max-w-2xl mx-auto flex items-center gap-2"
+            >
               <div className="flex-grow">
                 <FormField
                   control={form.control}

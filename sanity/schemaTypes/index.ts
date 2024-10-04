@@ -1,4 +1,4 @@
-import { type SchemaTypeDefinition } from 'sanity'
+import { type SchemaTypeDefinition } from 'sanity';
 
 const post: SchemaTypeDefinition = {
   name: 'post',
@@ -77,7 +77,7 @@ const post: SchemaTypeDefinition = {
       ],
     },
   ],
-}
+};
 
 const author: SchemaTypeDefinition = {
   name: 'author',
@@ -97,7 +97,7 @@ const author: SchemaTypeDefinition = {
       options: { hotspot: true },
     },
   ],
-}
+};
 
 const category: SchemaTypeDefinition = {
   name: 'category',
@@ -116,7 +116,7 @@ const category: SchemaTypeDefinition = {
       type: 'text',
     },
   ],
-}
+};
 
 const gatedAsset: SchemaTypeDefinition = {
   name: 'gatedAsset',
@@ -155,8 +155,8 @@ const gatedAsset: SchemaTypeDefinition = {
       type: 'file',
     },
   ],
-}
+};
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [post, author, category, gatedAsset],
-}
+};
