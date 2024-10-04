@@ -13,3 +13,12 @@ export const newsletter_subscribers = pgTable('newsletter_subscribers', {
   email: text('email').notNull().unique(),
   createdAt: timestamp('created_at').defaultNow(),
 });
+
+export const gated_asset_requests = pgTable('gated_asset_requests', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  company: text('company').notNull(),
+  asset_slug: text('asset_slug').notNull(),
+  created_at: timestamp('created_at').defaultNow(),
+});

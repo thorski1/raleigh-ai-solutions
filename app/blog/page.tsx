@@ -1,10 +1,12 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { trpc } from '@/trpc/client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import BlogHero from '@/components/blog/blog-hero';
+import AnimatedCircularProgressBar from '@/components/magicui/animated-circular-progress-bar';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
@@ -20,6 +22,9 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import { ChevronRight, Loader2 } from "lucide-react";
+import { Skeleton } from '@/components/ui/skeleton';
+import { MagicCard } from '@/components/magicui/magic-card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const newsletterFormSchema = z.object({
   email: z.string().email({
@@ -27,10 +32,41 @@ const newsletterFormSchema = z.object({
   }),
 });
 
+const CoolDivider = () => (
+  <div className="flex items-center justify-center my-12">
+    <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
+    <div className="mx-4">
+      <AnimatedShinyText as="span" className="text-2xl">•</AnimatedShinyText>
+    </div>
+    <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
+  </div>
+);
+
 export default function BlogPage() {
   const { toast } = useToast();
-  const {data: posts} = trpc.getPosts.useQuery();
+  const { data: posts, isLoading } = trpc.getPosts.useQuery();
   const { mutate: subscribeToNewsletter, isPending } = trpc.subscribeToNewsletter.useMutation();
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (isLoading) {
+      const timer = setInterval(() => {
+        setProgress((prevProgress) => {
+          if (prevProgress >= 100) {
+            clearInterval(timer);
+            return 100;
+          }
+          return Math.min(Math.round(prevProgress + 1), 100);
+        });
+      }, 20); // Adjust this value to change the speed of the animation
+
+      return () => {
+        clearInterval(timer);
+      };
+    } else {
+      setProgress(100);
+    }
+  }, [isLoading]);
 
   const form = useForm<z.infer<typeof newsletterFormSchema>>({
     resolver: zodResolver(newsletterFormSchema),
@@ -57,51 +93,83 @@ export default function BlogPage() {
     }
   }
 
+  const SkeletonCard = () => (
+    <Card className="overflow-hidden h-full flex flex-col">
+      <Skeleton className="w-full h-48" />
+      <CardHeader>
+        <Skeleton className="h-6 w-3/4" />
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <Skeleton className="h-4 w-full mb-2" />
+        <Skeleton className="h-4 w-5/6" />
+      </CardContent>
+      <CardFooter className="flex justify-between mt-auto">
+        <Skeleton className="h-4 w-1/4" />
+        <Skeleton className="h-4 w-1/4" />
+      </CardFooter>
+    </Card>
+  );
+
   return (
     <>
       <BlogHero
         headline="Innovative AI Solutions for a Smarter Raleigh"
         subheadline="Insights, trends, and news on Artificial Intelligence transforming businesses in Raleigh and beyond."
-        // cta1="Subscribe"
-        // cta2="Browse All"
       />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts?.map((post: any) => (
-            <Link href={`/blog/${post.slug.current}`} key={post._id} className="block">
-              <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                {post.mainImage && (
-                  <Image
-                    src={urlFor(post.mainImage).url()}
-                    alt={post.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-                <div className="p-4">
-                  <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-                  <p className="text-gray-600 mb-2">{post.excerpt.slice(0, 100)}...</p>
-                  <div className="flex justify-between items-center text-sm text-gray-500">
-                    <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                    <span>{post.estimatedReadingTime} min read</span>
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {post.categories.map((category: any) => (
-                      <span key={category} className="bg-gray-200 px-2 py-1 rounded-full text-xs">
-                        {category}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+          {isLoading
+            ? Array(6).fill(0).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))
+            : posts?.map((post: any) => (
+                <Link href={`/blog/${post.slug.current}`} key={post._id} className="block h-full">
+                  <MagicCard 
+                    className="h-full"
+                    gradientColor="hsl(var(--primary) / 0.5)"
+                    neonFirstColor="hsl(var(--secondary))"
+                    neonSecondColor="hsl(var(--accent))"
+                  >
+                    <Card className="h-full border-0 flex flex-col group">
+                      {post.mainImage && (
+                        <Image
+                          src={urlFor(post.mainImage).url()}
+                          alt={post.title}
+                          width={400}
+                          height={300}
+                          className="w-full h-48 object-cover rounded-t-xl"
+                        />
+                      )}
+                      <CardHeader className="backdrop-blur-sm">
+                        <CardTitle className="text-xl font-semibold text-foreground">{post.title}</CardTitle>
+                        <CardDescription className="text-muted-foreground">
+                          {post.excerpt.slice(0, 100)}...
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="backdrop-blur-sm flex-grow">
+                        <div className="flex flex-wrap gap-2">
+                          {post.categories.map((category: any) => (
+                            <span key={category} className="bg-secondary/20 group-hover:bg-secondary/40 text-secondary-foreground px-2 py-1 rounded-full text-xs">
+                              {category}
+                            </span>
+                          ))}
+                        </div>
+                      </CardContent>
+                      <CardFooter className="bg-secondary/10 group-hover:bg-secondary/40 backdrop-blur-sm flex justify-between py-4 text-sm text-muted-foreground mt-auto">
+                        <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                        <span>{post.estimatedReadingTime} min read</span>
+                      </CardFooter>
+                    </Card>
+                  </MagicCard>
+                </Link>
+              ))}
         </div>
       </div>
 
+      <CoolDivider />
+
       {/* About Us section */}
-      <section className="relative py-16 mt-16 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
         <AnimatedGridPattern className="absolute inset-0 z-0 opacity-40" />
         <BorderBeam className="absolute inset-0 z-10" />
         <div className="relative z-20 text-center">
@@ -126,6 +194,8 @@ export default function BlogPage() {
           </Modal>
         </div>
       </section>
+
+      <CoolDivider />
 
       {/* Newsletter Signup section */}
       <section className="relative py-16 overflow-hidden bg-secondary/10">
