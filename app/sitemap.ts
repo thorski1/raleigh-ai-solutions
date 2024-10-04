@@ -19,8 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }));
 
-  // Dynamic routes for solutions
-  const blogSlug = await trpc.getPosts.useQuery(); // You'll need to implement this function
+  // Dynamic routes for solutions 
   const solutionsSlug = await getSolutionSlugs(); // You'll need to implement this function
   const servicesSlug = await getAllServices(); // You'll need to implement this function
   const solutionRoutes = solutionsSlug.map((slug) => ({
@@ -33,10 +32,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }));
 
-  const blogRoutes = blogSlug.data?.map((post: any) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date().toISOString(),
-  }));
-
-  return [...routes, ...solutionRoutes, ...serviceRoutes, ...blogRoutes];
+  return [...routes, ...solutionRoutes, ...serviceRoutes];
 }
