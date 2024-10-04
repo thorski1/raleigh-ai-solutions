@@ -1,5 +1,6 @@
 import { getAllServices } from '@/lib/services';
 import { getSolutionSlugs } from '@/lib/solutions-data';
+import { trpc } from '@/trpc/client';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -12,12 +13,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about-us',
     '/services',
     '/contact',
+    '/blog',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
   }));
 
-  // Dynamic routes for solutions
+  // Dynamic routes for solutions 
   const solutionsSlug = await getSolutionSlugs(); // You'll need to implement this function
   const servicesSlug = await getAllServices(); // You'll need to implement this function
   const solutionRoutes = solutionsSlug.map((slug) => ({

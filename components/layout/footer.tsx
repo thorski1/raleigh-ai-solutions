@@ -46,11 +46,11 @@ const Footer = () => {
                   Our Solutions
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link href="/blog" className="text-sm hover:text-gray-300">
                   Blog
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
           <div className="flex flex-col space-y-4">
