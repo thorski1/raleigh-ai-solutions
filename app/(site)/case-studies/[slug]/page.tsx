@@ -8,6 +8,7 @@ import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portable-text.config';
 import DotPattern from '@/components/magicui/dot-pattern';
 import AnimatedGridPattern from '@/components/magicui/animated-grid-pattern';
+import { CTASections } from '@/components/sections/cta-sections';
 
 export default async function GatedAssetPage({ params }: { params: { slug: string } }) {
   const asset = await trpc.getGatedAsset({ slug: params.slug });
@@ -49,6 +50,7 @@ export default async function GatedAssetPage({ params }: { params: { slug: strin
           <GatedAssetForm assetSlug={params.slug} />
         </div>
       </div>
+      <CTASections />
     </>
   );
 }
