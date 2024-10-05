@@ -6,6 +6,8 @@ import GatedAssetForm from '@/components/farmui/gated-asset-form';
 import { trpc } from '@/trpc/server';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portable-text.config';
+import DotPattern from '@/components/magicui/dot-pattern';
+import AnimatedGridPattern from '@/components/magicui/animated-grid-pattern';
 
 export default async function GatedAssetPage({ params }: { params: { slug: string } }) {
   const asset = await trpc.getGatedAsset({ slug: params.slug });
@@ -19,6 +21,7 @@ export default async function GatedAssetPage({ params }: { params: { slug: strin
       {/* Hero Section */}
       <section className="relative w-full py-12 md:py-16 lg:py-20 pt-28 md:pt-32 lg:pt-36 overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
         <BorderBeam className="absolute inset-0" />
+        <AnimatedGridPattern />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <SparklesText

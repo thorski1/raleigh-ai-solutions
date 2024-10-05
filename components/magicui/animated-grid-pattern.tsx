@@ -26,7 +26,7 @@ export function GridPattern({
   strokeDasharray = 0,
   numSquares = 50,
   className,
-  maxOpacity = 0.5,
+  maxOpacity = 0.2,
   duration = 4,
   repeatDelay = 0.5,
   ...props
@@ -99,7 +99,7 @@ export function GridPattern({
       ref={containerRef}
       aria-hidden="true"
       className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30',
+        'pointer-events-none absolute inset-0 h-full w-full fill-accent/30 stroke-gray-400/10',
         className,
       )}
       {...props}
@@ -127,7 +127,7 @@ export function GridPattern({
             height={height - 1}
             x={x * width + 1}
             y={y * height + 1}
-            fill="currentColor"
+            fill="hsl(var(--accent))"
             strokeWidth="0"
           />
         ))}
