@@ -52,13 +52,13 @@ export const portableTextComponents = {
       code: ({ children }: { children: React.ReactNode }) => (
         <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm">{children}</code>
       ),
-      link: ({
-        children,
-        value,
-      }: PortableTextMarkComponentProps<{ href: string; _type: string }>) => (
-        <a href={value?.href} className="text-blue-500 hover:underline">
+      link: ({children, value}: PortableTextMarkComponentProps<{ href: string; _type: string }>) => {
+      const rel = !value!.href.startsWith('/') ? 'noreferrer noopener' : undefined
+      return (
+        <a href={value!.href} className="text-blue-500 hover:text-blue-600 hover:underline" rel={rel}>
           {children}
         </a>
-      ),
+      )
+    },
     },
   };

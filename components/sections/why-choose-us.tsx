@@ -19,6 +19,7 @@ const comparisonData = [
     stat: 40,
     statLabel: 'Efficiency Increase',
     className: 'md:col-span-1 md:row-span-1',
+    slug: 'automated-workflows-ai-integration-services',
   },
   {
     traditional: 'Gut feelings',
@@ -27,6 +28,7 @@ const comparisonData = [
     stat: 25,
     statLabel: 'Better Decision Making',
     className: 'md:col-span-2 md:row-span-1',
+    slug: 'data-driven-insights',
   },
   {
     traditional: 'Limited growth',
@@ -35,6 +37,7 @@ const comparisonData = [
     stat: 50,
     statLabel: 'Scalability Improvement',
     className: 'md:col-span-2 md:row-span-1',
+    slug: 'seamless-expansion-scalable-cloud-infrastructure',
   },
   {
     traditional: 'Higher expenses',
@@ -43,6 +46,7 @@ const comparisonData = [
     stat: 30,
     statLabel: 'Cost Reduction',
     className: 'md:col-span-1 md:row-span-1',
+    slug: 'reduced-costs-business-process-automation',
   },
 ];
 
@@ -75,7 +79,7 @@ export function WhyChooseUs() {
                   </div>
                 </div>
               }
-              href="#"
+              href={`/solutions/${item.slug}`}
               cta="Learn More"
             />
           ))}

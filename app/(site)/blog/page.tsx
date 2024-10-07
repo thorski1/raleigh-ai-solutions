@@ -1,13 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { trpc } from '@/trpc/client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import BlogHero from '@/components/blog/blog-hero';
-import AnimatedCircularProgressBar from '@/components/magicui/animated-circular-progress-bar';
-import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import { RainbowButton } from '@/components/magicui/rainbow-button';
@@ -41,13 +38,13 @@ const newsletterFormSchema = z.object({
 
 const CoolDivider = () => (
   <div className="flex items-center justify-center my-12">
-    <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
+    <div className="h-px bg-gradient-to-r from-transparent via-secondary to-secondary-light w-1/3" />
     <div className="mx-4">
       <AnimatedShinyText as="span" className="text-2xl">
         •
       </AnimatedShinyText>
     </div>
-    <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-1/3" />
+    <div className="h-px bg-gradient-to-r from-transparent via-secondary to-secondary-light w-1/3" />
   </div>
 );
 
@@ -55,27 +52,6 @@ export default function BlogPage() {
   const { toast } = useToast();
   const { data: posts, isLoading } = trpc.getPosts.useQuery();
   const { mutate: subscribeToNewsletter, isPending } = trpc.subscribeToNewsletter.useMutation();
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (isLoading) {
-      const timer = setInterval(() => {
-        setProgress((prevProgress) => {
-          if (prevProgress >= 100) {
-            clearInterval(timer);
-            return 100;
-          }
-          return Math.min(Math.round(prevProgress + 1), 100);
-        });
-      }, 20); // Adjust this value to change the speed of the animation
-
-      return () => {
-        clearInterval(timer);
-      };
-    } else {
-      setProgress(100);
-    }
-  }, [isLoading]);
 
   const form = useForm<z.infer<typeof newsletterFormSchema>>({
     resolver: zodResolver(newsletterFormSchema),
@@ -207,8 +183,6 @@ export default function BlogPage() {
           </Modal>
         </div>
       </section>
-
-      <CoolDivider />
 
       {/* Newsletter Signup section */}
       <section className="relative py-16 overflow-hidden bg-secondary/10">
