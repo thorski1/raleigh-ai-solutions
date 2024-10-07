@@ -13,6 +13,9 @@
     --color-4: 195 100% 63%; /* Cyan */
     --color-5: 90 100% 63%; /* Lime green */
 
+    --link: 230 100% 50%; /* Classic blue for links */
+    --hover-link: 230 100% 60%; /* Lighter blue for hover state */
+
     /* Main theme colors */
     --background: 210 40% 98%; /* Very light blue-gray */
     --foreground: 222.2 84% 4.9%; /* Very dark blue-gray */
@@ -53,6 +56,9 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+
+    --link: 230 100% 50%; /* Classic blue for links */
+    --hover-link: 230 100% 60%; /* Lighter blue for hover state */
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -132,4 +138,11 @@
 
 .ai-card {
   @apply bg-card text-card-foreground rounded-lg shadow-md p-6;
+}
+
+/* Add these custom classes for links */
+@layer components {
+  .link {
+    @apply text-link hover:text-hover-link transition-colors duration-300;
+  }
 }

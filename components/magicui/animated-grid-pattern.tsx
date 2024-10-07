@@ -26,7 +26,7 @@ export function GridPattern({
   strokeDasharray = 0,
   numSquares = 50,
   className,
-  maxOpacity = 0.2,
+  maxOpacity = 0.4,
   duration = 4,
   repeatDelay = 0.5,
   ...props
