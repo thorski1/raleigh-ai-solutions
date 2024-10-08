@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'Raleigh AI Solutions',
     images: [
       {
-        url: 'https://www.raleighai.solutions/og-image-blog.jpg', // Replace with your actual OG image
+        url: 'https://www.raleighai.solutions/thumbnail-1.png',
         width: 1200,
         height: 630,
         alt: 'Raleigh AI Solutions Blog',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog | Raleigh AI Solutions',
     description: 'Insights, trends, and news on Artificial Intelligence transforming businesses in Raleigh and beyond.',
-    images: ['https://www.raleighai.solutions/og-image-blog.jpg'], // Replace with your actual Twitter card image
+    images: ['https://www.raleighai.solutions/thumbnail-1.png'],
   },
 }
 
