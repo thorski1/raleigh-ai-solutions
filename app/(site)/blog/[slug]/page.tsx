@@ -21,6 +21,10 @@ export async function generateMetadata(
 
   const previousImages = (await parent).openGraph?.images || []
 
+  const ogImageUrl = post.mainImage 
+    ? urlFor(post.mainImage).width(1200).height(630).url() 
+    : (previousImages[0] as string | URL)
+
   return {
     title: `${post.title} | Raleigh AI Solutions Blog`,
     description: post.excerpt,
@@ -31,7 +35,7 @@ export async function generateMetadata(
       siteName: 'Raleigh AI Solutions',
       images: [
         {
-          url: post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : previousImages[0],
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -46,7 +50,7 @@ export async function generateMetadata(
       card: 'summary_large_image',
       title: `${post.title} | Raleigh AI Solutions Blog`,
       description: post.excerpt,
-      images: [post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : previousImages[0]],
+      images: [ogImageUrl],
     },
   }
 }
