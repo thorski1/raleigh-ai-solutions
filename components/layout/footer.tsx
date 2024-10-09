@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import Link from 'next/link';
 import ShinyButton from '../magicui/shiny-button';
@@ -6,6 +6,7 @@ import Marquee from '../magicui/marquee';
 import { Button } from '../ui/button';
 import { Modal, ModalTrigger, ModalBody } from '../ui/animated-modal';
 import CalendarModal from '../reusables/calendar-modal';
+import { Linkedin, Instagram } from 'lucide-react'; // Import social icons
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,7 +22,9 @@ const Footer = () => {
             </p>
             <Modal>
               <ModalTrigger className="px-0">
-                <ShinyButton as="div" className="w-full">Get a Free Consultation</ShinyButton>
+                <ShinyButton as="div" className="w-full">
+                  Get a Free Consultation
+                </ShinyButton>
               </ModalTrigger>
               <ModalBody>
                 <CalendarModal />
@@ -55,13 +58,41 @@ const Footer = () => {
           </div>
           <div className="flex flex-col space-y-4">
             <h4 className="text-lg font-semibold">Contact</h4>
-            <p className="text-sm">Email: <a href="mailto:info@raleighai.solutions">info@raleighai.solutions</a></p>
-         <div className="w-full sm:w-auto"><Button variant="outline" className="w-full sm:w-auto bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"><Link href="/contact">Contact Us</Link></Button></div>
+            <p className="text-sm">
+              Email: <a href="mailto:info@raleighai.solutions">info@raleighai.solutions</a>
+            </p>
+            <div className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                className="w-full sm:w-auto bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
+            {/* Add social icons */}
+            <div className="flex space-x-4 mt-2">
+              <a
+                href="https://www.linkedin.com/company/raleigh-ai-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/raleighaisolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700">
           <Marquee className="text-sm" pauseOnHover={true}>
-            <Link  href="/services/ai-integration-automation" className="mx-4">
+            <Link href="/services/ai-integration-automation" className="mx-4">
               AI Integration & Automation
             </Link>
             <Link href="/services/cloud-infrastructure-setup" className="mx-4">
