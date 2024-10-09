@@ -3,6 +3,7 @@ import { BorderBeam } from '@/components/magicui/border-beam';
 import SparklesText from '@/components/magicui/sparkles-text';
 import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
+import { Instagram, Linkedin } from 'lucide-react'; // Add this import at the top of the file
 
 export default function ContactPage() {
   return (
@@ -42,7 +43,26 @@ export default function ContactPage() {
           </ul>
           <div className="mt-8">
             <p className="text-primary-dark/80 mb-2">Don&apos;t hesitate to reach out to us at <a className="text-blue-600 hover:text-blue-500" href="mailto:info@raleighai.solutions">info@raleighai.solutions</a></p>
-           </div>
+            <p className="text-primary-dark/80 mb-2">Or connect with us on social media:</p>
+            <div className="flex space-x-4 mt-2">
+              <a
+                href="https://www.linkedin.com/company/raleigh-ai-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-dark hover:text-accent transition-colors"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/raleighaisolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-dark hover:text-accent transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
+          </div>
           <div className="mt-8">
             <Button variant="outline" className="bg-accent/30 text-primary-dark hover:text-primary-light">View FAQ</Button>
           </div>
