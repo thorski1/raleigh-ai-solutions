@@ -90,7 +90,9 @@ export default function GatedAssetForm({ assetSlug }: { assetSlug: string }) {
         <CardContent>
           {isSubmitted ? (
             <div className="space-y-4">
-              <p className="text-primary-dark">You can now download <b>{asset.title}</b></p>
+              <p className="text-primary-dark">
+                You can now download <b>{asset.title}</b>
+              </p>
               <ShimmerButton
                 borderRadius="12px"
                 background="hsl(var(--action))"

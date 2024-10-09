@@ -1,29 +1,25 @@
-import { Metadata, ResolvingMetadata } from 'next'
-import { trpc } from '@/trpc/server'
-import BlogPostPageClient from './client'
-import { urlFor } from '@/sanity/lib/image'
+import { Metadata, ResolvingMetadata } from 'next';
+import { trpc } from '@/trpc/server';
+import BlogPostPageClient from './client';
+import { urlFor } from '@/sanity/lib/image';
 
 type Props = {
-  params: { slug: string }
-}
+  params: { slug: string };
+};
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const post = await trpc.getPostBySlug({ slug: params.slug })
+  const post = await trpc.getPostBySlug({ slug: params.slug });
 
   if (!post) {
     return {
       title: 'Post Not Found',
-    }
+    };
   }
 
-  const previousImages = (await parent).openGraph?.images || []
-
-  const ogImageUrl = post.mainImage 
-    ? urlFor(post.mainImage).width(1200).height(630).url() 
-    : (previousImages[0] as string | URL)
+  const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: `${post.title} | Raleigh AI Solutions Blog`,
@@ -35,7 +31,9 @@ export async function generateMetadata(
       siteName: 'Raleigh AI Solutions',
       images: [
         {
-          url: ogImageUrl,
+          url: post.mainImage
+            ? urlFor(post.mainImage).width(1200).height(630).url()
+            : 'https://www.raleighai.solutions/thumbnail-1.png',
           width: 1200,
           height: 630,
           alt: post.title,
@@ -50,17 +48,21 @@ export async function generateMetadata(
       card: 'summary_large_image',
       title: `${post.title} | Raleigh AI Solutions Blog`,
       description: post.excerpt,
-      images: [ogImageUrl],
+      images: [
+        post.mainImage
+          ? urlFor(post.mainImage).width(1200).height(630).url()
+          : 'https://www.raleighai.solutions/thumbnail-1.png',
+      ],
     },
-  }
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = await trpc.getPostBySlug({ slug: params.slug })
+  const post = await trpc.getPostBySlug({ slug: params.slug });
 
   if (!post) {
-    return <div className="container mx-auto px-4 py-8">Post not found</div>
+    return <div className="container mx-auto px-4 py-8">Post not found</div>;
   }
 
-  return <BlogPostPageClient post={post} />
+  return <BlogPostPageClient post={post} />;
 }
