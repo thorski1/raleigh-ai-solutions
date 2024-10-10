@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { ReactNode } from 'react';
 import { BorderBeam } from '@/components/magicui/border-beam';
@@ -14,7 +14,7 @@ interface ServiceCardProps {
 export function ServiceCard({ icon, title, description, slug }: ServiceCardProps) {
   return (
     <PinContainer title={'Learn More'} href={`/services/${slug}`}>
-      <div className="w-full h-full relative overflow-hidden bg-primary-dark rounded-2xl">
+      <div className="w-full h-full relative overflow-hidden bg-primary-dark rounded-2xl min-h-52">
         <BorderBeam
           className="absolute inset-0 pointer-events-none"
           duration={20}

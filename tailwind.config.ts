@@ -208,8 +208,6 @@ const config: Config = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          light: 'hsl(var(--accent-light))',
-          dark: 'hsl(var(--accent-dark))',
           foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {

@@ -105,6 +105,49 @@ export const appRouter = createTRPCRouter({
       console.log('Received gated asset request:', requestAdded);
       return { success: true };
     }),
+
+  getAllServices: baseProcedure.query(async () => {
+    const services = await client.fetch(`*[_type == "service"] {
+      slug,
+      title,
+      description,
+      longDescription,
+      features[] {
+        title,
+        description,
+        icon
+      },
+      benefits,
+      videoSrc,
+      "thumbnailSrc": thumbnailSrc.asset->url,
+      hoverDescription
+    }`);
+    return services;
+  }),
+
+  getServiceBySlug: baseProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ input }) => {
+      const service = await client.fetch(
+        `*[_type == "service" && slug.current == $slug][0] {
+          slug,
+          title,
+          description,
+          longDescription,
+          features[] {
+            title,
+            description,
+            icon
+          },
+          benefits,
+          videoSrc,
+          "thumbnailSrc": thumbnailSrc.asset->url,
+          hoverDescription
+        }`,
+        { slug: input.slug }
+      );
+      return service;
+    }),
 });
 
 export type AppRouter = typeof appRouter;

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-import { getServiceBySlug, getAllServices, Service } from '@/lib/services';
+import { trpc } from '@/trpc/server';
 import ServiceHero from '@/components/sections/services/service-hero';
 import ServiceCTA from '@/components/sections/services/service-cta';
 import {
@@ -15,9 +15,10 @@ import {
 } from '@/components/ui/breadcrumb';
 import { BenefitsSection } from '@/components/sections/services/benefits-section';
 import KeyFeatures from '@/components/sections/services/key-features';
+import { Service } from '@/lib/services';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const service = await getServiceBySlug(params.slug);
+  const service = await trpc.getServiceBySlug({ slug: params.slug });
   if (!service) return {};
 
   return {
@@ -41,14 +42,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export async function generateStaticParams() {
-  const services = await getAllServices();
+  const services = await trpc.getAllServices();
   return services.map((service: Service) => ({
-    slug: service.slug,
+    slug: service.slug.current,
   }));
 }
 
 export default async function ServicePage({ params }: { params: { slug: string } }) {
-  const service = await getServiceBySlug(params.slug);
+  const service = await trpc.getServiceBySlug({ slug: params.slug });
 
   if (!service) {
     notFound();

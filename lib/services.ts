@@ -9,14 +9,16 @@ import {
 } from 'react-icons/fi';
 
 export interface Service {
-  slug: string;
+  slug: {
+    current: string;  
+  };
   title: string;
   description: string;
   longDescription: string;
   features: Array<{
     title: string;
     description: string;
-    icon: IconType;
+    icon: string;
   }>;
   benefits: string[];
   videoSrc: string;
@@ -24,7 +26,16 @@ export interface Service {
   hoverDescription: string;
 }
 
-const services: Service[] = [
+export const iconMap: { [key: string]: IconType } = {
+  FiShield, FiCpu, FiCloud, FiBarChart2, FiBook,
+  FiCheckSquare, FiSettings, FiAlertTriangle,
+  FiCode, FiRefreshCw, FiTrendingUp,
+  FiLock, FiMaximize2, FiDollarSign,
+  FiPieChart, FiMonitor, FiActivity,
+  FiBookOpen, FiUsers, FiAward
+};
+
+export const services = [
   {
     slug: '508-compliance-consulting',
     title: '508 Compliance Consulting',
@@ -34,17 +45,17 @@ const services: Service[] = [
       {
         title: 'Comprehensive Audits',
         description: 'Thorough evaluation of your digital assets for compliance with Section 508 standards.',
-        icon: FiCheckSquare,
+        icon: "FiCheckSquare",
       },
       {
         title: 'Implementation Guidance',
         description: 'Expert advice on implementing accessibility features in AI systems and digital content.',
-        icon: FiSettings,
+        icon: "FiSettings",
       },
       {
         title: 'Risk Mitigation',
         description: 'Strategies to reduce legal risks associated with non-compliance.',
-        icon: FiAlertTriangle,
+        icon: "FiAlertTriangle",
       },
     ],
     benefits: [
@@ -67,17 +78,17 @@ const services: Service[] = [
       {
         title: 'Custom AI Models',
         description: 'Tailored AI solutions designed to address your specific business challenges.',
-        icon: FiCode,
+        icon: "FiCode",
       },
       {
         title: 'Workflow Automation',
         description: 'Streamlined processes that reduce manual tasks and improve efficiency.',
-        icon: FiRefreshCw,
+        icon: "FiRefreshCw",
       },
       {
         title: 'Predictive Analytics',
         description: 'Data-driven insights to enhance decision-making and forecasting.',
-        icon: FiTrendingUp,
+        icon: "FiTrendingUp",
       },
     ],
     benefits: [
@@ -100,17 +111,17 @@ const services: Service[] = [
       {
         title: 'Secure Migration',
         description: "Safe and efficient transition of your data and applications to the cloud.",
-        icon: FiLock,
+        icon: "FiLock",
       },
       {
         title: 'Scalable Architecture',
         description: 'Flexible infrastructure design that grows with your business needs.',
-        icon: FiMaximize2,
+        icon: "FiMaximize2",
       },
       {
         title: 'Cost Optimization',
         description: 'Efficient resource allocation to minimize operational costs.',
-        icon: FiDollarSign,
+        icon: "FiDollarSign",
       },
     ],
     benefits: [
@@ -133,17 +144,17 @@ const services: Service[] = [
       {
         title: 'AI-Powered Analytics',
         description: 'Advanced algorithms that uncover hidden patterns and insights in your data.',
-        icon: FiPieChart,
+        icon: "FiPieChart",
       },
       {
         title: 'Real-Time Dashboards',
         description: 'Interactive visualizations for monitoring key performance indicators.',
-        icon: FiMonitor,
+        icon: "FiMonitor",
       },
       {
         title: 'Predictive Modeling',
         description: 'Forecast future trends and outcomes based on historical data.',
-        icon: FiActivity,
+        icon: "FiActivity",
       },
     ],
     benefits: [
@@ -166,17 +177,17 @@ const services: Service[] = [
       {
         title: 'Customized Curricula',
         description: 'Tailored training programs designed to meet your specific business needs.',
-        icon: FiBookOpen,
+        icon: "FiBookOpen",
       },
       {
         title: 'Hands-On Workshops',
         description: 'Practical, interactive sessions for applied learning and skill development.',
-        icon: FiUsers,
+        icon: "FiUsers",
       },
       {
         title: 'Certification Preparation',
         description: 'Targeted courses to help your team achieve industry-recognized certifications.',
-        icon: FiAward,
+        icon: "FiAward",
       },
     ],
     benefits: [
@@ -191,11 +202,3 @@ const services: Service[] = [
     hoverDescription: 'Empower your team with AI training programs and technical training services.',
   },
 ];
-
-export async function getAllServices(): Promise<Service[]> {
-  return services;
-}
-
-export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
-  return services.find((service) => service.slug === slug);
-}
