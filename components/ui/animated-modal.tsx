@@ -60,13 +60,17 @@ export const ModalTrigger = ({
   );
 };
 
+interface ModalBodyProps {
+  children: ReactNode;
+  className?: string;
+  closeButtonColor?: string;
+}
+
 export const ModalBody = ({
   children,
   className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => {
+  closeButtonColor,
+}: ModalBodyProps) => {
   const { open } = useModal();
 
   useEffect(() => {
@@ -96,14 +100,14 @@ export const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           }}
-          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
+          className="fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
         >
           <Overlay />
 
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-primary-dark border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "max-h-[90vh] w-full md:w-auto md:max-w-[90vw] bg-primary-dark md:rounded-2xl relative z-50 flex flex-col overflow-hidden",
               className
             )}
             initial={{
@@ -129,8 +133,10 @@ export const ModalBody = ({
               damping: 15,
             }}
           >
-            <CloseIcon />
-            {children}
+            <CloseIcon closeButtonColor={closeButtonColor} />
+            <div className="overflow-y-auto flex-grow">
+              {children}
+            </div>
           </motion.div>
         </motion.div>
       )}
@@ -190,7 +196,7 @@ const Overlay = ({ className }: { className?: string }) => {
   );
 };
 
-const CloseIcon = () => {
+const CloseIcon = ({ closeButtonColor }: { closeButtonColor?: string }) => {
   const { setOpen } = useModal();
   return (
     <button
@@ -207,7 +213,10 @@ const CloseIcon = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-black dark:text-white h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200"
+        className={cn(
+          "h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200",
+          closeButtonColor || "text-black dark:text-white"
+        )}
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M18 6l-12 12" />
