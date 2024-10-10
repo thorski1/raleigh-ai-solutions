@@ -3,12 +3,16 @@ import ServicesHero from '@/components/sections/services/services-hero';
 import ServicesList from '@/components/sections/services/services-list';
 import ServicesWhyChooseUs from '@/components/sections/services/services-why-choose-us';
 import ServicesCTA from '@/components/sections/services/services-cta';
+import { trpc } from '@/trpc/server';
+import { Service } from '@/lib/services';
 
-const ServicesPage = () => {
+const ServicesPage = async () => {
+  const services: Service[] = await trpc.getAllServices();
+
   return (
     <div className="min-h-screen bg-white">
       <ServicesHero />
-      <ServicesList />
+      <ServicesList services={services} />
       <ServicesWhyChooseUs />
       <ServicesCTA />
     </div>

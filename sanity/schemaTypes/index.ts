@@ -157,6 +157,76 @@ const gatedAsset: SchemaTypeDefinition = {
   ],
 };
 
+const service: SchemaTypeDefinition = {
+  name: 'service',
+  title: 'Service',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'longDescription',
+      title: 'Long Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'features',
+      title: 'Features',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', type: 'string' },
+            { name: 'description', type: 'text' },
+            { name: 'icon', type: 'string' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'benefits',
+      title: 'Benefits',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'videoSrc',
+      title: 'Video Source',
+      type: 'url',
+    },
+    {
+      name: 'thumbnailSrc',
+      title: 'Thumbnail Source',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'hoverDescription',
+      title: 'Hover Description',
+      type: 'string',
+    },
+  ],
+};
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, gatedAsset],
+  types: [post, author, category, gatedAsset, service],
 };
