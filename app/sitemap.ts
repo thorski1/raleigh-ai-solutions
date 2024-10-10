@@ -1,6 +1,7 @@
-import { getAllServices } from '@/lib/services';
+
+import { Service } from '@/lib/services';
 import { getSolutionSlugs } from '@/lib/solutions-data';
-import { trpc } from '@/trpc/client';
+import { trpc } from '@/trpc/server';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -21,14 +22,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic routes for solutions 
   const solutionsSlug = await getSolutionSlugs(); // You'll need to implement this function
-  const servicesSlug = await getAllServices(); // You'll need to implement this function
+  const servicesSlug = await trpc.getAllServices(); // You'll need to implement this function
   const solutionRoutes = solutionsSlug.map((slug) => ({
     url: `${baseUrl}/solutions/${slug}`,
     lastModified: new Date().toISOString(),
   }));
     
-  const serviceRoutes = servicesSlug.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
+  const serviceRoutes = servicesSlug.map((service: Service) => ({
+    url: `${baseUrl}/services/${service.slug.current}`,
     lastModified: new Date().toISOString(),
   }));
 
