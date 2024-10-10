@@ -40,6 +40,8 @@
     --muted-foreground: 215.4 16.3% 46.9%; /* Medium gray */
 
     --accent: 306 90% 60%; /* Bright pink */
+    --accent-light: 306 90% 80%; /* Bright pink */
+    --accent-dark: 306 90% 30%; /* Bright pink */
     --accent-foreground: 222.2 47.4% 11.2%; /* Dark blue-gray */
 
     --destructive: 0 84.2% 60.2%; /* Bright red */

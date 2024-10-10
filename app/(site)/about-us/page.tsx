@@ -7,8 +7,10 @@ import PartnersCertifications from '@/components/sections/about-us/partners-cert
 import WhyChooseUs from '@/components/sections/about-us/why-choose-us';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
+import FAQ from '@/components/sections/faq';
 import Image from 'next/image';
 import Link from 'next/link';
+import Particles from '@/components/magicui/particles';
 
 const AboutUsPage = () => {
   return (
@@ -35,6 +37,17 @@ const AboutUsPage = () => {
       <ValuesVideo />
       <LeadershipTeam />
       <PartnersCertifications />
+      
+      {/* FAQ Section */}
+      <section id="faq" className="relative py-16 bg-gradient-to-br from-accent-dark via-accent-dark to-primary-dark">
+        <div className="absolute inset-0 w-full h-full">
+          <Particles className="w-full h-full" quantity={500} color="#ffffff" staticity={50} />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <FAQ className="max-w-4xl mx-auto" />
+        </div>
+      </section>
+
       <WhyChooseUs />
     </div>
   );

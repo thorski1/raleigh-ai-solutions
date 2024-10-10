@@ -3,7 +3,9 @@ import { BorderBeam } from '@/components/magicui/border-beam';
 import SparklesText from '@/components/magicui/sparkles-text';
 import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
-import { Instagram, Linkedin } from 'lucide-react'; // Add this import at the top of the file
+import { Instagram, Linkedin } from 'lucide-react';
+import FAQ from '@/components/sections/faq';
+import { Modal, ModalBody, ModalContent, ModalTrigger } from '@/components/ui/animated-modal';
 
 export default function ContactPage() {
   return (
@@ -64,13 +66,34 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="mt-8">
-            <Button variant="outline" className="bg-accent/30 text-primary-dark hover:text-primary-light">View FAQ</Button>
+            <Modal>
+              <ModalTrigger className="mx-0 px-0">
+                <Button variant="outline" className="bg-accent/30 text-primary-dark hover:text-primary-light">
+                  View FAQ
+                </Button>
+              </ModalTrigger>
+              <ModalBody 
+                className="bg-accent/20 backdrop-blur-xl shadow-xl md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%] w-full"
+                closeButtonColor="text-primary-light"
+              >
+                <ModalContent className="border-secondary">
+                  <FAQ />
+                </ModalContent>
+              </ModalBody>
+            </Modal>
           </div>
         </div>
         <div className="col-span-1">
           <ContactForm />
         </div>
       </div>
+
+      {/* FAQ Section
+      <section id="faq" className="py-16 bg-gradient-to-br from-secondary via-secondary-foreground to-primary">
+        <div className="container mx-auto px-4">
+          <FAQ className="max-w-4xl mx-auto" />
+        </div>
+      </section> */}
     </>
   );
 }
