@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 const client = createClient({
   projectId: projectId,
   dataset: dataset,
-  token: "skOY2GPwIrIC1g5ZcOjstWZP7tEavtQ0xSmppCSyN0jO1qVA5EvZN2Jh1RU1BKLcSC1fVojj0P6k9sjryyIYdaREfm36PlbKmfQzgaHhGKrduGJbqigbN3sX5bxiBQKyuEmneKDbbFhxSYM1AFMgbimgTJzxaKDfBci3v4lujyZ2Unvux2Bx", // Make sure to set this environment variable
+  token: "", // Make sure to set this environment variable
   useCdn: false,
   apiVersion: '2023-05-03',
 });
