@@ -5,6 +5,7 @@ import { FaCogs, FaExpandArrowsAlt, FaUsersCog, FaChartLine } from 'react-icons/
 import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { BentoGrid, BentoCard } from '@/components/magicui/bento-grid';
+import { Solution } from '@/lib/solutions-data';
 
 const reasons = [
   {
@@ -33,7 +34,7 @@ const reasons = [
   },
 ];
 
-const SolutionsWhyChooseUs = () => {
+const SolutionsWhyChooseUs = ({ solutions }: { solutions: Solution[] }) => {
   return (
     <section className="relative py-16 bg-secondary/10 overflow-hidden">
       <BorderBeam className="absolute inset-0 z-10" />

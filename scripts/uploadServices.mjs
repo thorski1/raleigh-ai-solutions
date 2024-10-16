@@ -6,16 +6,16 @@ import { dirname, join } from 'path';
 import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+    const __dirname = dirname(__filename);
 
-const client = createClient({
-  projectId: projectId,
-  dataset: dataset,
-  token:
-    '', // Be careful with this token and don't commit it to version control
-  useCdn: false,
-  apiVersion: '2021-03-25',
-});
+    const client = createClient({
+      projectId: projectId,
+      dataset: dataset,
+      token:
+        '', // Be careful with this token and don't commit it to version control
+      useCdn: false,
+      apiVersion: '2023-05-03',
+    });
 
 async function uploadServices() {
   for (const service of services) {

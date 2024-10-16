@@ -227,6 +227,83 @@ const service: SchemaTypeDefinition = {
   ],
 };
 
+const solution: SchemaTypeDefinition = {
+  name: 'solution',
+  title: 'Solution',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'shortDescription',
+      title: 'Short Description',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'benefits',
+      title: 'Benefits',
+      type: 'array',
+      of: [{ type: 'string' }],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'contentHeader',
+      title: 'Content Header',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'text' }],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'icon',
+      title: 'Icon',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'statValue',
+      title: 'Stat Value',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'statLabel',
+      title: 'Stat Label',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'traditional',
+      title: 'Traditional Approach',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'aiPowered',
+      title: 'AI-Powered Approach',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+  ],
+};
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, gatedAsset, service],
+  types: [post, author, category, gatedAsset, service, solution],
 };

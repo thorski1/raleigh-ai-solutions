@@ -148,6 +148,45 @@ export const appRouter = createTRPCRouter({
       );
       return service;
     }),
+
+  getAllSolutions: baseProcedure.query(async () => {
+    const solutions = await client.fetch(`*[_type == "solution"] {
+      title,
+      slug,  // This should return the slug as a string
+      shortDescription,
+      benefits,
+      contentHeader,
+      content,
+      icon,
+      statValue,
+      statLabel,
+      traditional,
+      aiPowered
+    }`);
+    return solutions;
+  }),
+
+  getSolutionBySlug: baseProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ input }) => {
+      const solution = await client.fetch(
+        `*[_type == "solution" && slug.current == $slug][0] {
+          title,
+          "slug": slug.current,
+          shortDescription,
+          benefits,
+          contentHeader,
+          content,
+          icon,
+          statValue,
+          statLabel,
+          traditional,
+          aiPowered
+        }`,
+        { slug: input.slug }
+      );
+      return solution;
+    }),
 });
 
 export type AppRouter = typeof appRouter;

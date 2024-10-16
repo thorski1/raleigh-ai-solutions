@@ -18,6 +18,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { appRouter } from '@/trpc/routers/_app';
+import { trpc } from '@/trpc/server';
 
 const solutionIcons = {
   'automated-workflows-ai-integration-services': FaRobot,
@@ -58,19 +60,23 @@ export async function generateMetadata({ params }: SolutionPageProps): Promise<M
   };
 }
 
-export default function SolutionPage({ params }: SolutionPageProps) {
-  const solution = solutionsData[params.slug];
-  const Icon = solutionIcons[params.slug as keyof typeof solutionIcons];
+export default async function SolutionPage({ params }: SolutionPageProps) {
+  const solution = await trpc.getSolutionBySlug({ slug: params.slug });
 
   if (!solution) {
     notFound();
   }
 
+  const Icon = solutionIcons[solution.icon as keyof typeof solutionIcons];
+
   return (
     <main className="min-h-screen relative bg-secondary-light/10">
       <LampContainer>
         <div className="flex flex-col items-center text-white">
-          <Icon className="text-6xl text-secondary-dark md:text-secondary-light mb-4" />
+          <MagicCard
+            Icon={Icon}
+            className="text-6xl text-secondary-dark md:text-secondary-light mb-4"
+          />
           <h1 className="text-4xl font-bold mb-4 text-center">{solution.title}</h1>
           <p className="text-xl mb-8 text-center max-w-2xl text-primary-light">
             {solution.shortDescription}
@@ -78,8 +84,8 @@ export default function SolutionPage({ params }: SolutionPageProps) {
         </div>
       </LampContainer>
 
-      <div className="container md:max-w-4xl lg:max-w-6xl mx-auto py-8">
-        <Breadcrumb className="container mx-auto px-4">
+      <div className="container w-full px-4 lg:max-w-5xl lg:mx-auto py-8">
+        <Breadcrumb className="container mx-auto">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -97,8 +103,8 @@ export default function SolutionPage({ params }: SolutionPageProps) {
         </Breadcrumb>
       </div>
 
-      <div className="container md:max-w-4xl lg:max-w-6xl mx-auto relative z-20 px-4">
-        {solution.content.map((item, i) => (
+      <div className="container w-full px-4 lg:max-w-5xl lg:mx-auto relative z-20">
+        {solution.content.map((item: string, i: number) => (
           <p className="text-primary-dark mb-4" key={i}>
             {item}
           </p>

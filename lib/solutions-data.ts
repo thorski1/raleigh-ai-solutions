@@ -1,13 +1,25 @@
-interface Solution {
+import { IconType } from 'react-icons';
+import { FaRobot, FaChartLine, FaPiggyBank, FaCloud } from 'react-icons/fa';
+
+export interface Solution {
+  slug: { current: string};
   title: string;
   shortDescription: string;
   benefits: string[];
   contentHeader: string;
   content: string[];
+  icon: string;
+  statValue: number;
+  statLabel: string;
+  traditional: string;
+  aiPowered: string;
 }
 
 export const solutionsData: Record<string, Solution> = {
   'automated-workflows-ai-integration-services': {
+    slug: {
+      current: 'automated-workflows-ai-integration-services',
+    },
     title: 'Automated Workflows with AI Integration Services',
     shortDescription:
       'Achieve up to a 40% efficiency increase by automating your business workflows with AI-driven solutions from Raleigh AI Solutions.',
@@ -22,8 +34,16 @@ export const solutionsData: Record<string, Solution> = {
       'Whether you\'re managing inventory, customer service, or internal communications, our automation services ensure that tasks are completed faster, with fewer errors. Our tailored AI models analyze your current workflow, identify inefficiencies, and create automated solutions that grow with your business, driving long-term success.',
       'Efficiency is key to staying competitive in today\'s fast-paced business environment. Automating workflows with AI reduces manual labor, minimizes errors, and improves overall productivity. Choosing Raleigh AI Solutions means your business will benefit from innovative AI technologies that create streamlined processes and measurable results.',
     ],
+    icon: 'FaRobot',
+    statValue: 40,
+    statLabel: 'Efficiency Improvement',
+    traditional: 'Manual Processes',
+    aiPowered: 'AI-Driven Solutions',
   },
   'data-driven-insights': {
+    slug: {
+      current: 'data-driven-insights',
+    },
     title: 'Data-Driven Insights Through AI-Powered Data Analytics',
     shortDescription:
       'Improve decision-making by 25% with AI-powered data analytics solutions from Raleigh AI Solutions.',
@@ -38,8 +58,16 @@ export const solutionsData: Record<string, Solution> = {
       'By transforming raw data into meaningful information, we empower your team to make better decisions, leading to a 25% improvement in decision-making processes. From forecasting market trends to optimizing internal operations, our data analytics solutions give you the competitive edge needed to thrive in a data-driven world.',
       'In today\'s fast-moving business landscape, data-driven decision-making is critical to success. AI-powered analytics enhance your ability to predict outcomes, identify new opportunities, and reduce risks. By choosing Raleigh AI Solutions, you\'re choosing a partner that leverages cutting-edge AI technology to provide deeper insights, leading to more informed and strategic business decisions.',
     ],
+    icon: 'FaChartLine',
+    statValue: 25,
+    statLabel: 'Decision-Making Improvement',
+    traditional: 'Manual Analysis',
+    aiPowered: 'AI-Powered Analytics',
   },
   'reduced-costs-business-process-automation': {
+    slug: {
+      current: 'reduced-costs-business-process-automation',
+    },
     title: 'Reduced Costs Through Business Process Automation',
     shortDescription:
       'Achieve up to 30% cost reduction by automating your business processes with Raleigh AI Solutions.',
@@ -50,8 +78,16 @@ export const solutionsData: Record<string, Solution> = {
       'From administrative tasks to customer service workflows, our tailored automation solutions ensure that your business runs smoother, faster, and more efficiently. By implementing AI-driven automation tools, you can cut costs without compromising quality or productivity, allowing you to focus on growing your business.',
       'Reducing operational costs is essential for staying competitive, and business process automation is one of the most effective ways to achieve this. By automating repetitive tasks, businesses can save time, reduce human error, and free up resources for more strategic initiatives. Raleigh AI Solutions provides the expertise needed to identify key areas for automation, resulting in significant cost savings and improved efficiency.',
     ],
+    icon: 'FaPiggyBank',
+    statValue: 30,
+    statLabel: 'Cost Reduction',
+    traditional: 'Manual Processes',
+    aiPowered: 'AI-Driven Automation',
   },
   'seamless-expansion-scalable-cloud-infrastructure': {
+    slug: {
+      current: 'seamless-expansion-scalable-cloud-infrastructure',
+    },
     title: 'Seamless Expansion with Scalable Cloud Infrastructure',
     shortDescription:
       "Achieve a 50% scalability improvement with Raleigh AI Solutions' secure and scalable cloud infrastructure.",
@@ -66,6 +102,11 @@ export const solutionsData: Record<string, Solution> = {
       'Our cloud infrastructure allows you to grow your business with confidence, providing a secure and flexible foundation that can handle increased workloads, user activity, and data storage. With a focus on efficiency, our solutions improve scalability by up to 50%, ensuring that your infrastructure can adapt as your business evolves without sacrificing performance or security.',
       'As businesses grow, having a scalable cloud infrastructure is critical to maintaining smooth operations. By investing in cloud solutions that scale efficiently, businesses can avoid costly disruptions and future-proof their technology stack. Raleigh AI Solutions provides the expertise needed to implement cloud services that scale alongside your business, allowing for rapid expansion without limits.',
     ],
+    icon: 'FaCloud',
+    statValue: 50,
+    statLabel: 'Scalability Improvement',
+    traditional: 'Legacy Infrastructure',
+    aiPowered: 'Cloud Infrastructure',
   },
 };
 
@@ -74,3 +115,10 @@ export function getSolutionSlugs(): string[] {
 }
 
 export type SolutionSlug = keyof typeof solutionsData;
+
+export const solutionIcons: { [key: string]: IconType } = {
+  FaRobot,
+  FaChartLine,
+  FaPiggyBank,
+  FaCloud,
+};

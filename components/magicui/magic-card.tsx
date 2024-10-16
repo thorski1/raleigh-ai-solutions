@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { IconType } from 'react-icons';
 
 export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientSize?: number;
@@ -10,6 +11,7 @@ export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientOpacity?: number;
   neonFirstColor?: string;
   neonSecondColor?: string;
+  Icon?: IconType;
 }
 
 export function MagicCard({
@@ -20,6 +22,7 @@ export function MagicCard({
   gradientOpacity = 0.4,
   neonFirstColor = '#ff00aa',
   neonSecondColor = '#00FFF1',
+  Icon,
   ...props
 }: MagicCardProps) {
   const mouseX = useMotionValue(-gradientSize);
@@ -64,7 +67,10 @@ export function MagicCard({
           )}
           {...props}
         >
-          <div className="relative z-10 h-full">{children}</div>
+          <div className="relative z-10 h-full">
+            {Icon && <Icon className="text-6xl mb-4" />}
+            {children}
+          </div>
           <motion.div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{
