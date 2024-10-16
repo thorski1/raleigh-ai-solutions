@@ -6,9 +6,7 @@
     "prettier",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/lines-between-class-members": "off",
