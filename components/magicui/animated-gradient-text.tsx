@@ -1,26 +1,51 @@
-import { ReactNode } from 'react';
+'use client';
 
+import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 export default function AnimatedGradientText({
   children,
   className,
+  colorOne = '#ffaa40',
+  colorTwo = '#9c40ff',
 }: {
   children: ReactNode;
   className?: string;
+  colorOne?: string;
+  colorTwo?: string;
 }) {
   return (
     <div
       className={cn(
-        'group relative mx-auto flex max-w-fit flex-row items-center justify-center rounded-2xl bg-white/40 px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%] hover:shadow-[inset_0_-5px_10px_#8fdfff3f] dark:bg-black/40',
+        'relative mx-auto flex max-w-fit flex-row items-center justify-center text-4xl font-bold',
         className,
       )}
     >
-      <div
-        className={`absolute inset-0 block h-full w-full animate-gradient bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:var(--bg-size)_100%] p-[1px] ![mask-composite:subtract] [border-radius:inherit] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]`}
-      />
-
-      {children}
+      <span
+        className={cn(
+          'animate-gradient bg-clip-text text-transparent',
+          `bg-gradient-to-r from-[${colorOne}] via-[${colorTwo}] to-[${colorOne}]`
+        )}
+        style={{
+          backgroundSize: '200% 200%',
+          animation: 'gradientShift 3s ease infinite',
+        }}
+      >
+        {children}
+      </span>
+      <style jsx>{`
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

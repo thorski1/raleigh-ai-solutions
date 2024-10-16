@@ -9,7 +9,10 @@ export interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButto
   shimmerDuration?: string;
   background?: string;
   className?: string;
+  as?: React.ElementType;
   children?: React.ReactNode;
+  href?: string;
+  target?: string;
 }
 
 const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
@@ -21,13 +24,16 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
       borderRadius = '100px',
       background = 'rgba(0, 0, 0, 1)',
       className,
+      as: Component = 'button',
       children,
+      href,
+      target,
       ...props
     },
     ref,
   ) => {
     return (
-      <button
+      <Component
         style={
           {
             '--spread': '90deg',
@@ -45,6 +51,8 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
         )}
         ref={ref}
         {...props}
+        href={href}
+        target={target}
       >
         {/* spark container */}
         <div
@@ -85,7 +93,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
             'absolute -z-20 [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]',
           )}
         />
-      </button>
+      </Component>
     );
   },
 );

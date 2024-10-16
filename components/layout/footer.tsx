@@ -1,32 +1,116 @@
-import Link from "next/link";
+'use client';
+
+import Link from 'next/link';
+import ShinyButton from '../magicui/shiny-button';
+import Marquee from '../magicui/marquee';
+import { Button } from '../ui/button';
+import { Modal, ModalTrigger, ModalBody } from '../ui/animated-modal';
+import CalendarModal from '../reusables/calendar-modal';
+import { Linkedin, Instagram } from 'lucide-react'; // Import social icons
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">RaleighAI Solutions</h3>
-            <p className="text-sm">AI-powered digital marketing solutions for your business growth.</p>
+            <h3 className="text-lg font-semibold mb-4">Raleigh AI Solutions</h3>
+            <p className="text-sm mb-4">
+              AI-powered digital marketing solutions for your business growth.
+            </p>
+            <Modal>
+              <ModalTrigger className="px-0">
+                <ShinyButton as="div" className="w-full">
+                  Get a Free Consultation
+                </ShinyButton>
+              </ModalTrigger>
+              <ModalBody>
+                <CalendarModal />
+              </ModalBody>
+            </Modal>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-sm hover:text-gray-300">About Us</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-gray-300">Our Services</Link></li>
-              <li><Link href="/blog" className="text-sm hover:text-gray-300">Blog</Link></li>
-              <li><Link href="/contact" className="text-sm hover:text-gray-300">Contact Us</Link></li>
+              <li>
+                <Link href="/about-us" className="text-sm hover:text-gray-300">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-sm hover:text-gray-300">
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="text-sm hover:text-gray-300">
+                  Our Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-sm hover:text-gray-300">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-sm">123 AI Street, Raleigh, NC 27601</p>
-            <p className="text-sm">Email: info@raleighai.com</p>
-            <p className="text-sm">Phone: (919) 555-0123</p>
+          <div className="flex flex-col space-y-4">
+            <h4 className="text-lg font-semibold">Contact</h4>
+            <p className="text-sm">
+              Email: <a href="mailto:info@raleighai.solutions">info@raleighai.solutions</a>
+            </p>
+            <div className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                className="w-full sm:w-auto bg-accent text-primary-light hover:bg-accent/80 hover:text-primary-light"
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
+            {/* Add social icons */}
+            <div className="flex space-x-4 mt-2">
+              <a
+                href="https://www.linkedin.com/company/raleigh-ai-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/raleighaisolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
-          <p>&copy; 2023 RaleighAI Solutions. All rights reserved.</p>
+        <div className="mt-8 pt-8 border-t border-gray-700">
+          <Marquee className="text-sm" pauseOnHover={true}>
+            <Link href="/services/ai-integration-automation" className="mx-4">
+              AI Integration & Automation
+            </Link>
+            <Link href="/services/cloud-infrastructure-setup" className="mx-4">
+              Cloud Infrastructure Setup
+            </Link>
+            <Link href="/services/data-analytics-business-intelligence" className="mx-4">
+              Data Analytics & Business Intelligence
+            </Link>
+            <Link href="/services/technical-training-ai-education" className="mx-4">
+              Technical Training & AI Education
+            </Link>
+            <Link href="/services/508-compliance-consulting" className="mx-4">
+              508 Compliance Consulting
+            </Link>
+          </Marquee>
+        </div>
+        <div className="mt-4 text-center text-sm">
+          <p>&copy; {currentYear} Raleigh AI Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

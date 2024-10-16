@@ -1,13 +1,18 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}', // Added this line to include lib directory
   ],
   theme: {
     extend: {
+      boxShadow: {
+        input: `0px 2px 3px -1px var(--color-2), 0px 1px 0px 0px var(--color-3), 0px 0px 0px 1px var(--color-4)`,
+      },
       animation: {
         marquee: 'marquee var(--duration) linear infinite',
         'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
@@ -23,15 +28,25 @@ const config: Config = {
         pulse: 'pulse var(--duration) ease-out infinite',
         grid: 'grid 15s linear infinite',
         ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
       keyframes: {
         marquee: {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+          from: {
+            transform: 'translateX(0)',
+          },
+          to: {
+            transform: 'translateX(calc(-100% - var(--gap)))',
+          },
         },
         'marquee-vertical': {
-          from: { transform: 'translateY(0)' },
-          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+          from: {
+            transform: 'translateY(0)',
+          },
+          to: {
+            transform: 'translateY(calc(-100% - var(--gap)))',
+          },
         },
         orbit: {
           '0%': {
@@ -58,16 +73,25 @@ const config: Config = {
           },
         },
         meteor: {
-          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
-          '70%': { opacity: '1' },
+          '0%': {
+            transform: 'rotate(215deg) translateX(0)',
+            opacity: '1',
+          },
+          '70%': {
+            opacity: '1',
+          },
           '100%': {
             transform: 'rotate(215deg) translateX(-500px)',
             opacity: '0',
           },
         },
         'background-position-spin': {
-          '0%': { backgroundPosition: 'top center' },
-          '100%': { backgroundPosition: 'bottom center' },
+          '0%': {
+            backgroundPosition: 'top center',
+          },
+          '100%': {
+            backgroundPosition: 'bottom center',
+          },
         },
         shimmer: {
           '0%, 90%, 100%': {
@@ -83,8 +107,12 @@ const config: Config = {
           },
         },
         rainbow: {
-          '0%': { 'background-position': '0%' },
-          '100%': { 'background-position': '200%' },
+          '0%': {
+            'background-position': '0%',
+          },
+          '100%': {
+            'background-position': '200%',
+          },
         },
         'spin-around': {
           '0%': {
@@ -106,12 +134,20 @@ const config: Config = {
           },
         },
         pulse: {
-          '0%, 100%': { boxShadow: '0 0 0 0 var(--pulse-color)' },
-          '50%': { boxShadow: '0 0 0 8px var(--pulse-color)' },
+          '0%, 100%': {
+            boxShadow: '0 0 0 0 var(--pulse-color)',
+          },
+          '50%': {
+            boxShadow: '0 0 0 8px var(--pulse-color)',
+          },
         },
         grid: {
-          '0%': { transform: 'translateY(-50%)' },
-          '100%': { transform: 'translateY(0)' },
+          '0%': {
+            transform: 'translateY(-50%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
         },
         ripple: {
           '0%, 100%': {
@@ -121,6 +157,22 @@ const config: Config = {
             transform: 'translate(-50%, -50%) scale(0.9)',
           },
         },
+        'accordion-down': {
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+        },
+        'accordion-up': {
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
+        },
       },
       colors: {
         'color-1': 'hsl(var(--color-1))',
@@ -128,6 +180,7 @@ const config: Config = {
         'color-3': 'hsl(var(--color-3))',
         'color-4': 'hsl(var(--color-4))',
         'color-5': 'hsl(var(--color-5))',
+        action: 'hsl(var(--action))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -135,10 +188,14 @@ const config: Config = {
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
+          light: 'hsl(var(--primary-light))',
+          dark: 'hsl(var(--primary-dark))',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
+          light: 'hsl(var(--secondary-light))',
+          dark: 'hsl(var(--secondary-dark))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
@@ -161,6 +218,8 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        link: 'hsl(var(--link))',
+        'hover-link': 'hsl(var(--hover-link))',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -173,7 +232,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
+  ],
 };
 
 export default config;
