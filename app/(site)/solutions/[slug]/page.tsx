@@ -20,8 +20,9 @@ import {
 } from '@/components/ui/breadcrumb';
 import { appRouter } from '@/trpc/routers/_app';
 import { trpc } from '@/trpc/server';
+import { IconType } from 'react-icons';
 
-const solutionIcons = {
+const solutionIcons: { [key: string]: IconType } = {
   'automated-workflows-ai-integration-services': FaRobot,
   'data-driven-insights': FaChartLine,
   'reduced-costs-business-process-automation': FaPiggyBank,

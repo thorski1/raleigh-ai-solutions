@@ -4,6 +4,8 @@ import { dataset, projectId } from '../sanity/env.js';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import fs from 'fs';
+import { IconType } from 'react-icons';
+import { FaChartLine, FaCloud, FaPiggyBank, FaRobot } from 'react-icons/fa';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,11 +18,11 @@ const client = createClient({
   apiVersion: '2023-05-03',
 });
 
-const solutionIcons = {
-  'automated-workflows-ai-integration-services': 'FaRobot',
-  'data-driven-insights': 'FaChartLine',
-  'reduced-costs-business-process-automation': 'FaPiggyBank',
-  'seamless-expansion-scalable-cloud-infrastructure': 'FaCloud',
+const solutionIcons: { [key: string]: IconType } = {
+  'automated-workflows-ai-integration-services': FaRobot,
+  'data-driven-insights': FaChartLine,
+  'reduced-costs-business-process-automation': FaPiggyBank,
+  'seamless-expansion-scalable-cloud-infrastructure': FaCloud,
 };
 async function uploadSolutions() {
   for (const [slug, solution] of Object.entries(solutionsData)) {
@@ -33,7 +35,7 @@ async function uploadSolutions() {
         benefits: solution.benefits,
         contentHeader: solution.contentHeader,
         content: solution.content,
-        icon: solutionIcons[slug],
+        icon: solutionIcons[slug] || 'FaRobot', // Provide a default icon if not found
         statValue: solution.statValue,
         statLabel: solution.statLabel,
         traditional: solution.traditional,
