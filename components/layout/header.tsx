@@ -26,7 +26,7 @@ const Header = () => {
         transition={{ duration: 0.5 }}
       >
         <Link href="/" className="flex items-center justify-center" prefetch={false}>
-          <Image src="/logo.png" alt="Raleigh AI Solutions" width={75} height={75} />
+          <Image src="/logo-white.png" alt="Raleigh AI Solutions" width={75} height={75} />
           <span className="sr-only">Raleigh AI Solutions</span>
         </Link>
       </motion.div>
