@@ -50,7 +50,14 @@ const CoolDivider = () => (
 
 export default function BlogPageClient() {
   const { toast } = useToast();
-  const { data: posts, isLoading } = trpc.getPosts.useQuery();
+  const { data: allPosts, isLoading } = trpc.getPosts.useQuery();
+
+  // Filter posts based on publishedAt date
+  const posts = allPosts?.filter((post: any) => {
+    const publishedAt = new Date(post.publishedAt);
+    return publishedAt <= new Date();
+  });
+
   const { mutate: subscribeToNewsletter, isPending } = trpc.subscribeToNewsletter.useMutation();
 
   const form = useForm<z.infer<typeof newsletterFormSchema>>({
