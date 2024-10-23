@@ -187,6 +187,136 @@ export const appRouter = createTRPCRouter({
       );
       return solution;
     }),
+
+  getAllNewServices: baseProcedure.query(async () => {
+    const newServices = await client.fetch(`*[_type == "newService"] {
+      title,
+      "slug": slug.current,
+      description,
+      heroTitle,
+      heroSubtitle,
+      introductionTitle,
+      introductionDescription,
+      "introductionVideo": introductionVideo.asset->url,
+      steps[] {
+        title,
+        description
+      },
+      keyFeatures[] {
+        feature
+      },
+      technologiesUsed[] {
+        name,
+        "icon": icon.asset->url
+      },
+      whyChooseUs,
+      ctaTitle,
+      ctaButton,
+      "solutions": solutions[]->{"slug": slug.current, title}
+    }`);
+    return newServices;
+  }),
+
+  getNewServiceBySlug: baseProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ input }) => {
+      const newService = await client.fetch(
+        `*[_type == "newService" && slug.current == $slug][0] {
+          title,
+          "slug": slug.current,
+          description,
+          heroTitle,
+          heroSubtitle,
+          introductionTitle,
+          introductionDescription,
+          "introductionVideo": introductionVideo.asset->url,
+          steps[] {
+            title,
+            description
+          },
+          keyFeatures[] {
+            feature
+          },
+          technologiesUsed[] {
+            name,
+            "icon": icon.asset->url
+          },
+          whyChooseUs,
+          ctaTitle,
+          ctaButton,
+          "solutions": solutions[]->{"slug": slug.current, title}
+        }`,
+        { slug: input.slug }
+      );
+      return newService;
+    }),
+
+  getAllNewSolutions: baseProcedure.query(async () => {
+    const newSolutions = await client.fetch(`*[_type == "newSolution"] {
+      title,
+      "slug": slug.current,
+      heroTitle,
+      heroSubtitle,
+      problemTitle,
+      problemDescription,
+      "problemVideo": problemVideo.asset->url,
+      stepsTitle,
+      steps[] {
+        title,
+        description
+      },
+      featuresTitle,
+      features[] {
+        feature
+      },
+      technologiesUsedTitle,
+      technologiesUsed[] {
+        name,
+        "icon": icon.asset->url
+      },
+      ctaTitle,
+      ctaButton,
+      kpi,
+      icon
+    }`);
+    return newSolutions;
+  }),
+
+  getNewSolutionBySlug: baseProcedure
+    .input(z.object({ slug: z.string() }))
+    .query(async ({ input }) => {
+      const newSolution = await client.fetch(
+        `*[_type == "newSolution" && slug.current == $slug][0] {
+          title,
+          "slug": slug.current,
+          heroTitle,
+          heroSubtitle,
+          problemTitle,
+          problemDescription,
+          "problemVideo": problemVideo.asset->url,
+          stepsTitle,
+          steps[] {
+            title,
+            description
+          },
+          featuresTitle,
+          features[] {
+            feature
+          },
+          technologiesUsedTitle,
+          technologiesUsed[] {
+            name,
+            "icon": icon.asset->url
+          },
+          ctaTitle,
+          ctaButton,
+          kpi,
+          icon
+        }`,
+        { slug: input.slug }
+      );
+      return newSolution;
+    }),
 });
 
 export type AppRouter = typeof appRouter;

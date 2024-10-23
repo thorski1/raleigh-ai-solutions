@@ -304,6 +304,284 @@ const solution: SchemaTypeDefinition = {
   ],
 };
 
+const technologyUsed: SchemaTypeDefinition = {
+  name: 'technologyUsed',
+  title: 'Technology Used',
+  type: 'object',
+  fields: [
+    { name: 'name', type: 'string', title: 'Technology Name' },
+    {
+      name: 'icon',
+      type: 'image',
+      title: 'Technology Icon',
+      options: {
+        hotspot: true,
+      },
+    },
+  ],
+};
+
+const newSolution: SchemaTypeDefinition = {
+  name: 'newSolution',
+  type: 'document',
+  title: 'New Solution',
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'heroTitle',
+      type: 'string',
+      title: 'Hero Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'heroSubtitle',
+      type: 'string',
+      title: 'Hero Subtitle',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'problemTitle',
+      type: 'string',
+      title: 'Problem Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'problemDescription',
+      type: 'text',
+      title: 'Problem Description',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'problemVideo',
+      type: 'file',
+      title: 'Problem Video',
+      options: {
+        accept: 'video/*'
+      }
+    },
+    {
+      name: 'stepsTitle',
+      type: 'string',
+      title: 'Steps Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'steps',
+      type: 'array',
+      title: 'Steps',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', type: 'string', title: 'Step Title' },
+            { name: 'description', type: 'text', title: 'Step Description' },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'featuresTitle',
+      type: 'string',
+      title: 'Features Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'features',
+      type: 'array',
+      title: 'Key Features',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'feature', type: 'string', title: 'Feature' },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'technologiesUsedTitle',
+      type: 'string',
+      title: 'Technologies Used Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'technologiesUsed',
+      type: 'array',
+      title: 'Technologies Used',
+      of: [{ type: 'technologyUsed' }],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'ctaTitle',
+      type: 'string',
+      title: 'Call to Action Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'ctaButton',
+      type: 'string',
+      title: 'CTA Button Text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'kpi',
+      type: 'string',
+      title: 'KPI Statement',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'icon',
+      type: 'string',
+      title: 'Font Awesome Icon',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+      validation: (Rule) => Rule.required(),
+    },
+  ],
+};
+
+const newService: SchemaTypeDefinition = {
+  name: 'newService',
+  type: 'document',
+  title: 'New Service',
+  fields: [
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'description',
+      type: 'text',
+      title: 'Service Description',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'solutions',
+      type: 'array',
+      title: 'Solutions',
+      of: [{ type: 'reference', to: [{ type: 'newSolution' }] }],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'heroTitle',
+      type: 'string',
+      title: 'Hero Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'heroSubtitle',
+      type: 'string',
+      title: 'Hero Subtitle',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'introductionTitle',
+      type: 'string',
+      title: 'Introduction Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'introductionDescription',
+      type: 'text',
+      title: 'Introduction Description',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'introductionVideo',
+      type: 'file',
+      title: 'Introduction Video',
+      options: {
+        accept: 'video/*'
+      }
+    },
+    {
+      name: 'steps',
+      type: 'array',
+      title: 'Service Steps',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', type: 'string', title: 'Step Title' },
+            { name: 'description', type: 'text', title: 'Step Description' },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'keyFeatures',
+      type: 'array',
+      title: 'Key Features',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'feature', type: 'string', title: 'Feature' },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'technologiesUsed',
+      type: 'array',
+      title: 'Technologies Used',
+      of: [{ type: 'technologyUsed' }],
+      validation: (Rule) => Rule.required().min(1),
+    },
+    {
+      name: 'whyChooseUs',
+      type: 'text',
+      title: 'Why Choose Us Description',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'ctaTitle',
+      type: 'string',
+      title: 'CTA Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'ctaButton',
+      type: 'string',
+      title: 'CTA Button Text',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+      validation: (Rule) => Rule.required(),
+    },
+  ],
+};
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, gatedAsset, service, solution],
+  types: [
+    post,
+    author,
+    category,
+    gatedAsset,
+    service,
+    solution,
+    newService,
+    newSolution,
+    technologyUsed
+  ],
 };
