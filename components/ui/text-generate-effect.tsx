@@ -3,16 +3,18 @@ import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const TextGenerateEffect = ({
+export const  TextGenerateEffect = ({
   words,
   className,
   filter = true,
   duration = 0.5,
+  color = "text-primary-light",
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  color?: string;
 }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
@@ -37,7 +39,7 @@ export const TextGenerateEffect = ({
           return (
             <motion.span
               key={word + idx}
-              className="text-primary-light opacity-0"
+              className={cn("text-primary-light opacity-0", color, className)}
               style={{
                 filter: filter ? "blur(10px)" : "none",
               }}

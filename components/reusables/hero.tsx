@@ -57,10 +57,16 @@ export default function Hero({
         {subheadline || subheadline2 ? (
           <div>
             {subheadline && (
-              <TextGenerateEffect words={subheadline} className="text-xl md:text-2xl text-primary-light" />
+              <TextGenerateEffect
+                words={subheadline}
+                className="text-xl md:text-2xl text-primary-light"
+              />
             )}
             {subheadline2 && (
-              <TextGenerateEffect words={subheadline2} className="text-xl md:text-2xl text-primary-light" />
+              <TextGenerateEffect
+                words={subheadline2}
+                className="text-xl md:text-2xl text-primary-light"
+              />
             )}
           </div>
         ) : null}
@@ -73,7 +79,7 @@ export default function Hero({
           <div
             ref={ctaRef}
             className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
-        >
+          >
             {cta1 && (
               <Modal>
                 <ModalTrigger className="w-full sm:w-auto px-0">
@@ -88,11 +94,11 @@ export default function Hero({
             )}
             {cta2 && (
               <Link href={'/about-us'} className="w-full sm:w-auto">
-            <ShinyButton variant="secondary" className="w-full sm:w-auto">
-                <p className="text-secondary-foreground font-semibold">{cta2}</p>
-            </ShinyButton>
+                <ShinyButton variant="secondary" className="w-full sm:w-auto">
+                  <p className="text-secondary-foreground font-semibold">{cta2}</p>
+                </ShinyButton>
               </Link>
-          )}
+            )}
           </div>
         ) : null}
       </div>
