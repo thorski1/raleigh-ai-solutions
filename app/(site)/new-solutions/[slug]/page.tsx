@@ -49,8 +49,6 @@ export default async function NewSolutionPage({ params }: NewSolutionPageProps) 
     notFound();
   }
 
-  console.log('Fetched solution data:', JSON.stringify(solution, null, 2));
-
   return (
     <main className="min-h-screen relative">
       <div className="relative">
