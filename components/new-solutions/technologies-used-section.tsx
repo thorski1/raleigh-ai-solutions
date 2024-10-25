@@ -44,14 +44,15 @@ export default function TechnologiesUsedSection({
                 neonFirstColor="hsl(var(--accent))"
                 neonSecondColor="hsl(var(--primary))"
               >
-                <Image
-                  src={tech.icon}
-                  alt={tech.name}
-                  width={60}
-                  height={60}
-                  className="rounded-full p-2"
-                />
-                <p className="text-primary-dark text-sm font-semibold mt-2 text-center">
+                <div className="w-16 h-16 relative mb-2">
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <p className="text-primary-dark text-sm font-semibold text-center">
                   {tech.name}
                 </p>
               </MagicCard>
