@@ -214,7 +214,7 @@ export const appRouter = createTRPCRouter({
       whyChooseUs,
       ctaTitle,
       ctaButton,
-      "solutions": solutions[]->{"slug": slug.current, title}
+      "solutions": solutions[]->{"slug": slug.current, title, summary}
     }`);
     return newServices;
   }),
@@ -248,7 +248,7 @@ export const appRouter = createTRPCRouter({
           whyChooseUs,
           ctaTitle,
           ctaButton,
-          "solutions": solutions[]->{"slug": slug.current, title}
+          "solutions": solutions[]->{"slug": slug.current, title, summary}
         }`,
         { slug: input.slug }
       );
@@ -281,7 +281,8 @@ export const appRouter = createTRPCRouter({
       ctaTitle,
       ctaButton,
       kpi,
-      icon
+      icon,
+      summary
     }`);
     return newSolutions;
   }),
@@ -315,7 +316,8 @@ export const appRouter = createTRPCRouter({
           ctaTitle,
           ctaButton,
           kpi,
-          icon
+          icon,
+          summary
         }`,
         { slug: input.slug }
       );

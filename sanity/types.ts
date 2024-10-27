@@ -104,6 +104,7 @@ export interface NewSolution {
   ctaButton: string;
   kpi: string;
   icon: string;
+  summary: string; // New field added here
 }
 
 export interface TechnologyUsed {

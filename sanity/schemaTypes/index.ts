@@ -449,6 +449,12 @@ const newSolution: SchemaTypeDefinition = {
       options: { source: 'title' },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'summary',
+      type: 'text',
+      title: 'Summary',
+      validation: (Rule) => Rule.required(),
+    },
   ],
 };
 
