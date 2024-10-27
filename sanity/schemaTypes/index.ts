@@ -509,6 +509,18 @@ const newService: SchemaTypeDefinition = {
       }
     },
     {
+      name: 'stepsTitle',
+      type: 'string',
+      title: 'Steps Section Title',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'stepsDescription',
+      type: 'text',
+      title: 'Steps Section Description',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'steps',
       type: 'array',
       title: 'Service Steps',

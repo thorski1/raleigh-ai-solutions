@@ -198,6 +198,8 @@ export const appRouter = createTRPCRouter({
       introductionTitle,
       introductionDescription,
       "introductionVideo": introductionVideo.asset->url,
+      stepsTitle,
+      stepsDescription,
       steps[] {
         title,
         description
@@ -230,6 +232,8 @@ export const appRouter = createTRPCRouter({
           introductionTitle,
           introductionDescription,
           "introductionVideo": introductionVideo.asset->url,
+          stepsTitle,
+          stepsDescription,
           steps[] {
             title,
             description
