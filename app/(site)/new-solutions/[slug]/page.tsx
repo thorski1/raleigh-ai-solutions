@@ -5,8 +5,8 @@ import NewSolutionHero from '@/components/new-solutions/hero';
 import ProblemSection from '@/components/new-solutions/problem-section';
 import StepsSection from '@/components/new-solutions/steps-section';
 import FeaturesSection from '@/components/new-solutions/features-section';
-import TechnologiesUsedSection from '@/components/new-solutions/technologies-used-section';
-import CtaSection from '@/components/new-solutions/cta-section';
+import TechnologiesUsedSection from '@/components/shared/technologies-used-section';
+import CtaSection from '@/components/shared/cta-section';
 import Divider from '@/components/ui/divider';
 
 interface NewSolutionPageProps {

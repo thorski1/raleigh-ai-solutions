@@ -13,17 +13,19 @@ interface Technology {
 interface TechnologiesUsedSectionProps {
   technologiesUsedTitle: string;
   technologies: Technology[];
+  className?: string;
 }
 
 export default function TechnologiesUsedSection({
   technologiesUsedTitle,
   technologies,
+  className = '',
 }: TechnologiesUsedSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="relative z-10 py-10">
+    <section ref={ref} className={`relative z-10 py-10 ${className}`}>
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,13 +46,15 @@ export default function TechnologiesUsedSection({
                 neonFirstColor="hsl(var(--accent))"
                 neonSecondColor="hsl(var(--primary))"
               >
-                <Image
-                  src={tech.icon}
-                  alt={tech.name}
-                  width={60}
-                  height={60}
-                  className="rounded-full p-2"
-                />
+                <div className="relative w-16 h-16 mb-2">
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-full p-2 w-full h-full"
+                  />
+                </div>
                 <p className="text-primary-dark text-sm font-semibold mt-2 text-center">
                   {tech.name}
                 </p>

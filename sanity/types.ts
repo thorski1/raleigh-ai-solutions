@@ -139,4 +139,6 @@ export interface NewService {
   whyChooseUs: string;
   ctaTitle: string;
   ctaButton: string;
+  stepsTitle: string;
+  stepsDescription: string;
 }
