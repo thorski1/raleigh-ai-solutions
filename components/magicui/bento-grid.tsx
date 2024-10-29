@@ -12,6 +12,18 @@ const BentoGrid = ({ children, className }: { children: ReactNode; className?: s
   );
 };
 
+interface BentoCardProps {
+  name: string;
+  className: string;
+  background: ReactNode;
+  Icon: React.ElementType;
+  description: string | ReactNode;
+  href?: string;
+  cta?: string;
+  badge?: ReactNode;
+  stats?: ReactNode;
+}
+
 const BentoCard = ({
   name,
   className,
@@ -20,17 +32,9 @@ const BentoCard = ({
   description,
   href,
   cta,
-  badge, // Add this new prop
-}: {
-  name: string;
-  className: string;
-  background: ReactNode;
-  Icon: React.ElementType;
-  description: string | ReactNode;
-  href?: string;
-  cta?: string;
-  badge?: ReactNode; // Add this new prop type
-}) => (
+  badge,
+  stats,
+}: BentoCardProps) => (
   <div
     className={cn(
       'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl',
@@ -40,9 +44,16 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    {badge} {/* Add the badge here */}
+    {badge}
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-hover:scale-75" />
+      <div className="flex items-center gap-4">
+        <Icon className="h-12 w-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-hover:scale-75" />
+        {stats && (
+          <div className="h-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75 flex items-center">
+            {stats}
+          </div>
+        )}
+      </div>
       <h3 className="text-xl font-semibold text-secondary">{name}</h3>
       {typeof description === 'string' ? (
         <p className="max-w-lg text-primary-light">{description}</p>
