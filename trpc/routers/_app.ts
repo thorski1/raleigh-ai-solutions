@@ -191,7 +191,7 @@ export const appRouter = createTRPCRouter({
   getAllNewServices: baseProcedure.query(async () => {
     const newServices = await client.fetch(`*[_type == "newService"] {
       title,
-      slug,
+      "slug": slug.current,
       description,
       heroTitle,
       heroSubtitle,
@@ -214,7 +214,13 @@ export const appRouter = createTRPCRouter({
       whyChooseUs,
       ctaTitle,
       ctaButton,
-      "solutions": solutions[]->{slug, title, summary, icon, kpi}
+      "solutions": solutions[]-> {
+        "slug": slug.current,
+        title,
+        summary,
+        icon,
+        kpi
+      }
     }`);
     return newServices;
   }),
@@ -225,7 +231,7 @@ export const appRouter = createTRPCRouter({
       const newService = await client.fetch(
         `*[_type == "newService" && slug.current == $slug][0] {
           title,
-          slug,
+          "slug": slug.current,
           description,
           heroTitle,
           heroSubtitle,
@@ -248,7 +254,13 @@ export const appRouter = createTRPCRouter({
           whyChooseUs,
           ctaTitle,
           ctaButton,
-          "solutions": solutions[]->{slug, title, summary, icon, kpi}
+          "solutions": solutions[]-> {
+            "slug": slug.current,
+            title,
+            summary,
+            icon,
+            kpi
+          }
         }`,
         { slug: input.slug }
       );
