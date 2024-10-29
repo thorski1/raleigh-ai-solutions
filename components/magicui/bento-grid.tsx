@@ -20,6 +20,7 @@ const BentoCard = ({
   description,
   href,
   cta,
+  badge, // Add this new prop
 }: {
   name: string;
   className: string;
@@ -28,6 +29,7 @@ const BentoCard = ({
   description: string | ReactNode;
   href?: string;
   cta?: string;
+  badge?: ReactNode; // Add this new prop type
 }) => (
   <div
     className={cn(
@@ -38,6 +40,7 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
+    {badge} {/* Add the badge here */}
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
       <Icon className="h-12 w-12 origin-left transform-gpu text-primary transition-all duration-300 ease-in-out group-hover:scale-75" />
       <h3 className="text-xl font-semibold text-secondary">{name}</h3>

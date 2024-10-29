@@ -115,6 +115,10 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .animate-tilt {
+    animation: tilt 10s infinite linear;
+  }
 }
 
 /* Custom styles for Raleigh AI Solutions */
@@ -146,5 +150,17 @@
 @layer components {
   .link {
     @apply text-link hover:text-hover-link transition-colors duration-300;
+  }
+}
+
+@keyframes tilt {
+  0%, 50%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.5deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
   }
 }
