@@ -103,7 +103,7 @@ export interface NewSolution {
   ctaTitle: string;
   ctaButton: string;
   kpi: string;
-  icon: string;
+  icon: string; // Should contain FA icon name (e.g., "FaReact")
   summary: string; // New field added here
 }
 

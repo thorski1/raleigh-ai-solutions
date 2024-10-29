@@ -26,8 +26,6 @@ export async function generateMetadata({ params }: NewServicePageProps): Promise
     };
   }
 
-  console.log(service);
-
   return {
     title: `${service.title} | Raleigh AI Services`,
     description: service.description,
