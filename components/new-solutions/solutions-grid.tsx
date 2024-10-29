@@ -6,34 +6,35 @@ import { IconType } from 'react-icons';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import NumberTicker from '../magicui/number-ticker';
+import Link from 'next/link';
 
 // Function to get dynamic badge styles for a service
 const getBadgeStyles = (index: number) => {
   // Vibrant color combinations using Tailwind's color palette
   const styles = [
     {
-      bg: 'bg-violet-100 dark:bg-violet-950/30',
-      text: 'text-violet-700 dark:text-violet-300',
+      bg: 'bg-violet-100 hover:bg-violet-700 dark:bg-violet-950/30 dark:hover:bg-violet-300',
+      text: 'text-violet-700 hover:text-violet-100 dark:text-violet-300 dark:hover:text-violet-950',
     },
     {
-      bg: 'bg-rose-100 dark:bg-rose-950/30',
-      text: 'text-rose-700 dark:text-rose-300',
+      bg: 'bg-rose-100 hover:bg-rose-700 dark:bg-rose-950/30 dark:hover:bg-rose-300',
+      text: 'text-rose-700 hover:text-rose-100 dark:text-rose-300 dark:hover:text-rose-950',
     },
     {
-      bg: 'bg-cyan-100 dark:bg-cyan-950/30',
-      text: 'text-cyan-700 dark:text-cyan-300',
+      bg: 'bg-cyan-100 hover:bg-cyan-700 dark:bg-cyan-950/30 dark:hover:bg-cyan-300',
+      text: 'text-cyan-700 hover:text-cyan-100 dark:text-cyan-300 dark:hover:text-cyan-950',
     },
     {
-      bg: 'bg-amber-100 dark:bg-amber-950/30',
-      text: 'text-amber-700 dark:text-amber-300',
+      bg: 'bg-amber-100 hover:bg-amber-700 dark:bg-amber-950/30 dark:hover:bg-amber-300',
+      text: 'text-amber-700 hover:text-amber-100 dark:text-amber-300 dark:hover:text-amber-950',
     },
     {
-      bg: 'bg-emerald-100 dark:bg-emerald-950/30',
-      text: 'text-emerald-700 dark:text-emerald-300',
+      bg: 'bg-emerald-100 hover:bg-emerald-700 dark:bg-emerald-950/30 dark:hover:bg-emerald-300',
+      text: 'text-emerald-700 hover:text-emerald-100 dark:text-emerald-300 dark:hover:text-emerald-950',
     },
     {
-      bg: 'bg-fuchsia-100 dark:bg-fuchsia-950/30',
-      text: 'text-fuchsia-700 dark:text-fuchsia-300',
+      bg: 'bg-fuchsia-100 hover:bg-fuchsia-700 dark:bg-fuchsia-950/30 dark:hover:bg-fuchsia-300',
+      text: 'text-fuchsia-700 hover:text-fuchsia-100 dark:text-fuchsia-300 dark:hover:text-fuchsia-950',
     },
   ];
 
@@ -97,7 +98,7 @@ export default function SolutionsGrid({ services }: { services: NewService[] }) 
   return (
     <section className="py-10 bg-secondary/5">
       <div className="container mx-auto px-4">
-        <BentoGrid className="grid-cols-1 md:grid-cols-2 xl:grid-cols-3 auto-rows-[20rem] gap-6">
+        <BentoGrid className="grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {services.map((service: NewService, serviceIndex: number) =>
             service.solutions.map((solution: NewSolution, solutionIndex: number) => {
               const badgeStyles = getBadgeStyles(serviceIndex);
@@ -107,7 +108,10 @@ export default function SolutionsGrid({ services }: { services: NewService[] }) 
                 <BentoCard
                   key={solution.slug.current}
                   name={solution.title}
-                  className={gridLayouts[layoutIndex]}
+                  className={cn(
+                    'h-auto', // Allow height to adjust to content
+                    gridLayouts[layoutIndex],
+                  )}
                   Icon={getIconComponent(solution.icon)}
                   stats={
                     solution.kpi && (
@@ -124,19 +128,28 @@ export default function SolutionsGrid({ services }: { services: NewService[] }) 
                   }
                   description={<p className="max-w-lg text-primary-light">{solution.summary}</p>}
                   badge={
-                    <Badge
+                    <Link
+                      href={`/new-services/${service.slug}`}
                       className={cn(
-                        'absolute top-4 right-4 border-none font-medium',
-                        'px-2 xl:px-3 py-1 xl:py-1.5 text-xs xl:text-sm',
-                        'shadow-lg backdrop-blur-sm',
-                        badgeStyles.bg,
-                        badgeStyles.text,
+                        'absolute top-4 right-4 z-20',
+                        'transition-colors duration-200',
                       )}
                     >
-                      {service.title}
-                    </Badge>
+                      <Badge
+                        className={cn(
+                          'border-none font-medium cursor-pointer',
+                          'px-2 xl:px-3 py-1 xl:py-1.5 text-xs xl:text-sm',
+                          'shadow-lg backdrop-blur-sm',
+                          'transition-colors duration-200',
+                          badgeStyles.bg,
+                          badgeStyles.text,
+                        )}
+                      >
+                        {service.title}
+                      </Badge>
+                    </Link>
                   }
-                  href={`/new-solutions/${solution.slug.current}`}
+                  href={`/new-solutions/${solution.slug}`}
                   cta="Learn More"
                   background={
                     <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-fuchsia-500/5 to-cyan-500/5" />
