@@ -218,6 +218,7 @@ export const appRouter = createTRPCRouter({
         "slug": slug.current,
         title,
         summary,
+        heroSubtitle,
         icon,
         kpi
       }
@@ -259,7 +260,8 @@ export const appRouter = createTRPCRouter({
             title,
             summary,
             icon,
-            kpi
+            kpi,
+            heroSubtitle
           }
         }`,
         { slug: input.slug }

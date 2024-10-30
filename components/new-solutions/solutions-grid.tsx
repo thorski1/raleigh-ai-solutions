@@ -126,7 +126,7 @@ export default function SolutionsGrid({ services }: { services: NewService[] }) 
                       </div>
                     )
                   }
-                  description={<p className="max-w-lg text-primary-light">{solution.summary}</p>}
+                  description={<p className="max-w-lg text-primary-light">{solution.heroSubtitle}</p>}
                   badge={
                     <Link
                       href={`/new-services/${service.slug}`}
