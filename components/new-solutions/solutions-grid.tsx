@@ -149,7 +149,7 @@ export default function SolutionsGrid({ services }: { services: NewService[] }) 
                       </Badge>
                     </Link>
                   }
-                  href={`/new-solutions/${solution.slug}`}
+                  href={`/solutions/${solution.slug}`}
                   cta="Learn More"
                   background={
                     <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-fuchsia-500/5 to-cyan-500/5" />

@@ -117,6 +117,7 @@ export interface TechnologyUsed {
 export interface NewService {
   _id: string;
   title: string;
+  shortName: string;
   slug: { current: string };
   description: string;
   solutions: NewSolution[];
