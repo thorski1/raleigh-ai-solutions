@@ -79,7 +79,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({ serviceName, soluti
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
             >
-              <Link href={`/new-solutions/${solution.slug}`} className="block h-full">
+              <Link href={`/solutions/${solution.slug}`} className="block h-full">
                 <Card className={cn(
                   "h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105",
                   index % 3 === 0 && "border-primary/50 hover:border-primary",

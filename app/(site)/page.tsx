@@ -4,8 +4,11 @@ import { WhyChooseUs } from '@/components/sections/why-choose-us';
 import { CaseStudies } from '@/components/sections/case-studies';
 import { CTASections } from '@/components/sections/cta-sections';
 import { Metadata } from 'next';
+import ServicesTabsSection from '@/components/shared/services-tabs-section';
+import { trpc } from '@/trpc/server';
 
-export default function Home() {
+export default async function Home() {
+  const newServices = await trpc.getAllNewServices();
   return (
     <main>
       <Hero
@@ -18,9 +21,8 @@ export default function Home() {
         cta1="Get Started"
         cta2="Learn More"
       />
-      <ServiceOverview />
-      <WhyChooseUs />
-      <CaseStudies />
+      <ServicesTabsSection newServices={newServices} />
+      {/* <CaseStudies /> */}
       <CTASections />
       {/* Add other sections of your home page here */}
     </main>

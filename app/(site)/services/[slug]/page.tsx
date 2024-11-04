@@ -1,79 +1,90 @@
-import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import Link from 'next/link';
-
+import { notFound } from 'next/navigation';
 import { trpc } from '@/trpc/server';
-import ServiceHero from '@/components/sections/services/service-hero';
-import ServiceCTA from '@/components/sections/services/service-cta';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { BenefitsSection } from '@/components/sections/services/benefits-section';
-import KeyFeatures from '@/components/sections/services/key-features';
-import { Service } from '@/lib/services';
+import ServiceHero from '@/components/new-services/service-hero';
+import IntroductionSection from '@/components/new-services/introduction-section';
+import KeyFeaturesSection from '@/components/new-services/key-features-section';
+import StepsSection from '@/components/new-services/steps-section';
+import SolutionsSection from '@/components/new-services/solutions-section';
+import TechnologiesUsedSection from '@/components/shared/technologies-used-section';
+import WhyChooseUsSection from '@/components/new-services/why-choose-us-section';
+import CtaSection from '@/components/shared/cta-section';
+import Divider from '@/components/ui/divider';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const service = await trpc.getServiceBySlug({ slug: params.slug });
-  if (!service) return {};
+interface NewServicePageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export async function generateMetadata({ params }: NewServicePageProps): Promise<Metadata> {
+  const service = await trpc.getNewServiceBySlug({ slug: params.slug });
+
+  if (!service) {
+    return {
+      title: 'Service Not Found',
+    };
+  }
 
   return {
-    title: `${service.title} | Raleigh AI Solutions`,
+    title: `${service.title} | Raleigh AI Services`,
     description: service.description,
     openGraph: {
-      title: `${service.title} | Raleigh AI Solutions`,
+      title: `${service.title} | Raleigh AI Services`,
       description: service.description,
-      images: [{ url: service.thumbnailSrc }],
+      images: [{ url: '/thumbnail-4.png' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${service.title} | Raleigh AI Solutions`,
+      title: `${service.title} | Raleigh AI Services`,
       description: service.description,
-      images: [service.thumbnailSrc],
-    },
-    alternates: {
-      canonical: `https://www.raleighai.com/services/${service.slug}`,
+      images: ['/thumbnail-4.png'],
     },
   };
 }
 
-export async function generateStaticParams() {
-  const services = await trpc.getAllServices();
-  return services.map((service: Service) => ({
-    slug: service.slug.current,
-  }));
-}
-
-export default async function ServicePage({ params }: { params: { slug: string } }) {
-  const service = await trpc.getServiceBySlug({ slug: params.slug });
+export default async function NewServicePage({ params }: NewServicePageProps) {
+  const service = await trpc.getNewServiceBySlug({ slug: params.slug });
 
   if (!service) {
     notFound();
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen w-full max-w-full">
-      <ServiceHero service={service} />
-      <div className="w-full max-w-7xl py-4">
-        <Breadcrumb className="container mx-auto px-4">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/services">Services</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="text-primary-dark">{service.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+    <main className="min-h-screen relative">
+      <div className="relative">
+        <ServiceHero
+          title={service.title}
+          subtitle={service.heroSubtitle}
+          ctaButton={service.ctaButton}
+        />
+        <IntroductionSection
+          introductionTitle={service.introductionTitle}
+          introductionDescription={service.introductionDescription}
+          introductionVideo={service.introductionVideo}
+        />
+        <StepsSection
+          stepsTitle={service.stepsTitle}
+          stepsDescription={service.stepsDescription}
+          steps={service.steps.map((step: any) => ({
+            title: step.title,
+            description: step.description,
+          }))}
+        />
+        <SolutionsSection serviceName={service.title} solutions={service.solutions} />
+        <KeyFeaturesSection keyFeatures={service.keyFeatures} serviceName={service.title} />
+        <Divider />
+        <TechnologiesUsedSection
+          technologiesUsedTitle={service.technologiesUsedTitle || "Technologies We Use"}
+          technologies={service.technologiesUsed}
+        />
+        <Divider />
+        <WhyChooseUsSection whyChooseUs={service.whyChooseUs} />
+        <CtaSection
+          ctaTitle={service.ctaTitle || "Ready to Get Started?"}
+          ctaButton={service.ctaButton || "Schedule a Consultation"}
+        />
       </div>
-      <KeyFeatures service={service} />
-      <BenefitsSection service={service} />
-      <ServiceCTA service={service} />
     </main>
   );
 }

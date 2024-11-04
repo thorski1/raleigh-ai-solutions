@@ -10,9 +10,10 @@ interface CtaSectionProps {
   ctaTitle: string;
   ctaButton: string;
   className?: string;
+  ctaDescription?: string;
 }
 
-export default function CtaSection({ ctaTitle, ctaButton, className = '' }: CtaSectionProps) {
+export default function CtaSection({ ctaTitle, ctaButton, ctaDescription, className = '' }: CtaSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -34,6 +35,7 @@ export default function CtaSection({ ctaTitle, ctaButton, className = '' }: CtaS
         >
           {ctaTitle}
         </motion.h2>
+        {ctaDescription && <p className="text-primary-dark/70 mb-6">{ctaDescription}</p>}
         <Modal>
           <ModalTrigger className="px-4">
             <MagicButton className="w-full text-white font-medium">

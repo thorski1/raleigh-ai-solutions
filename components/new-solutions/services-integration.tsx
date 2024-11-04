@@ -42,7 +42,7 @@ export function ServicesIntegrationSection({ services }: ServicesIntegrationSect
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {services.map((service: Service, index: number) => (
             <Link 
-              href={`/new-services/${service.slug}`} 
+              href={`/services/${service.slug}`} 
               key={service.slug.current}
               className={cn(
                 "block h-full group",

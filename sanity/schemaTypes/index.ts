@@ -470,6 +470,12 @@ const newService: SchemaTypeDefinition = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'shortName',
+      type: 'string',
+      title: 'Short Name',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Service Description',
