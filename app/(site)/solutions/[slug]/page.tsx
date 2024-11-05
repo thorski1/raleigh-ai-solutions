@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { trpc } from '@/trpc/server';
 import NewSolutionHero from '@/components/new-solutions/hero';
-import ProblemSection from '@/components/new-solutions/problem-section';
 import StepsSection from '@/components/new-solutions/steps-section';
-import FeaturesSection from '@/components/new-solutions/features-section';
+import KeyFeaturesSection from '@/components/shared/key-features-section';
 import TechnologiesUsedSection from '@/components/shared/technologies-used-section';
 import CtaSection from '@/components/shared/cta-section';
 import Divider from '@/components/ui/divider';
+import VideoContentSection from '@/components/shared/video-content-section';
 
 interface NewSolutionPageProps {
   params: {
@@ -57,13 +57,14 @@ export default async function NewSolutionPage({ params }: NewSolutionPageProps) 
             heroSubtitle={solution.heroSubtitle}
             ctaButton={solution.ctaButton}
           />
-          <ProblemSection
-            problemTitle={solution.problemTitle}
-            problemDescription={solution.problemDescription}
-            problemVideo={solution.problemVideo}
+          <VideoContentSection
+            description={solution.problemDescription}
+            title={solution.problemTitle}
+            videoUrl={solution.problemVideo}
           />
+
           <StepsSection stepsTitle={solution.stepsTitle} steps={solution.steps} />
-          <FeaturesSection featuresTitle={solution.featuresTitle} features={solution.features} />
+          <KeyFeaturesSection keyFeatures={solution.features} serviceName={solution.title} />
           <Divider />
           <TechnologiesUsedSection
             technologiesUsedTitle={solution.technologiesUsedTitle}

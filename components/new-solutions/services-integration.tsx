@@ -9,9 +9,11 @@ import Link from 'next/link';
 
 interface ServicesIntegrationSectionProps {
   services: Service[];
+  title?: string;
+  description?: string;
 }
 
-export function ServicesIntegrationSection({ services }: ServicesIntegrationSectionProps) {
+export function ServicesIntegrationSection({ services, title = "How Our Solutions Integrate with Services", description = "Each of our solutions is built on a foundation of core services that define our expertise" }: ServicesIntegrationSectionProps) {
   // Calculate the middle index
   const middleIndex = Math.floor(services.length / 2);
   
@@ -27,7 +29,7 @@ export function ServicesIntegrationSection({ services }: ServicesIntegrationSect
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold text-primary-light mb-6"
           >
-            How Our Solutions Integrate with Services
+            {title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -35,7 +37,7 @@ export function ServicesIntegrationSection({ services }: ServicesIntegrationSect
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-primary-light"
           >
-            Each of our solutions is built on a foundation of core services that define our expertise
+            {description}
           </motion.p>
         </div>
 

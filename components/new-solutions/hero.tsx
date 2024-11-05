@@ -1,12 +1,12 @@
 'use client';
 
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import SparklesText from '@/components/magicui/sparkles-text';
 import MagicButton from '@/components/magicui/magic-button';
 import { Modal, ModalBody, ModalTrigger } from '@/components/ui/animated-modal';
 import CalendarModal from '@/components/reusables/calendar-modal';
 import AnimatedGridPattern from '@/components/magicui/animated-grid-pattern';
+import BlurFade from '@/components/magicui/blur-fade';
 
 interface NewSolutionHeroProps {
   heroTitle: string;
@@ -31,12 +31,15 @@ export default function NewSolutionHero({
           sparklesCount={4}
         />
 
-        <TextGenerateEffect
-          words={heroSubtitle}
+        <BlurFade
+          duration={0.8}
+          delay={0.4}
           className="text-xl md:text-2xl lg:text-3xl text-primary-light max-w-3xl mx-auto"
-        />
+        >
+          {heroSubtitle}
+        </BlurFade>
 
-        <div>
+        <BlurFade duration={0.8} delay={0.6}>
           <Modal>
             <ModalTrigger className="w-full sm:w-auto px-4">
               <MagicButton className="w-full sm:w-auto text-white">
@@ -47,7 +50,7 @@ export default function NewSolutionHero({
               <CalendarModal />
             </ModalBody>
           </Modal>
-        </div>
+        </BlurFade>
       </div>
     </div>
   );

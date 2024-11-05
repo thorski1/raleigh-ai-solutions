@@ -50,7 +50,7 @@ export default function WhyChooseUsSection({
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-dark mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-600 mb-4">
             {title}
           </h2>
         </motion.div>
@@ -58,7 +58,7 @@ export default function WhyChooseUsSection({
           <MagicCard className="w-full h-full">
             <CardContent className="p-6 md:p-10">
               <BlurFade delay={0.2} duration={0.8}>
-                <p className="text-base xl:text-lg text-secondary-dark font-light leading-relaxed">
+                <p className="text-base xl:text-lg text-slate-700 font-light leading-relaxed">
                   {description}
                 </p>
               </BlurFade>

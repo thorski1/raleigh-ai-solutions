@@ -39,12 +39,12 @@ export default function StepsSection({
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-600 mb-4">
             {stepsTitle}
           </h2>
           <TextGenerateEffect
             words={stepsDescription}
-            className="text-lg text-secondary-dark/80 max-w-2xl mx-auto"
+            className="text-lg text-slate-600/80 max-w-4xl mx-auto"
           />
         </motion.div>
 
@@ -75,9 +75,9 @@ export default function StepsSection({
                     )}>
                       {index + 1}
                     </div>
-                    <h3 className="text-lg font-semibold text-secondary-dark">{step.title}</h3>
+                    <h3 className="text-lg font-semibold text-slate-600">{step.title}</h3>
                   </div>
-                  <p className="text-secondary-dark/80 flex-grow">{step.description.slice(0, 100)}...</p>
+                  <p className="text-slate-600/80 flex-grow">{step.description.slice(0, 100)}...</p>
                   <button className="text-primary font-semibold hover:underline self-start">
                     Learn More
                   </button>

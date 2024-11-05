@@ -5,7 +5,6 @@ import { motion, useInView } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs } from '@/components/ui/tabs';
 import { BackgroundBeams } from '@/components/ui/background-beams';
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { MagicCard } from '@/components/magicui/magic-card';
 import BlurFade from '@/components/magicui/blur-fade';
 import Link from 'next/link';
@@ -157,10 +156,13 @@ const TabContent = ({ service }: { service: NewService }) => (
       <BlurFade>
         <div className="space-y-6">
           <h3 className="text-3xl font-bold text-white">{service.title}</h3>
-          <TextGenerateEffect
-            words={service.introductionDescription}
+          <BlurFade
+            duration={0.8}
+            delay={0.2}
             className="text-lg text-white/80 leading-relaxed"
-          />
+          >
+            {service.introductionDescription}
+          </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             {service.solutions.map((solution, index) => (
               <motion.a
@@ -214,10 +216,10 @@ export default function ServicesTabsSection({ newServices }: { newServices: NewS
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-600 mb-4">
             Our Core Services
           </h2>
-          <p className="text-xl text-primary-dark/80 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-700/80 max-w-3xl mx-auto">
             Explore our comprehensive range of services designed to transform your business
           </p>
         </motion.div>
@@ -229,9 +231,9 @@ export default function ServicesTabsSection({ newServices }: { newServices: NewS
               value: service.shortName,
               content: <TabContent service={service} />,
             }))}
-            containerClassName="justify-center"
-            tabClassName="font-medium text-primary-dark/70 hover:text-primary-dark transition-colors text-xs md:text-base lg:text-lg px-1 md:px-4"
-            activeTabClassName="bg-accent text-primary-light"
+            containerClassName="justify-center flex-wrap py-10"
+            tabClassName="font-medium text-slate-700/70 hover:text-slate-700 transition-colors text-xs md:text-base lg:text-lg px-2 md:px-4"
+            activeTabClassName="bg-accent text-white"
             contentClassName="mt-12 h-full"
           />
         </div>

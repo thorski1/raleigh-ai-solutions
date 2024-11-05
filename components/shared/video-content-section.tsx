@@ -3,10 +3,10 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { BoxReveal } from '@/components/magicui/box-reveal';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import BlurFade from '@/components/magicui/blur-fade';
 
 interface VideoContentSectionProps {
   title: string;
@@ -63,7 +63,7 @@ export default function VideoContentSection({
                   <BoxReveal>
                     <div className="py-2">
                       <motion.h2
-                        className="text-3xl md:text-4xl font-bold text-primary-dark"
+                        className="text-3xl md:text-4xl font-bold text-slate-600"
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -77,11 +77,13 @@ export default function VideoContentSection({
                     colorFrom="hsl(var(--accent))"
                     colorTo="hsl(var(--secondary))"
                   />
-                  <TextGenerateEffect
-                    words={description}
-                    className="text-lg xl:text-2xl text-primary-dark font-light leading-relaxed"
-                    color="text-primary-dark"
-                  />
+                  <BlurFade
+                    duration={0.8}
+                    delay={0.3}
+                    className="text-lg xl:text-2xl text-slate-700 font-light leading-relaxed"
+                  >
+                    {description}
+                  </BlurFade>
                 </div>
                 {videoUrl && (
                   <div className="relative overflow-hidden rounded-lg shadow-xl aspect-[16/9] flex items-center justify-center">

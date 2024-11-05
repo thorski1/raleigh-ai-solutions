@@ -8,8 +8,6 @@ import WhyChooseUs from '@/components/sections/about-us/why-choose-us';
 import FlickeringGrid from '@/components/magicui/flickering-grid';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import FAQ from '@/components/sections/faq';
-import Image from 'next/image';
-import Link from 'next/link';
 import Particles from '@/components/magicui/particles';
 
 const AboutUsPage = () => {

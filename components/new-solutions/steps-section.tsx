@@ -25,8 +25,8 @@ export default function StepsSection({ stepsTitle, steps }: StepsSectionProps) {
         <h2>
           <TextGenerateEffect
             words={stepsTitle}
-            color="text-primary-dark"
-            className="text-4xl font-bold text-center text-primary-dark mb-12"
+            color="text-slate-600"
+            className="text-4xl font-bold text-center text-slate-600 mb-12"
           />
         </h2>
         <div className="flex flex-wrap justify-center gap-8">
@@ -37,9 +37,9 @@ export default function StepsSection({ stepsTitle, steps }: StepsSectionProps) {
                   <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-2xl font-bold text-white">
                     {index + 1}
                   </div>
-                  <h3 className="text-xl font-semibold text-primary-dark">{step.title}</h3>
+                  <h3 className="text-xl font-semibold text-slate-600">{step.title}</h3>
                 </div>
-                <p className="text-secondary-dark flex-grow">{step.description}</p>
+                <p className="text-slate-700 flex-grow">{step.description}</p>
               </div>
             </StepCard>
           ))}

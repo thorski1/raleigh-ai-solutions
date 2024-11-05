@@ -2,15 +2,12 @@
 
 import { useRef } from 'react';
 import { BorderBeam } from '@/components/magicui/border-beam';
-import { FadeText } from '@/components/magicui/fade-text';
-import FlickeringGrid from '../magicui/flickering-grid';
 import SparklesText from '../magicui/sparkles-text';
 import ShinyButton from '../magicui/shiny-button';
 import { Modal, ModalBody, ModalTrigger } from '../ui/animated-modal';
 import Link from 'next/link';
-import { TextGenerateEffect } from '../ui/text-generate-effect';
-import RetroGrid from '../magicui/retro-grid';
 import AnimatedGridPattern from '../magicui/animated-grid-pattern';
+import BlurFade from '../magicui/blur-fade';
 
 export default function BlogHero({
   headline,
@@ -32,7 +29,7 @@ export default function BlogHero({
       ref={containerRef}
       className="relative py-16 lg:py-20 pt-28 md:pt-32 lg:pt-36 flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-foreground to-primary"
     >
-          <AnimatedGridPattern className="absolute inset-0 z-0 opacity-40" />
+      <AnimatedGridPattern className="absolute inset-0 z-0 opacity-40" />
       <BorderBeam className="absolute inset-0 z-10" />
 
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
@@ -45,12 +42,19 @@ export default function BlogHero({
         </h1>
 
         {subheadline && (
-          <TextGenerateEffect words={subheadline} className="text-xl md:text-2xl text-primary-light" />
+          <BlurFade
+            duration={0.8}
+            delay={0.4}
+            className="text-xl md:text-2xl text-primary-light"
+          >
+            {subheadline}
+          </BlurFade>
         )}
 
         {(cta1 || cta2) && (
-          <div
-            ref={ctaRef}
+          <BlurFade
+            duration={0.8}
+            delay={0.6}
             className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
           >
             {cta1 && (
@@ -61,10 +65,8 @@ export default function BlogHero({
                   </ShinyButton>
                 </ModalTrigger>
                 <ModalBody>
-                  {/* Add your subscription form or content here */}
                   <div className="p-4">
                     <h2 className="text-2xl font-bold mb-4">Subscribe to Our Blog</h2>
-                    {/* Add your subscription form components here */}
                   </div>
                 </ModalBody>
               </Modal>
@@ -76,7 +78,7 @@ export default function BlogHero({
                 </ShinyButton>
               </Link>
             )}
-          </div>
+          </BlurFade>
         )}
       </div>
     </div>

@@ -53,7 +53,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({ serviceName, soluti
           animate={isInView ? "visible" : "hidden"}
           variants={headerVariants}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-600 mb-4">
             Our {serviceName} Solutions
           </h2>
           <BorderBeam
@@ -63,7 +63,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({ serviceName, soluti
           />
           <TextGenerateEffect
             words={`Explore our comprehensive ${serviceName} solutions designed to meet your specific needs and drive innovation.`}
-            className="text-lg text-secondary-dark/80 max-w-2xl mx-auto"
+            className="text-lg text-slate-600/80 max-w-2xl mx-auto"
           />
         </motion.div>
         <motion.ul 
@@ -87,7 +87,7 @@ const SolutionsSection: React.FC<SolutionsSectionProps> = ({ serviceName, soluti
                   index % 3 === 2 && "border-accent/50 hover:border-accent",
                 )}>
                   <CardContent className="p-6 flex flex-col justify-between h-full">
-                    <h3 className="text-xl font-semibold mb-4 text-secondary-dark">{solution.title}</h3>
+                    <h3 className="text-xl font-semibold mb-4 text-slate-600">{solution.title}</h3>
                     <div className="mt-4 flex justify-end">
                       <span className={cn(
                         "text-sm font-semibold px-4 py-1 rounded-full",

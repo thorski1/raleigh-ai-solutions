@@ -6,6 +6,8 @@ import { CTASections } from '@/components/sections/cta-sections';
 import { Metadata } from 'next';
 import ServicesTabsSection from '@/components/shared/services-tabs-section';
 import { trpc } from '@/trpc/server';
+import { ServicesIntegrationSection } from '@/components/new-solutions/services-integration';
+import { AboutSection } from '@/components/sections/about-section';
 
 export default async function Home() {
   const newServices = await trpc.getAllNewServices();
@@ -14,17 +16,23 @@ export default async function Home() {
       <Hero
         eyebrow="Welcome to Raleigh Ai Solutions"
         headline="Revolutionize Your Business with AI"
-        subheadline="Boost Productivity"
-        subheadline2="Enhance Decision Making"
+        // subheadline="Boost Productivity"
+        // subheadline2="Enhance Decision Making"
         mainSubheadline="Harness the power of cutting-edge AI solutions to transform your operations and drive
           unprecedented growth."
         cta1="Get Started"
         cta2="Learn More"
       />
-      <ServicesTabsSection newServices={newServices} />
-      {/* <CaseStudies /> */}
+      <AboutSection
+        title="Innovating Business through Technology and Expertise"
+        description="At Raleigh AI Solutions, we are committed to helping businesses thrive in the digital age. We leverage cutting-edge AI technologies, cloud infrastructure, and a human-centered approach to create solutions that transform operations and elevate customer experiences. Our expertise allows us to address complex challenges with precision, providing impactful, scalable, and sustainable outcomes."
+      />
+      <ServicesIntegrationSection
+        services={newServices}
+        title="Empower Your Business with Our Expertise"
+        description="Our services define the core of what we do. From AI integration and cloud infrastructure setup to advanced training and accessibility consulting, each service is designed to meet your unique business challenges. We combine expertise, technology, and practical application to drive growth and innovation. Explore our services to understand how they lay the foundation for tailored solutions that solve your specific business problems and elevate your operations to the next level."
+      />
       <CTASections />
-      {/* Add other sections of your home page here */}
     </main>
   );
 }
@@ -46,4 +54,3 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
-
