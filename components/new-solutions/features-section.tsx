@@ -27,7 +27,7 @@ export default function FeaturesSection({
         <h2>
           <TextGenerateEffect
             words={featuresTitle}
-            color="text-primary-dark"
+            color="text-slate-900"
             className="text-4xl font-bold text-center mb-12"
           />
         </h2>
@@ -36,7 +36,7 @@ export default function FeaturesSection({
             {features.map((feature, index) => (
               <div key={index} className="flex justify-center">
                 <NeonGradientCard className="w-full">
-                  <p className="text-lg text-primary-dark text-center font-semibold">{feature.feature}</p>
+                  <p className="text-lg text-slate-900 text-center font-semibold">{feature.feature}</p>
                 </NeonGradientCard>
               </div>
             ))}

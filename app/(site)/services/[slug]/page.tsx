@@ -2,14 +2,14 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { trpc } from '@/trpc/server';
 import ServiceHero from '@/components/new-services/service-hero';
-import IntroductionSection from '@/components/new-services/introduction-section';
-import KeyFeaturesSection from '@/components/new-services/key-features-section';
+import KeyFeaturesSection from '@/components/shared/key-features-section';
 import StepsSection from '@/components/new-services/steps-section';
 import SolutionsSection from '@/components/new-services/solutions-section';
 import TechnologiesUsedSection from '@/components/shared/technologies-used-section';
-import WhyChooseUsSection from '@/components/new-services/why-choose-us-section';
+import WhyChooseUsSection from '@/components/shared/why-choose-us-section';
 import CtaSection from '@/components/shared/cta-section';
 import Divider from '@/components/ui/divider';
+import VideoContentSection from '@/components/shared/video-content-section';
 
 interface NewServicePageProps {
   params: {
@@ -58,10 +58,10 @@ export default async function NewServicePage({ params }: NewServicePageProps) {
           subtitle={service.heroSubtitle}
           ctaButton={service.ctaButton}
         />
-        <IntroductionSection
-          introductionTitle={service.introductionTitle}
-          introductionDescription={service.introductionDescription}
-          introductionVideo={service.introductionVideo}
+        <VideoContentSection
+          title={service.introductionTitle}
+          description={service.introductionDescription}
+          videoUrl={service.introductionVideo}
         />
         <StepsSection
           stepsTitle={service.stepsTitle}
@@ -75,14 +75,14 @@ export default async function NewServicePage({ params }: NewServicePageProps) {
         <KeyFeaturesSection keyFeatures={service.keyFeatures} serviceName={service.title} />
         <Divider />
         <TechnologiesUsedSection
-          technologiesUsedTitle={service.technologiesUsedTitle || "Technologies We Use"}
+          technologiesUsedTitle={service.technologiesUsedTitle || 'Technologies We Use'}
           technologies={service.technologiesUsed}
         />
         <Divider />
-        <WhyChooseUsSection whyChooseUs={service.whyChooseUs} />
+        <WhyChooseUsSection title="Why Choose Us" description={service.whyChooseUs}  />
         <CtaSection
-          ctaTitle={service.ctaTitle || "Ready to Get Started?"}
-          ctaButton={service.ctaButton || "Schedule a Consultation"}
+          ctaTitle={service.ctaTitle || 'Ready to Get Started?'}
+          ctaButton={service.ctaButton || 'Schedule a Consultation'}
         />
       </div>
     </main>

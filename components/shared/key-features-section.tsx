@@ -23,7 +23,7 @@ export default function KeyFeaturesSection({ keyFeatures, serviceName }: KeyFeat
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="relative z-10 py-20 overflow-hidden">
+    <section ref={ref} className="relative z-10 py-10 overflow-hidden">
       <SparklesCore
         id="keyFeaturesSparkles"
         background="transparent"
@@ -40,9 +40,7 @@ export default function KeyFeaturesSection({ keyFeatures, serviceName }: KeyFeat
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark mb-4">
-            Key Features
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-600 mb-4">Key Features</h2>
           <BorderBeam
             className="w-1/3 h-1 mx-auto mb-8"
             colorFrom="hsl(var(--primary))"
@@ -50,7 +48,7 @@ export default function KeyFeaturesSection({ keyFeatures, serviceName }: KeyFeat
           />
           <TextGenerateEffect
             words={`Discover the unique aspects of our ${serviceName} service that set us apart.`}
-            className="text-lg text-secondary-dark/80 max-w-2xl mx-auto"
+            className="text-lg text-slate-700/80 max-w-2xl mx-auto"
           />
         </motion.div>
 
@@ -62,16 +60,22 @@ export default function KeyFeaturesSection({ keyFeatures, serviceName }: KeyFeat
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
             >
-              <Card className={cn(
-                "h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105",
-                index % 2 === 0 ? "border-primary/50 hover:border-primary" : "border-secondary/50 hover:border-secondary"
-              )}>
+              <Card
+                className={cn(
+                  'h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105',
+                  index % 2 === 0
+                    ? 'border-primary/50 hover:border-primary'
+                    : 'border-secondary/50 hover:border-secondary',
+                )}
+              >
                 <CardContent className="p-6 flex items-start space-x-4">
-                  <CheckCircle className={cn(
-                    "w-6 h-6 flex-shrink-0 mt-1",
-                    index % 2 === 0 ? "text-primary" : "text-secondary"
-                  )} />
-                  <p className="text-lg text-secondary-dark">{feature.feature}</p>
+                  <CheckCircle
+                    className={cn(
+                      'w-6 h-6 flex-shrink-0 mt-1',
+                      index % 2 === 0 ? 'text-primary' : 'text-secondary',
+                    )}
+                  />
+                  <p className="text-lg text-slate-700">{feature.feature}</p>
                 </CardContent>
               </Card>
             </motion.div>

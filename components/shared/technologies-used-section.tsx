@@ -55,8 +55,9 @@ export default function TechnologiesUsedSection({
                     className="rounded-full p-2 w-full h-full"
                   />
                 </div>
-                <p className="text-primary-dark text-sm font-semibold mt-2 text-center">
-                  {tech.name}
+                <p className="text-slate-700 text-sm font-semibold mt-2 text-center">
+                  {tech.name.slice(0, 10)}
+                  {tech.name.length > 10 && '...'}
                 </p>
               </MagicCard>
             ))}
