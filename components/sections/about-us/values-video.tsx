@@ -1,13 +1,14 @@
 'use client';
 
-import React from 'react';
-import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import SectionHeadline from '@/components/reusables/section-headline';
 import { MagicCard } from '@/components/magicui/magic-card';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const values = [
   {
@@ -33,8 +34,35 @@ const values = [
 ];
 
 const ValuesVideo = () => {
+  const ref = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section ref={ref} className="relative py-16 overflow-hidden">
       <BorderBeam className="absolute inset-0 z-10" />
       <div className="container mx-auto px-4 relative z-20">
         <SectionHeadline text="Our Values" />
@@ -56,13 +84,42 @@ const ValuesVideo = () => {
             </div>
           </div>
           <div className="mt-8 lg:mt-0">
-            <HeroVideoDialog
-              animationStyle="from-center"
-              videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              thumbnailSrc="/embrace-ai.svg"
-              thumbnailAlt="AI Introduction Video"
-              className="rounded-lg shadow-xl z-50"
-            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative overflow-hidden rounded-lg shadow-xl aspect-[16/9]"
+            >
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                loop
+                playsInline
+                controls
+                autoPlay
+                muted
+              >
+                <source
+                  src="https://mbbrauqirbosaodnbpff.supabase.co/storage/v1/object/public/videos/about-us.mp4?t=2024-11-12T20%3A45%3A23.174Z"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute bottom-4 left-4 flex space-x-2">
+                <button
+                  onClick={togglePlay}
+                  className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                >
+                  {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                </button>
+                <button
+                  onClick={toggleMute}
+                  className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                >
+                  {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                </button>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

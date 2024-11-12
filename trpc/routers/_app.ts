@@ -18,20 +18,62 @@ export const appRouter = createTRPCRouter({
       return { success: true };
     }),
 
-  getPosts: baseProcedure.query(async () => {
-    const posts = await client.fetch(`*[_type == "post"] | order(publishedAt desc) {
-      _id,
-      title,
-      slug,
-      publishedAt,
-      excerpt,
-      "author": author->name,
-      "categories": categories[]->title,
-      "mainImage": mainImage.asset->url,
-      "estimatedReadingTime": round(length(pt::text(content)) / 5 / 180)
-    }`);
-    return posts;
-  }),
+  getPosts: baseProcedure
+    .input(
+      z.object({
+        searchQuery: z.string().nullish(),
+        categories: z.array(z.string()).nullish(),
+      })
+    )
+    .query(async ({ input }) => {
+      const { searchQuery, categories } = input;
+      
+      // Base query
+      let queryString = `*[_type == "post" && defined(slug.current)`;
+      
+      // Add search condition if searchQuery exists
+      if (searchQuery && searchQuery.trim()) {
+        queryString += ` && (
+          title match $searchQuery ||
+          excerpt match $searchQuery ||
+          pt::text(content) match $searchQuery
+        )`;
+      }
+      
+      // Add categories filter if categories exist
+      if (categories && categories.length > 0) {
+        queryString += ` && count(categories[]->title[@ in $categories]) > 0`;
+      }
+      
+      // Close the filter and add projection
+      queryString += `] | order(publishedAt desc) {
+        _id,
+        title,
+        "slug": slug.current,
+        publishedAt,
+        excerpt,
+        "categories": categories[]->title,
+        "mainImage": mainImage.asset->url,
+        "estimatedReadingTime": round(length(pt::text(content)) / 5 / 180)
+      }`;
+
+      try {
+        // Only include parameters that exist
+        const params: Record<string, any> = {};
+        if (searchQuery?.trim()) {
+          params.searchQuery = `*${searchQuery.trim()}*`;
+        }
+        if (categories?.length) {
+          params.categories = categories;
+        }
+
+        const posts = await client.fetch(queryString, params);
+        return posts || [];
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        return [];
+      }
+    }),
 
   getPostBySlug: baseProcedure.input(z.object({ slug: z.string() })).query(async ({ input }) => {
     const post = await client.fetch(
