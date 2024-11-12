@@ -1,4 +1,3 @@
-
 import { Service } from '@/lib/services';
 import { getSolutionSlugs, Solution } from '@/lib/solutions-data';
 import { trpc } from '@/trpc/server';
@@ -23,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic routes for solutions 
   const solutionsSlug = await trpc.getAllNewSolutions(); // You'll need to implement this function
   const servicesSlug = await trpc.getAllNewServices(); // You'll need to implement this function
-  const blogSlug = await trpc.getPosts(); // You'll need to implement this function
+  const blogSlug = await trpc.getPosts({}); // Fix: Add required input object for getPosts
   const solutionRoutes = solutionsSlug.map((solution: Solution) => ({
     url: `${baseUrl}/solutions/${solution.slug.current}`,
     lastModified: new Date().toISOString(),
