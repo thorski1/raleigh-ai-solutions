@@ -152,14 +152,14 @@ export default function BlogGrid({
 
   return (
     <div className="container px-4 mx-auto my-12">
-      <div className="max-w-xl mx-auto mb-12">
+      <div className="max-w-2xl mx-auto mb-12">
         <div className="flex items-center gap-2">
           <Input
             type="search"
             placeholder="Search posts..."
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            className="w-full border-1 bg-white backdrop-blur-xl focus:ring-2 focus:ring-secondary/40 
+            className="w-full border-1 border-secondary/40 bg-white shadow-lg focus:ring-4 focus:ring-secondary/60 
                   placeholder:text-muted-foreground/70 text-foreground transition-all duration-300
                   focus-visible:ring-offset-0 focus-visible:outline-none rounded-lg"
           />

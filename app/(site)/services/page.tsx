@@ -16,7 +16,9 @@ export default async function NewServicesPage() {
       <VideoContentSection
         title="What We Offer"
         description="At the core of our offerings are services that leverage AI, cloud infrastructure, data analytics, and compliance solutions to help businesses thrive in a competitive landscape. Our services are designed to tackle broad areas of business needs, while our targeted solutions provide focused and actionable ways to address unique challenges. Explore our services to see how we can help you harness the power of technology to grow and succeed."
-        videoUrl={null}
+        videoUrl={
+          'https://mbbrauqirbosaodnbpff.supabase.co/storage/v1/object/public/videos/services-main-page.mp4'
+        }
       />
       <ServicesTabsSection newServices={newServices} />
       <WhyChooseUsSection
