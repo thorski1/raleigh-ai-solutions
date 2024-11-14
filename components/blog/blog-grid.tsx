@@ -39,6 +39,13 @@ interface BlogGridProps {
   initialCategories?: string[];
 }
 
+// Add type for category
+interface Category {
+  _id: string;
+  title: string;
+  description?: string;
+}
+
 export default function BlogGrid({
   searchQuery: initialSearchQuery,
   initialCategories = [],
@@ -47,13 +54,15 @@ export default function BlogGrid({
   const searchParams = useSearchParams();
   const [searchValue, setSearchValue] = useState(initialSearchQuery || '');
   const debouncedSearch = useDebounce(searchValue, 300);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(() => {
-    return initialCategories || [];
-  });
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(initialCategories);
   const [open, setOpen] = useState(false);
 
-  console.log('Initial render props:', { initialSearchQuery, initialCategories });
+  // Fix type error by removing onSuccess callback
+  const { data: allCategories = [] } = trpc.getCategories.useQuery(undefined, {
+    staleTime: Infinity,
+  });
 
+  // Fix type error by removing onSuccess callback
   const { data: posts = [], isLoading } = trpc.getPosts.useQuery(
     {
       searchQuery: debouncedSearch || null,
@@ -61,26 +70,13 @@ export default function BlogGrid({
     },
     {
       refetchOnWindowFocus: false,
-    },
+    }
   );
 
-  // Extract unique categories from posts
+  // Add type to the category mapping
   const availableCategories = useMemo(() => {
-    if (!posts?.length) return [];
-
-    // Reduce all post categories into a unique Set
-    const uniqueCategories = posts.reduce((acc: Set<string>, post: any) => {
-      if (Array.isArray(post.categories)) {
-        post.categories.forEach((category: string) => {
-          if (category) acc.add(category);
-        });
-      }
-      return acc;
-    }, new Set<string>());
-
-    // Convert Set to sorted array
-    return Array.from(uniqueCategories).sort();
-  }, [posts]);
+    return allCategories.map((cat: Category) => cat.title).sort();
+  }, [allCategories]);
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
@@ -117,27 +113,26 @@ export default function BlogGrid({
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          {/* <CommandInput placeholder="Search categories..." /> */}
           <CommandList>
             <CommandEmpty>No category found.</CommandEmpty>
             <CommandGroup>
-              {availableCategories.map((category: any) => (
+              {availableCategories.map((category: string) => (
                 <CommandItem
                   key={category}
                   value={category}
                   onSelect={(currentValue) => {
                     setSelectedCategories((prev) => {
-                      if (prev.includes(currentValue)) {
-                        return prev.filter((item) => item !== currentValue);
-                      }
-                      return [...prev, currentValue];
+                      const newCategories = prev.includes(currentValue)
+                        ? prev.filter((item) => item !== currentValue)
+                        : [...prev, currentValue];
+                      return newCategories;
                     });
                   }}
                 >
                   <Check
                     className={cn(
                       'mr-2 h-4 w-4',
-                      selectedCategories.includes(category) ? 'opacity-100' : 'opacity-0',
+                      selectedCategories.includes(category) ? 'opacity-100' : 'opacity-0'
                     )}
                   />
                   {category}
