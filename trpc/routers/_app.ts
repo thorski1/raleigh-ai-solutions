@@ -40,9 +40,10 @@ export const appRouter = createTRPCRouter({
         )`;
       }
       
-      // Add categories filter if categories exist
+      // Modified category filtering
       if (categories && categories.length > 0) {
-        queryString += ` && count(categories[]->title[@ in $categories]) > 0`;
+        // This checks if any of the referenced categories' titles match the selected categories
+        queryString += ` && references(*[_type=="category" && title in $categories]._id)`;
       }
       
       // Close the filter and add projection
@@ -58,7 +59,6 @@ export const appRouter = createTRPCRouter({
       }`;
 
       try {
-        // Only include parameters that exist
         const params: Record<string, any> = {};
         if (searchQuery?.trim()) {
           params.searchQuery = `*${searchQuery.trim()}*`;
@@ -381,6 +381,17 @@ export const appRouter = createTRPCRouter({
       );
       return newSolution;
     }),
+
+  getCategories: baseProcedure.query(async () => {
+    const categories = await client.fetch(`
+      *[_type == "category"] {
+        _id,
+        title,
+        description
+      }
+    `);
+    return categories;
+  }),
 });
 
 export type AppRouter = typeof appRouter;
